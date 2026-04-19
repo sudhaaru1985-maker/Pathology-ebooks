@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leukemia — CPAS E-Book | MBBS Year 1</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+:root{
+  --blue:#1a56a0;--blue-lt:#e8f0fb;--blue-md:#b8d0f0;
+  --purple:#5b44c0;--purple-lt:#f0eeff;--purple-md:#c9c2f0;
+  --teal:#0e7a5a;--teal-lt:#e2f5ef;--teal-md:#9fdece;
+  --amber:#b06000;--amber-lt:#fef3e2;--amber-md:#f5c97a;
+  --red:#b02020;--red-lt:#fdeaea;--red-md:#f0b0b0;
+  --gray:#4a4a4a;--gray-lt:#f5f5f3;--gray-md:#d8d8d4;
+  --text:#1a1a1a;--text2:#555;--border:#e0e0dc;
+  --bg:#fafaf8;--white:#fff;
+  --r:10px;--rl:16px;--sh:0 1px 4px rgba(0,0,0,0.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.75;max-width:860px;margin:0 auto}
+h2{font-family:'Source Serif 4',serif;font-size:22px;font-weight:600;margin-bottom:12px;line-height:1.3}
+h3{font-size:16px;font-weight:600;margin:24px 0 10px;color:var(--text)}
+h4{font-size:12px;font-weight:700;margin:16px 0 6px;color:var(--text2);text-transform:uppercase;letter-spacing:.07em}
+p{margin-bottom:10px}
+ul,ol{padding-left:1.4rem;margin-bottom:10px}
+li{margin-bottom:4px}
+strong{font-weight:600}
+hr{border:none;border-top:1px solid var(--border);margin:32px 0}
+
+/* HEADER */
+.hdr{background:var(--blue);color:#fff;padding:2.5rem 2rem 2rem}
+.hdr .lbl{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;opacity:.75;margin-bottom:6px}
+.hdr h1{font-family:'Source Serif 4',serif;font-size:30px;font-weight:600;line-height:1.2;margin-bottom:6px}
+.hdr .sub{font-size:13px;opacity:.8}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.pill{font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);color:#fff}
+
+/* TOC */
+.toc{background:var(--white);border-bottom:1px solid var(--border);padding:1.25rem 2rem;position:sticky;top:0;z-index:50;box-shadow:var(--sh)}
+.toc-inner{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.toc-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text2);margin-right:4px}
+.toc a{font-size:12px;font-weight:500;color:var(--blue);text-decoration:none;padding:3px 10px;border-radius:20px;border:1px solid var(--blue-md);background:var(--blue-lt);white-space:nowrap}
+.toc a:hover{background:var(--blue-md)}
+
+/* CONTENT WRAPPER */
+.content{padding:2rem}
+
+/* SECTION BADGES */
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px}
+.b-lo{background:var(--blue-lt);color:var(--blue)}
+.b-pk{background:var(--gray-lt);color:var(--gray)}
+.b-ct{background:var(--teal-lt);color:var(--teal)}
+.b-cl{background:var(--purple-lt);color:var(--purple)}
+.b-app{background:var(--teal-lt);color:var(--teal)}
+.b-syn{background:var(--amber-lt);color:var(--amber)}
+.b-ex{background:var(--red-lt);color:var(--red)}
+
+/* CARDS */
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);padding:1.25rem 1.5rem;margin-bottom:16px;box-shadow:var(--sh)}
+.c-blue{border-left:3px solid var(--blue);background:var(--blue-lt)}
+.c-teal{border-left:3px solid var(--teal);background:var(--teal-lt)}
+.c-purple{border-left:3px solid var(--purple);background:var(--purple-lt)}
+.c-amber{border-left:3px solid var(--amber);background:var(--amber-lt)}
+.c-red{border-left:3px solid var(--red);background:var(--red-lt)}
+.c-gray{border-left:3px solid var(--gray-md);background:var(--gray-lt)}
+
+/* LO GRID */
+.lo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}
+.lo-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;font-size:14px}
+.lo-num{font-size:20px;font-weight:700;color:var(--blue);display:block;margin-bottom:4px;font-family:'DM Mono',monospace}
+
+/* INFO BOXES */
+.info{border-radius:var(--r);padding:12px 16px;margin:12px 0;font-size:14px;line-height:1.65}
+.i-blue{background:var(--blue-lt);border-left:3px solid var(--blue);color:#1a3560}
+.i-purple{background:var(--purple-lt);border-left:3px solid var(--purple);color:#2e2070}
+.i-teal{background:var(--teal-lt);border-left:3px solid var(--teal);color:#0a4535}
+.i-amber{background:var(--amber-lt);border-left:3px solid var(--amber);color:#5a3000}
+.i-red{background:var(--red-lt);border-left:3px solid var(--red);color:#5a1010}
+.i-gray{background:var(--gray-lt);border-left:3px solid var(--gray-md);color:var(--gray)}
+.i-lbl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+
+/* TRIGGER BOX */
+.trig{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);padding:1.5rem;margin:14px 0;border-top:4px solid var(--teal);box-shadow:var(--sh)}
+.trig-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);margin-bottom:10px}
+.fbc3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
+.fbc-c{background:var(--gray-lt);border-radius:var(--r);padding:10px 12px;text-align:center}
+.fbc-v{font-size:20px;font-weight:700;display:block;color:var(--red);font-family:'DM Mono',monospace}
+.fbc-l{font-size:11px;color:var(--text2);margin-top:2px}
+.trig-q{background:var(--teal-lt);border-radius:var(--r);padding:10px 14px;font-size:14px;color:var(--teal);margin-top:12px;font-style:italic}
+
+/* CLASSIFY GRID */
+.cl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.cl-card{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);padding:1rem 1.25rem;box-shadow:var(--sh)}
+.cl-hdr{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.cl-icon{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+.ic-all{background:var(--blue-lt);color:var(--blue)}
+.ic-aml{background:var(--purple-lt);color:var(--purple)}
+.ic-cll{background:var(--teal-lt);color:var(--teal)}
+.ic-cml{background:var(--amber-lt);color:var(--amber)}
+.cl-name{font-weight:600;font-size:14px}
+.cl-sub{font-size:12px;color:var(--text2)}
+.ctag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:10px;margin:2px 2px 0 0;font-weight:500}
+.t-ac{background:var(--red-lt);color:var(--red)}
+.t-ch{background:var(--teal-lt);color:var(--teal)}
+.t-ly{background:var(--blue-lt);color:var(--blue)}
+.t-my{background:var(--purple-lt);color:var(--purple)}
+
+/* 3-AXIS CARD */
+.axes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center;padding:1rem}
+.ax-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text2);margin-bottom:6px}
+.ax-a{font-size:13px;font-weight:600}
+.ax-vs{font-size:13px;color:var(--text2)}
+
+/* ACCORDION */
+.acc{border:1px solid var(--border);border-radius:var(--rl);margin-bottom:10px;overflow:hidden;box-shadow:var(--sh)}
+.acc-btn{width:100%;text-align:left;background:var(--white);border:none;padding:14px 18px;font-size:14px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--text);font-family:'DM Sans',sans-serif;transition:background .15s}
+.acc-btn:hover{background:var(--gray-lt)}
+.acc-left{display:flex;align-items:center;gap:10px}
+.acc-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.acc-arr{font-size:13px;transition:transform .2s;color:var(--text2)}
+.acc-arr.open{transform:rotate(90deg)}
+.acc-body{display:none;padding:16px 18px 20px;border-top:1px solid var(--border);font-size:14px;line-height:1.75}
+.acc-body.open{display:block}
+
+/* MORPH COMPARE */
+.morph2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.m-card{border-radius:var(--r);padding:12px 14px;font-size:13px;line-height:1.6}
+.m-aml{background:var(--purple-lt);border:1px solid var(--purple-md)}
+.m-all{background:var(--blue-lt);border:1px solid var(--blue-md)}
+.m-title{font-weight:700;font-size:13px;margin-bottom:6px}
+
+/* 3-PHASE CML */
+.ph3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0;font-size:13px}
+.ph-c{border-radius:var(--r);padding:12px}
+.ph-ttl{font-weight:700;margin-bottom:6px}
+
+/* CML vs LR */
+.cml2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0;font-size:13px}
+.cml-c{border-radius:var(--r);padding:10px 12px}
+.cml-ttl{font-weight:700;margin-bottom:4px}
+
+/* VIGNETTE */
+.vig{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);padding:1.25rem 1.5rem;margin:16px 0;border-top:4px solid var(--blue);box-shadow:var(--sh)}
+.vig-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:10px}
+.fbc-mini{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.fbc-mc{background:var(--gray-lt);border-radius:var(--r);padding:6px 12px;font-size:12px}
+.fv{font-weight:700;font-family:'DM Mono',monospace}
+.fv.lo{color:var(--red)} .fv.hi{color:var(--blue)}
+
+/* MCQ */
+.mcq{background:var(--white);border:1px solid var(--border);border-radius:var(--rl);padding:1.25rem 1.5rem;margin:14px 0;box-shadow:var(--sh)}
+.mcq-step{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);margin-bottom:8px}
+.mcq-q{font-size:14px;font-weight:500;line-height:1.6;margin-bottom:12px}
+.mcq-opts{display:flex;flex-direction:column;gap:7px}
+.opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:var(--r);border:1px solid var(--border);font-size:13px;cursor:pointer;background:var(--bg);color:var(--text);line-height:1.5;transition:background .12s,border-color .12s}
+.opt:hover{background:var(--blue-lt);border-color:var(--blue-md)}
+.opt.correct{background:var(--teal-lt);border-color:var(--teal-md);color:#0a4535;pointer-events:none}
+.opt.wrong{background:var(--red-lt);border-color:var(--red-md);color:#5a1010;pointer-events:none}
+.opt.off{pointer-events:none;opacity:.6}
+.ol{font-weight:700;min-width:18px;font-family:'DM Mono',monospace;font-size:12px;margin-top:1px}
+.fb{display:none;margin-top:10px;padding:10px 14px;border-radius:var(--r);font-size:13px;line-height:1.6}
+.fb.show{display:block}
+.fb.correct{background:var(--teal-lt);color:#0a4535;border:1px solid var(--teal-md)}
+.fb.wrong{background:var(--red-lt);color:#5a1010;border:1px solid var(--red-md)}
+.fb-lbl{font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+
+/* TABLE */
+.tbl-wrap{overflow-x:auto;margin:16px 0;border-radius:var(--rl);border:1px solid var(--border);box-shadow:var(--sh)}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:620px}
+thead{background:var(--blue);color:#fff}
+th{padding:10px 14px;text-align:left;font-weight:600;font-size:12px;letter-spacing:.04em}
+td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:var(--gray-lt)}
+td:first-child{font-weight:600;color:var(--text2);font-size:12px;text-transform:uppercase;letter-spacing:.05em;background:var(--gray-lt)!important;white-space:nowrap}
+
+/* KEY MESSAGES */
+.km{background:var(--purple-lt);border-left:3px solid var(--purple);border-radius:0 var(--r) var(--r) 0;padding:12px 16px;margin:8px 0;font-size:14px;color:#2e2070;line-height:1.65}
+.kn{font-weight:700;font-family:'DM Mono',monospace;margin-right:6px}
+
+/* TRAPS */
+.trap{background:var(--red-lt);border:1px solid var(--red-md);border-radius:var(--rl);padding:1rem 1.25rem;margin:10px 0}
+.trap-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--red)}
+.trap-ttl{font-size:14px;font-weight:600;color:#5a1010;margin:4px 0 8px}
+
+/* RECALL */
+.rc{border:1px solid var(--border);border-radius:var(--rl);margin:8px 0;overflow:hidden;box-shadow:var(--sh)}
+.rc-q{background:var(--white);padding:12px 16px;font-size:14px;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.rc-q:hover{background:var(--gray-lt)}
+.rc-a{display:none;padding:12px 16px;font-size:14px;background:var(--amber-lt);border-top:1px solid var(--amber-md);color:#5a3000;line-height:1.65}
+.rc-a.open{display:block}
+.rc-arr{font-size:13px;color:var(--text2);transition:transform .2s}
+.rc-arr.open{transform:rotate(90deg)}
+
+/* EMBED */
+.embed-ph{background:var(--gray-lt);border:1px dashed var(--gray-md);border-radius:var(--rl);padding:1.5rem;text-align:center;margin:14px 0}
+.embed-ph p{font-size:13px;color:var(--text2);margin:0}
+.embed-ttl{font-weight:600;font-size:14px;color:var(--text);margin-bottom:6px}
+
+/* REF */
+.ref{background:var(--gray-lt);border-radius:var(--r);padding:12px 16px;font-size:13px;color:var(--text2);margin-top:20px;border:1px solid var(--border)}
+
+/* SECTION DIVIDER */
+.sec-div{display:flex;align-items:center;gap:12px;margin:36px 0 24px}
+.sec-div-line{flex:1;height:1px;background:var(--border)}
+.sec-div-dot{width:8px;height:8px;border-radius:50%;background:var(--border)}
+
+@media(max-width:600px){
+  .cl-grid,.morph2,.ph3,.cml2,.axes,.fbc3{grid-template-columns:1fr}
+  .content{padding:1.25rem}
+  .toc{padding:.75rem 1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="lbl">Haematopathology · MBBS Year 1</div>
+  <h1>Leukemia</h1>
+  <div class="sub">Dr. Sudha Arumugam · Robbins Basic Pathology 9th Ed, Ch. 11</div>
+  <div class="pills">
+    <span class="pill">ALL</span>
+    <span class="pill">AML</span>
+    <span class="pill">CLL</span>
+    <span class="pill">CML</span>
+    <span class="pill">Myeloproliferative disorders</span>
+  </div>
+</div>
+
+<!-- STICKY TOC -->
+<div class="toc">
+  <div class="toc-inner">
+    <span class="toc-label">Jump to</span>
+    <a href="#lo">Learning outcomes</a>
+    <a href="#pk">Prior knowledge</a>
+    <a href="#ct">Clinical trigger</a>
+    <a href="#clf">Classification</a>
+    <a href="#leuks">Leukemias</a>
+    <a href="#cases">Cases</a>
+    <a href="#table">Table</a>
+    <a href="#msg">Key messages</a>
+    <a href="#exam">Exam focus</a>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- ═══════════════════════════════ -->
+<!-- 1. LEARNING OUTCOMES           -->
+<!-- ═══════════════════════════════ -->
+<div id="lo">
+  <span class="badge b-lo">Learning outcomes</span>
+  <h2>What you will be able to do</h2>
+  <p style="color:var(--text2);font-size:14px">By the end of this chapter, you should be able to:</p>
+  <div class="lo-grid">
+    <div class="lo-card"><span class="lo-num">LO1</span>Classify myeloid and lymphoid neoplasms using lineage, tempo, and tissue criteria and explain the basis of their nomenclature</div>
+    <div class="lo-card"><span class="lo-num">LO2</span>Describe the etiopathogenesis of AML, CML, ALL, and CLL including key mutations and translocations</div>
+    <div class="lo-card"><span class="lo-num">LO3</span>Describe haematological findings and morphology for each subtype including blood film and bone marrow appearances</div>
+    <div class="lo-card"><span class="lo-num">LO4</span>Describe clinical features of each subtype and correlate each feature with its underlying pathological mechanism</div>
+    <div class="lo-card"><span class="lo-num">LO5</span>Distinguish leukemia subtypes using FBC findings, blood film morphology, special stains, and immunophenotyping</div>
+  </div>
+</div>
+
+<div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-dot"></div><div class="sec-div-line"></div></div>
+
+<!-- ═══════════════════════════════ -->
+<!-- 2. PRIOR KNOWLEDGE BRIDGE      -->
+<!-- ═══════════════════════════════ -->
+<div id="pk">
+  <span class="badge b-pk">Prior knowledge bridge</span>
+  <h2>Connecting to what you already know</h2>
+  <p>You have already studied <strong>normal haematopoiesis</strong> — the process by which a pluripotent stem cell differentiates along two main pathways:</p>
+  <div class="card c-blue">
+    <h4 style="margin-top:0">Myeloid pathway (CFU-GEMM)</h4>
+    <p style="margin:0;font-size:14px">Myeloblast → Promyelocyte → Myelocyte → Metamyelocyte → Band → Neutrophil<br>Also gives rise to: erythrocytes, monocytes, megakaryocytes/platelets</p>
+  </div>
+  <div class="card c-teal">
+    <h4 style="margin-top:0">Lymphoid pathway (CFU-L)</h4>
+    <p style="margin:0;font-size:14px">Lymphoid stem cell → Lymphoblast → Prolymphocyte → Lymphocyte → Plasma cell<br>B cells, T cells, and NK cells all arise from this lineage</p>
+  </div>
+  <div class="info i-amber">
+    <div class="i-lbl">The leukemia connection</div>
+    Leukemia occurs when a genetic mutation <strong>"freezes"</strong> a precursor cell at an immature stage, preventing normal differentiation. The frozen cell continues to proliferate, filling the bone marrow with non-functional cells — physically crowding out all normal cell lines. This single mechanism explains almost all clinical features you will encounter.
+  </div>
+  <div class="embed-ph">
+    <div class="embed-ttl">Embed: Haematopoiesis review diagram</div>
+    <p>Paste your image or video embed code here in Kolektif — suggested: myeloid and lymphoid maturation sequence diagram</p>
+  </div>
+</div>
+
+<div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-dot"></div><div class="sec-div-line"></div></div>
+
+<!-- ═══════════════════════════════ -->
+<!-- 3. CLINICAL TRIGGER            -->
+<!-- ═══════════════════════════════ -->
+<div id="ct">
+  <span class="badge b-ct">Clinical trigger</span>
+  <h2>A case to start with</h2>
+  <div class="trig">
+    <div class="trig-lbl">Patient presentation</div>
+    <p style="font-size:14px;margin-bottom:12px">Ahmad, a 7-year-old boy, is brought to the emergency department. He has been pale and lethargic for three weeks, has had two episodes of nosebleeds this month, and has a persistent fever. On examination: cervical lymphadenopathy, hepatosplenomegaly, and petechiae over the lower limbs.</p>
+    <h4 style="margin-top:0">Full blood count</h4>
+    <div class="fbc3">
+      <div class="fbc-c"><span class="fbc-v" style="color:var(--blue)">98</span><div class="fbc-l">WBC (× 10⁹/L)<br><strong style="color:var(--blue)">↑ Very high</strong></div></div>
+      <div class="fbc-c"><span class="fbc-v">71</span><div class="fbc-l">Hb (g/L)<br><strong style="color:var(--red)">↓ Low</strong></div></div>
+      <div class="fbc-c"><span class="fbc-v">22</span><div class="fbc-l">Platelets (× 10⁹/L)<br><strong style="color:var(--red)">↓ Very low</strong></div></div>
+    </div>
+    <div class="trig-q">Think before you read on — what single pathological process could simultaneously explain the very high WBC, the low Hb, the very low platelets, and the recurrent infections?</div>
+  </div>
+  <div class="info i-teal">
+    <div class="i-lbl">The answer</div>
+    Marrow replacement by a leukemic clone. When malignant cells fill the bone marrow they crowd out normal precursors — reducing erythrocytes (→ anaemia), platelets (→ bleeding), and functional neutrophils (→ infections) simultaneously. The high WBC consists almost entirely of non-functional blast cells.
+  </div>
+</div>
+
+<div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-dot"></div><div class="sec-div-line"></div></div>
+
+<!-- ═══════════════════════════════ -->
+<!-- 4. CLASSIFICATION FRAMEWORK    -->
+<!-- ═══════════════════════════════ -->
+<div id="clf">
+  <span class="badge b-cl">Classification framework</span>
+  <h2>How leukemias are categorised</h2>
+  <p style="font-size:14px;color:var(--text2)">Haematopoietic neoplasms are classified along three axes. Understanding these axes lets you place any leukemia in its correct category instantly.</p>
+  <div class="card">
+    <div class="axes">
+      <div>
+        <div class="ax-lbl">Axis 1 — Lineage</div>
+        <div class="ax-a" style="color:var(--blue)">Lymphoid</div>
+        <div class="ax-vs">vs</div>
+        <div class="ax-a" style="color:var(--purple)">Myeloid</div>
+      </div>
+      <div style="border-left:1px solid var(--border);border-right:1px solid var(--border)">
+        <div class="ax-lbl">Axis 2 — Tempo</div>
+        <div class="ax-a" style="color:var(--red)">Acute</div>
+        <div class="ax-vs">vs</div>
+        <div class="ax-a" style="color:var(--teal)">Chronic</div>
+      </div>
+      <div>
+        <div class="ax-lbl">Axis 3 — Location</div>
+        <div class="ax-a" style="color:var(--gray)">Blood / BM</div>
+        <div class="ax-vs">vs</div>
+        <div class="ax-a" style="color:var(--gray)">Tissue</div>
+      </div>
+    </div>
+  </div>
+  <div class="cl-grid">
+    <div class="cl-card">
+      <div class="cl-hdr"><div class="cl-icon ic-all">AL</div><div><div class="cl-name">ALL</div><div class="cl-sub">Acute lymphoblastic leukaemia</div></div></div>
+      <span class="ctag t-ac">Acute</span><span class="ctag t-ly">Lymphoid</span>
+      <p style="font-size:13px;margin-top:8px;color:var(--text2)">Most common cancer in children. Fatal within weeks if untreated.</p>
+    </div>
+    <div class="cl-card">
+      <div class="cl-hdr"><div class="cl-icon ic-aml">AM</div><div><div class="cl-name">AML</div><div class="cl-sub">Acute myeloid leukaemia</div></div></div>
+      <span class="ctag t-ac">Acute</span><span class="ctag t-my">Myeloid</span>
+      <p style="font-size:13px;margin-top:8px;color:var(--text2)">Most common acute leukaemia in adults. Rapidly fatal if untreated.</p>
+    </div>
+    <div class="cl-card">
+      <div class="cl-hdr"><div class="cl-icon ic-cll">CL</div><div><div class="cl-name">CLL</div><div class="cl-sub">Chronic lymphocytic leukaemia</div></div></div>
+      <span class="ctag t-ch">Chronic</span><span class="ctag t-ly">Lymphoid</span>
+      <p style="font-size:13px;margin-top:8px;color:var(--text2)">Most common adult leukaemia. Indolent — often found incidentally.</p>
+    </div>
+    <div class="cl-card">
+      <div class="cl-hdr"><div class="cl-icon ic-cml">CM</div><div><div class="cl-name">CML</div><div class="cl-sub">Chronic myeloid leukaemia</div></div></div>
+      <span class="ctag t-ch">Chronic</span><span class="ctag t-my">Myeloid</span>
+      <p style="font-size:13px;margin-top:8px;color:var(--text2)">BCR-ABL1 driven. Three phases: chronic → accelerated → blast crisis.</p>
+    </div>
+  </div>
+</div>
+
+<div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-dot"></div><div class="sec-div-line"></div></div>
+
+<!-- ═══════════════════════════════ -->
+<!-- 5. INDIVIDUAL LEUKEMIAS        -->
+<!-- ═══════════════════════════════ -->
+<div id="leuks">
+  <span class="badge b-cl">Individual leukemias</span>
+  <h2>Tap each to expand</h2>
+
+  <!-- AML -->
+  <div class="acc">
+    <button class="acc-btn" onclick="tog(this)">
+      <span class="acc-left"><span class="acc-dot" style="background:var(--purple)"></span>AML — Acute myeloid leukaemia</span>
+      <span class="acc-arr">›</span>
+    </button>
+    <div class="acc-body">
+      <div class="info i-purple"><div class="i-lbl">Definition</div>Malignant neoplastic proliferation and accumulation of immature, nonfunctional myeloid blast cells in the bone marrow. Most common acute leukaemia in adults. Rapidly fatal within weeks to months if untreated.</div>
+      <h4>Pathogenesis</h4>
+      <p>Mutations in genes encoding transcription factors for myeloid differentiation → <strong>differentiation arrest</strong> → myeloblasts accumulate → normal haematopoiesis is crowded out.</p>
+      <div class="info i-purple"><div class="i-lbl">Key genetic event — APML (AML-M3)</div>Translocation <strong>t(15;17)</strong> → <strong>PML-RARα</strong> fusion gene → differentiation arrested at promyelocyte stage. Abnormal promyelocytes contain procoagulant granules → their release triggers <strong>DIC</strong> (disseminated intravascular coagulation).</div>
+      <h4>Clinical features (from marrow failure)</h4>
+      <ul>
+        <li><strong>Fever &amp; recurrent infections</strong> — functional neutropenia (blasts non-functional)</li>
+        <li><strong>Anaemia</strong> — erythroid precursors displaced</li>
+        <li><strong>Bleeding, petechiae, purpura</strong> — thrombocytopenia</li>
+        <li><strong>Bone pain, sternal tenderness</strong> — marrow infiltration and expansion</li>
+        <li><strong>Lymphadenopathy, hepatosplenomegaly</strong> — organ infiltration by blasts</li>
+        <li><strong>Gingival hyperplasia</strong> — characteristic of monocytic subtypes (M4/M5)</li>
+      </ul>
+      <h4>Laboratory &amp; morphology</h4>
+      <ul>
+        <li>WBC: &lt;1 × 10⁹/L to &gt;100 × 10⁹/L; <strong>&gt;20% myeloblasts</strong> (WHO threshold)</li>
+        <li>Normocytic normochromic anaemia; reduced reticulocyte count</li>
+        <li>BM: hypercellular; near-complete effacement by blasts</li>
+        <li><strong>Myeloblasts:</strong> large cells, granular cytoplasm, fine lacy chromatin, prominent nucleoli</li>
+        <li><strong>Auer rods:</strong> pink rod-like cytoplasmic inclusions — <em>pathognomonic for AML</em></li>
+        <li>MPO (myeloperoxidase) stain: positive</li>
+      </ul>
+      <div class="morph2">
+        <div class="m-card m-aml"><div class="m-title" style="color:var(--purple)">AML — myeloblast</div><ul style="margin:0;padding-left:1.2rem"><li>Large blast</li><li>Granular cytoplasm</li><li>Fine lacy chromatin</li><li>Prominent nucleoli</li><li><strong>Auer rods present</strong></li><li>MPO positive</li></ul></div>
+        <div class="m-card m-all"><div class="m-title" style="color:var(--blue)">ALL — lymphoblast (comparison)</div><ul style="margin:0;padding-left:1.2rem"><li>Small blast</li><li>Scant cytoplasm</li><li>Dense chromatin</li><li>Indistinct nucleoli</li><li><strong>No Auer rods</strong></li><li>TdT+, PAS dot positive</li></ul></div>
+      </div>
+      <h4>Classification</h4>
+      <p><strong>FAB (M0–M7)</strong> — based on morphology: M0 Undifferentiated · M1 minimal maturation · M2 with maturation · <strong>M3 APML t(15;17)</strong> · M4 myelomonocytic · M4eos with eosinophilia · M5 monocytic · M6 erythroid · M7 megakaryocytic</p>
+      <p><strong>WHO 2016</strong> — incorporates cytogenetics and molecular features. Reduced diagnostic blast threshold from 30% (FAB) to <strong>≥20%</strong>.</p>
+      <h4>Complications</h4>
+      <ul>
+        <li><strong>DIC</strong> — especially APML (M3); life-threatening haemorrhage</li>
+        <li><strong>Tumour lysis syndrome</strong> — massive cell death releases intracellular contents</li>
+        <li><strong>Leukostasis</strong> — very high WBC causes vascular sludging</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CML -->
+  <div class="acc">
+    <button class="acc-btn" onclick="tog(this)">
+      <span class="acc-left"><span class="acc-dot" style="background:var(--amber)"></span>CML — Chronic myeloid leukaemia</span>
+      <span class="acc-arr">›</span>
+    </button>
+    <div class="acc-body">
+      <div class="info i-amber"><div class="i-lbl">Definition</div>Malignant transformation of an early haematopoietic progenitor. Abnormal proliferation of progenitor AND mature myeloid cells. Unlike AML, neoplastic cells retain terminal differentiation capacity — producing the full myeloid spectrum.</div>
+      <h4>Pathogenesis — The Philadelphia chromosome</h4>
+      <p>Reciprocal translocation t(9;22) → <strong>Philadelphia chromosome</strong> → <strong>BCR-ABL1</strong> fusion gene → constitutively active tyrosine kinase → uncontrolled myeloid proliferation.</p>
+      <div class="info i-amber"><div class="i-lbl">Targeted therapy</div><strong>Imatinib</strong> — specifically inhibits BCR-ABL1 tyrosine kinase. First successful molecularly targeted cancer therapy. Transformed CML survival from 3–5 years to near-normal life expectancy.</div>
+      <h4>Clinical features</h4>
+      <ul>
+        <li>Elderly age group; <strong>massive splenomegaly</strong> (extramedullary haematopoiesis)</li>
+        <li>Blood film: full myeloid spectrum; prominent <strong>basophilia</strong></li>
+        <li><strong>Low LAP score</strong> — neoplastic neutrophils lack leukocyte alkaline phosphatase</li>
+      </ul>
+      <h4>Three phases</h4>
+      <div class="ph3">
+        <div class="ph-c" style="background:var(--teal-lt);border:1px solid var(--teal-md)"><div class="ph-ttl" style="color:var(--teal)">Chronic phase</div><div>≤10% blasts</div><div>WBCs still fight infection</div><div>Mild/no symptoms</div></div>
+        <div class="ph-c" style="background:var(--amber-lt);border:1px solid var(--amber-md)"><div class="ph-ttl" style="color:var(--amber)">Accelerated phase</div><div>10–19% blasts</div><div>Basophilia ≥20%</div><div>Fever, weight loss, fatigue</div></div>
+        <div class="ph-c" style="background:var(--red-lt);border:1px solid var(--red-md)"><div class="ph-ttl" style="color:var(--red)">Blast crisis</div><div>≥20% blasts</div><div>Resembles acute leukaemia</div><div>Bleeding, bone pain</div></div>
+      </div>
+      <h4>CML vs leukaemoid reaction</h4>
+      <p style="margin-bottom:8px">A leukaemoid reaction is a reactive (non-neoplastic) WBC &gt;50,000 × 10⁹/L from infection/trauma — it mimics CML morphologically.</p>
+      <div class="cml2">
+        <div class="cml-c" style="background:var(--amber-lt);border:1px solid var(--amber-md)"><div class="cml-ttl" style="color:var(--amber)">CML</div><div>LAP score <strong>LOW</strong></div><div>Blasts may be present</div><div>BCR-ABL1 positive</div><div>Does not resolve</div></div>
+        <div class="cml-c" style="background:var(--teal-lt);border:1px solid var(--teal-md)"><div class="cml-ttl" style="color:var(--teal)">Leukaemoid reaction</div><div>LAP score <strong>HIGH</strong></div><div>No blasts</div><div>BCR-ABL1 negative</div><div>Resolves with treatment</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALL -->
+  <div class="acc">
+    <button class="acc-btn" onclick="tog(this)">
+      <span class="acc-left"><span class="acc-dot" style="background:var(--blue)"></span>ALL — Acute lymphoblastic leukaemia</span>
+      <span class="acc-arr">›</span>
+    </button>
+    <div class="acc-body">
+      <div class="info i-blue"><div class="i-lbl">Definition</div>Malignant neoplastic proliferation and accumulation of immature, nonfunctional lymphoid blast cells in the bone marrow. Most common cancer in children; peak age 2–10 years. Excellent prognosis with treatment (&gt;90% cure in children).</div>
+      <h4>Etiology</h4>
+      <ul>
+        <li><strong>Genetic/hereditary:</strong> Down syndrome, Fanconi anaemia, Bloom syndrome, ataxia-telangiectasia, Kostmann syndrome</li>
+        <li><strong>Radiation:</strong> High-dose exposure (e.g. atomic bomb survivors)</li>
+        <li><strong>Chemical/occupational:</strong> Benzene, petroleum products, paint, embalming fluids, ethylene oxide</li>
+        <li><strong>Drugs:</strong> Alkylating agents, topoisomerase II inhibitors, chloramphenicol, phenylbutazone, chloroquine, methoxypsoralen</li>
+      </ul>
+      <h4>Pathophysiology</h4>
+      <ol>
+        <li>Genetic mutations <strong>"freeze"</strong> the lymphoid precursor in its immature state — differentiation arrest</li>
+        <li>Additional mutations disrupting proliferation control → uncontrolled clonal expansion of lymphoblasts</li>
+        <li>Leukemic clone displaces normal BM cells → neutropenia, anaemia, thrombocytopenia</li>
+        <li>Clinical symptoms arise from these deficiencies — not from the blasts themselves</li>
+      </ol>
+      <h4>Clinical features</h4>
+      <ul>
+        <li>Fever, repeated infections; anaemia; bleeding; bone pain, sternal tenderness; lymphadenopathy; hepatosplenomegaly</li>
+      </ul>
+      <h4>Laboratory findings</h4>
+      <ul>
+        <li>WBC: usually raised but may be normal or decreased; &gt;20% lymphoblasts; neutropenia; thrombocytopenia</li>
+        <li>BM: hypercellular; &gt;20% lymphoblasts</li>
+        <li>Hyperuricaemia; possible renal failure; increased CSF lymphoblasts</li>
+      </ul>
+      <h4>Morphology and special stains</h4>
+      <ul>
+        <li><strong>PAS stain:</strong> dot positivity in ALL blasts — <em>negative in AML</em></li>
+        <li><strong>TdT:</strong> positive in ALL — negative in AML</li>
+        <li><strong>Immunophenotyping (CD markers):</strong> identifies B-cell or T-cell lineage — essential for treatment stratification</li>
+      </ul>
+      <h4>FAB classification</h4>
+      <ul>
+        <li><strong>L1</strong> (85% children): Homogeneous; small blasts, regular nucleus, scant cytoplasm</li>
+        <li><strong>L2</strong> (70% adults): Varied; irregular nucleus, heterogeneous chromatin, large nucleoli</li>
+        <li><strong>L3 Burkitt's</strong> (&lt;2%): Large blasts, prominent nucleoli, abundant vacuolated cytoplasm</li>
+      </ul>
+      <div class="info i-blue"><div class="i-lbl">Important — t(9;22) in ALL</div>Philadelphia chromosome t(9;22)/BCR-ABL1 can occur in ALL (especially adult ALL) and carries a <strong>poor prognosis</strong>. This is distinct from CML where t(9;22) is the defining mutation. Context (myeloid vs lymphoid, chronic vs acute) determines its significance.</div>
+    </div>
+  </div>
+
+  <!-- CLL -->
+  <div class="acc">
+    <button class="acc-btn" onclick="tog(this)">
+      <span class="acc-left"><span class="acc-dot" style="background:var(--teal)"></span>CLL/SLL — Chronic lymphocytic leukaemia</span>
+      <span class="acc-arr">›</span>
+    </button>
+    <div class="acc-body">
+      <div class="info i-teal"><div class="i-lbl">Definition</div>Chronic neoplastic disorder of mature small lymphocytes. Most common leukaemia in adults; predominantly elderly. Indolent — often found incidentally on routine FBC.<br><br><strong>CLL vs SLL:</strong> same disease — lymphocyte count &gt;4000/μL = CLL (blood/BM); &lt;4000/μL = SLL (tissue).</div>
+      <h4>Pathogenesis</h4>
+      <p><strong>1. Inhibition of apoptosis (key mechanism — NOT uncontrolled proliferation):</strong></p>
+      <ul>
+        <li>Tumour cells upregulate <strong>BCL2 protein</strong> → inhibits programmed cell death</li>
+        <li>Lymphocytes accumulate progressively over years — indolent course</li>
+      </ul>
+      <p><strong>2. Immune dysregulation:</strong></p>
+      <ul>
+        <li>Suppresses normal B-cell function → hypogammaglobulinaemia → infections</li>
+        <li>Autoantibodies → autoimmune haemolytic anaemia, autoimmune thrombocytopenia</li>
+      </ul>
+      <p><strong>3. Bone marrow effacement:</strong> tumour cells gradually replace normal BM cells → eventual cytopenias</p>
+      <h4>Morphology</h4>
+      <p><strong>Peripheral blood:</strong> increased mature small lymphocytes; <strong>smudge cells (Gumprecht shadows)</strong> — CLL lymphocytes are fragile; they rupture during smear preparation — pathognomonic for CLL.</p>
+      <p><strong>Lymph node:</strong> sheets of small lymphocytes efface architecture; <strong>proliferation centres</strong> — foci of mitotically active larger cells — pathognomonic for CLL/SLL.</p>
+      <h4>Immunophenotyping</h4>
+      <p>Mature B-cell markers: <strong>CD19, CD20, CD23</strong>, surface immunoglobulin. Also expresses <strong>CD5</strong> — a T-cell marker aberrantly expressed on neoplastic B-cells.</p>
+      <h4>Clinical features</h4>
+      <ul>
+        <li>Often <strong>asymptomatic</strong> — incidental finding</li>
+        <li>Lymphadenopathy and hepatosplenomegaly</li>
+        <li>Complications: infections; autoimmune haemolytic anaemia; autoimmune thrombocytopenia</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MYELOPROLIFERATIVE -->
+  <div class="acc">
+    <button class="acc-btn" onclick="tog(this)">
+      <span class="acc-left"><span class="acc-dot" style="background:var(--gray)"></span>Myeloproliferative disorders — PV, ET, Primary myelofibrosis</span>
+      <span class="acc-arr">›</span>
+    </button>
+    <div class="acc-body">
+      <div class="info i-gray"><div class="i-lbl">Overview</div>Myeloproliferative disorders share a common mechanism: activating mutations in tyrosine kinase genes drive constitutive proliferative signals. Unlike AML, neoplastic cells retain terminal differentiation capacity — producing excessive mature formed elements. Key mutations: <strong>JAK2 V617F</strong> (PV, ET, myelofibrosis) and <strong>BCR-ABL1</strong> (CML).</div>
+      <h4>Polycythemia vera (PV)</h4>
+      <ul>
+        <li>Panmyelosis (erythroid + granulocytic + megakaryocytic proliferation); dominated by excess red cell mass</li>
+        <li><strong>JAK2 V617F</strong> mutation in &gt;95%; JAK2 exon 12 in 3%</li>
+        <li><strong>Low serum erythropoietin</strong> — distinguishes from secondary/reactive polycythaemia</li>
+        <li>WHO 2016: elevated Hb/haematocrit/red cell mass + BM panmyelosis + JAK2 mutation; minor: low EPO</li>
+        <li>Clinical: thromboses and infarctions (increased viscosity); plethora; extramedullary haematopoiesis; GI haemorrhage</li>
+      </ul>
+      <h4>Essential thrombocythemia (ET)</h4>
+      <ul>
+        <li>Rare (1.5 per 100,000); proliferation of megakaryocytes → marked increase in platelets (&gt;1 million/μL)</li>
+        <li>Morphologically abnormal giant platelets; splenomegaly; mucosal haemorrhage; thromboses</li>
+      </ul>
+      <h4>Primary myelofibrosis</h4>
+      <ul>
+        <li>Characterised by bone marrow fibrosis; may follow CML, PV, or ET</li>
+        <li><strong>Peripheral smear — leukoerythroblastosis:</strong> teardrop cells (dacrocytes), nucleated erythroid precursors, immature WBCs, large abnormal platelets</li>
+        <li>Advanced: BM hypocellular and fibrotic → pancytopenia; massive splenomegaly from extramedullary haematopoiesis</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="embed-ph" style="margin-top:20px">
+    <div class="embed-ttl">Embed: Annotated blood film images</div>
+    <p>Auer rods (AML) · Smudge cells (CLL) · Lymphoblasts (ALL) · Full myeloid spectrum (CML)<br>Paste image annotation embed code here in Kolektif</p>
+  </div>
+</div>
+
+<div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-dot"></div><div class="sec-div-line"></div></div>
+
+<!-- ═══════════════════════════════ -->
+<!-- 6. APPLICATION CASES           -->
+<!-- ═══════════════════════════════ -->
+<div id="cases">
+  <span class="badge b-app">Application cases</span>
+  <h2>Guided clinical vignettes</h2>
+
+  <div class="vig">
+    <div class="vig-lbl">Case 1 — Acute myeloid presentation</div>
+    <p style="font-size:14px">Mr. Hafiz, 52 years old, presents with a 3-week history of fatigue, recurrent fevers, and easy bruising. He reports bleeding gums for 2 weeks. On examination: pallor, <strong>gingival hyperplasia</strong>, petechiae and purpura, hepatomegaly.</p>
+    <div class="fbc-mini">
+      <div class="fbc-mc">WBC <span class="fv hi">78 × 10⁹/L</span></div>
+      <div class="fbc-mc">Hb <span class="fv lo">79 g/L</span></div>
+      <div class="fbc-mc">Plt <span class="fv lo">18 × 10⁹/L</span></div>
+      <div class="fbc-mc">Blasts <span class="fv hi">&gt;20% with Auer rods</span></div>
+    </div>
+    <p style="font-size:13px;color:var(--text2)">BM biopsy: 85% blasts, hypercellular with near-complete effacement of normal haematopoiesis.</p>
+  </div>
+
+  <div class="mcq" id="q1">
+    <div class="mcq-step">Step 1 — Interpret the paradox</div>
+    <div class="mcq-q">Mr. Hafiz has WBC 78 × 10⁹/L yet presents with recurrent fevers and signs of infection. Which mechanism best explains this clinical paradox?</div>
+    <div class="mcq-opts">
+      <div class="opt" onclick="chk('q1','A','C')"><span class="ol">A</span>Myeloblasts release cytokines that suppress normal neutrophil function</div>
+      <div class="opt" onclick="chk('q1','B','C')"><span class="ol">B</span>High WBC causes hyperviscosity, impairing neutrophil delivery to tissues</div>
+      <div class="opt" onclick="chk('q1','C','C')"><span class="ol">C</span>Myeloblasts crowd out normal myeloid precursors in the marrow, causing functional neutropenia despite a high total WBC</div>
+      <div class="opt" onclick="chk('q1','D','C')"><span class="ol">D</span>Blast infiltration of lymph nodes prevents T-cell mediated immunity</div>
+    </div>
+    <div class="fb correct" id="q1-c"><div class="fb-lbl">Correct</div>This is the key paradox of acute leukaemia. The elevated WBC consists almost entirely of non-functional myeloblasts. Normal neutrophil precursors are physically displaced from the marrow — producing severe functional neutropenia despite an extremely high total WBC. The patient is immunocompromised even with a very high WBC.</div>
+    <div class="fb wrong" id="q1-i"><div class="fb-lbl">Not quite</div>The correct mechanism is myelophthisis — physical displacement of normal marrow precursors by the leukemic clone. This causes functional neutropenia (too few normal, working neutrophils) despite a very high total WBC that consists almost entirely of non-functional blasts.</div>
+  </div>
+
+  <div class="mcq" id="q2">
+    <div class="mcq-step">Step 2 — Identify the pathognomonic finding</div>
+    <div class="mcq-q">The blood film shows myeloblasts with Auer rods. What are Auer rods and what is their diagnostic significance?</div>
+    <div class="mcq-opts">
+      <div class="opt" onclick="chk('q2','A','B')"><span class="ol">A</span>Small nuclear inclusions found in lymphoblasts; confirm ALL diagnosis</div>
+      <div class="opt" onclick="chk('q2','B','B')"><span class="ol">B</span>Pink rod-like cytoplasmic inclusions from condensed granules; pathognomonic for AML — never found in ALL</div>
+      <div class="opt" onclick="chk('q2','C','B')"><span class="ol">C</span>Cytoplasmic vacuoles seen in Burkitt's leukaemia; indicate ALL-L3 subtype</div>
+      <div class="opt" onclick="chk('q2','D','B')"><span class="ol">D</span>Fragmented nuclear remnants from cell death; seen in any acute leukaemia</div>
+    </div>
+    <div class="fb correct" id="q2-c"><div class="fb-lbl">Correct</div>Auer rods are pink rod-like cytoplasmic inclusions formed from fused azurophilic granules — pathognomonic for AML, never found in ALL. Their presence immediately confirms a myeloid blast population. This distinction is critical because AML and ALL require completely different treatment regimens.</div>
+    <div class="fb wrong" id="q2-i"><div class="fb-lbl">Not quite</div>Auer rods are cytoplasmic (not nuclear) inclusions specific to myeloblasts in AML. They are formed from fused azurophilic granules and appear as pink rod-like structures. They are never seen in ALL — making them one of the most diagnostically useful findings on a blood film.</div>
+  </div>
+
+  <div class="mcq" id="q3">
+    <div class="mcq-step">Step 3 — Identify the complication</div>
+    <div class="mcq-q">Mr. Hafiz's clotting screen: PT prolonged, APTT prolonged, fibrinogen very low, D-dimer markedly elevated. Which AML subtype and mechanism explains this?</div>
+    <div class="mcq-opts">
+      <div class="opt" onclick="chk('q3','A','B')"><span class="ol">A</span>AML-M2 with maturation; bone marrow necrosis releases procoagulants</div>
+      <div class="opt" onclick="chk('q3','B','B')"><span class="ol">B</span>AML-M3 (APML); abnormal promyelocytes with t(15;17) release procoagulant granules, triggering DIC</div>
+      <div class="opt" onclick="chk('q3','C','B')"><span class="ol">C</span>AML-M5 monocytic; monocytes produce excess tissue factor throughout the body</div>
+      <div class="opt" onclick="chk('q3','D','B')"><span class="ol">D</span>AML-M7 megakaryocytic; excess platelets activate the coagulation cascade</div>
+    </div>
+    <div class="fb correct" id="q3-c"><div class="fb-lbl">Correct</div>DIC is the hallmark complication of AML-M3 (APML), caused by t(15;17)/PML-RARα. Differentiation is arrested at the promyelocyte stage — abnormal promyelocytes accumulate procoagulant granules that trigger systemic DIC when released. Clinically urgent: APML is treated with ATRA (all-trans retinoic acid), fundamentally different from other AML subtypes.</div>
+    <div class="fb wrong" id="q3-i"><div class="fb-lbl">Not quite</div>DIC in AML specifically indicates AML-M3 (APML) due to t(15;17)/PML-RARα. The differentiation arrest at the promyelocyte stage results in cells packed with procoagulant granules — their release triggers systemic coagulation. Recognising APML is urgent because it requires ATRA, not standard chemotherapy.</div>
+  </div>
+
+  <hr>
+
+  <div class="vig" style="border-top-color:var(--teal)">
+    <div class="vig-lbl" style="color:var(--teal)">Case 2 — Chronic lymphoid presentation</div>
+    <p style="font-size:14px">Puan Rohani, 68 years old, attends her annual health screening. She feels entirely well with no complaints.</p>
+    <div class="fbc-mini">
+      <div class="fbc-mc">WBC <span class="fv hi">54 × 10⁹/L</span></div>
+      <div class="fbc-mc">Hb <span class="fv">112 g/L</span></div>
+      <div class="fbc-mc">Plt <span class="fv">138 × 10⁹/L</span></div>
+    </div>
+    <p style="font-size:13px;color:var(--text2)">Blood film: numerous small mature lymphocytes and smudge cells. Mild cervical lymphadenopathy and splenomegaly. Immunophenotyping: CD19+, CD20+, CD23+, CD5+.</p>
+  </div>
+
+  <div class="mcq" id="q4">
+    <div class="mcq-step">Step 4 — Diagnose and explain</div>
+    <div class="mcq-q">Puan Rohani is completely asymptomatic despite a WBC of 54 × 10⁹/L. Which diagnosis and underlying mechanism best explains her presentation?</div>
+    <div class="mcq-opts">
+      <div class="opt" onclick="chk('q4','A','C')"><span class="ol">A</span>ALL — differentiation arrest of lymphoid precursors causing blast accumulation and marrow failure</div>
+      <div class="opt" onclick="chk('q4','B','C')"><span class="ol">B</span>CML — BCR-ABL1 driven myeloid proliferation producing immature cells</div>
+      <div class="opt" onclick="chk('q4','C','C')"><span class="ol">C</span>CLL — BCL2 upregulation inhibiting apoptosis causes accumulation of long-lived mature B-lymphocytes over years</div>
+      <div class="opt" onclick="chk('q4','D','C')"><span class="ol">D</span>Polycythemia vera — JAK2 mutation causing excess lymphocyte production</div>
+    </div>
+    <div class="fb correct" id="q4-c"><div class="fb-lbl">Correct</div>CLL is driven primarily by inhibition of apoptosis, not uncontrolled proliferation. BCL2 upregulation blocks programmed cell death, allowing mature but immunologically incompetent B-lymphocytes to accumulate gradually over years. The CD5+/CD19+/CD20+/CD23+ profile and smudge cells confirm CLL.</div>
+    <div class="fb wrong" id="q4-i"><div class="fb-lbl">Not quite</div>The key features — elderly patient, incidental finding, mature lymphocytes, smudge cells, indolent course, CD5+ B-cell immunophenotype — all point to CLL. The mechanism is BCL2-mediated apoptosis inhibition, not blast accumulation. BCR-ABL1 drives CML (myeloid), JAK2 drives PV (erythroid).</div>
+  </div>
+</div>
+
+<div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-dot"></div><div class="sec-div-line"></div></div>
+
+<!-- ═══════════════════════════════ -->
+<!-- 7. COMPARISON TABLE            -->
+<!-- ═══════════════════════════════ -->
+<div id="table">
+  <span class="badge b-syn">Synthesis</span>
+  <h2>Master comparison table</h2>
+  <p style="font-size:14px;color:var(--text2);margin-bottom:14px">Use this table to consolidate and compare all four subtypes across every testable dimension.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Feature</th><th>ALL</th><th>AML</th><th>CLL</th><th>CML</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Lineage</td><td>Lymphoid</td><td>Myeloid</td><td>Lymphoid</td><td>Myeloid</td></tr>
+        <tr><td>Peak age</td><td>Children 2–10 yr</td><td>Adults &gt;50 yr</td><td>Elderly &gt;60 yr</td><td>Adults 40–60 yr</td></tr>
+        <tr><td>Tempo</td><td>Acute — weeks</td><td>Acute — weeks</td><td>Chronic — years</td><td>Chronic → blast crisis</td></tr>
+        <tr><td>Key mutation</td><td>t(12;21) common; t(9;22) poor prognosis</td><td>t(15;17) APML; t(8;21) M2</td><td>BCL2 upregulation; Del(13q), Del(17p)</td><td>t(9;22) BCR-ABL1 Philadelphia chr.</td></tr>
+        <tr><td>Dominant cell</td><td>Lymphoblasts</td><td>Myeloblasts</td><td>Mature B-lymphocytes</td><td>Full myeloid spectrum</td></tr>
+        <tr><td>Pathognomonic</td><td>TdT+, PAS dot+</td><td>Auer rods, MPO+</td><td>Smudge cells; proliferation centres (LN)</td><td>Low LAP score; basophilia</td></tr>
+        <tr><td>BM blast threshold</td><td>&gt;20% (WHO)</td><td>&gt;20% (WHO)</td><td>Not applicable</td><td>Not applicable</td></tr>
+        <tr><td>Key complication</td><td>Marrow failure; CNS</td><td>DIC (APML); tumour lysis; leukostasis</td><td>Autoimmune haemolytic anaemia; infections</td><td>Blast crisis; massive splenomegaly</td></tr>
+        <tr><td>CD markers (CLL)</td><td>—</td><td>—</td><td>CD5, CD19, CD20, CD23</td><td>—</td></tr>
+        <tr><td>Targeted therapy</td><td>Steroids; intrathecal chemo</td><td>ATRA (APML); chemo others</td><td>Ibrutinib; BCL2 inhibitors</td><td>Imatinib (BCR-ABL1 TKI)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-dot"></div><div class="sec-div-line"></div></div>
+
+<!-- ═══════════════════════════════ -->
+<!-- 8. KEY TAKE-HOME MESSAGES      -->
+<!-- ═══════════════════════════════ -->
+<div id="msg">
+  <span class="badge b-syn">Key take-home messages</span>
+  <h2>What to remember</h2>
+  <div class="km"><span class="kn">1.</span>Leukemia is classified by <strong>two axes</strong>: lineage (myeloid vs lymphoid) AND tempo (acute vs chronic). These two axes determine the dominant cell type, clinical behaviour, and treatment approach.</div>
+  <div class="km"><span class="kn">2.</span>Acute leukaemias = <strong>differentiation arrest</strong>. Blasts accumulate and cause marrow failure. The triad of anaemia + neutropenia + thrombocytopenia explains almost every clinical feature. A high WBC never means effective immunity in acute leukaemia.</div>
+  <div class="km"><span class="kn">3.</span><strong>TdT positive = lymphoblast (ALL). Auer rods + MPO positive = myeloblast (AML). PAS dot positive = ALL.</strong> These are the three most tested morphological and staining differentiators.</div>
+  <div class="km"><span class="kn">4.</span>Philadelphia chromosome <strong>t(9;22)/BCR-ABL1</strong> appears in two diseases: CML (defining feature) and ALL (poor prognosis variant). Context — myeloid vs lymphoid, chronic vs acute — determines its significance.</div>
+  <div class="km"><span class="kn">5.</span>CLL is driven by <strong>apoptosis inhibition (BCL2)</strong>, not uncontrolled proliferation. Smudge cells on blood film + CD5/CD19/CD20/CD23 on immunophenotyping = diagnostic. Most patients are asymptomatic at presentation.</div>
+  <div class="km"><span class="kn">6.</span>DIC is <strong>specific to APML (AML-M3)</strong> — t(15;17)/PML-RARα. It is not a general AML complication. APML requires urgent recognition because its treatment (ATRA) differs fundamentally from all other AML subtypes.</div>
+</div>
+
+<div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-dot"></div><div class="sec-div-line"></div></div>
+
+<!-- ═══════════════════════════════ -->
+<!-- 9. EXAM FOCUS                  -->
+<!-- ═══════════════════════════════ -->
+<div id="exam">
+  <span class="badge b-ex">Exam focus</span>
+  <h2>Common traps &amp; rapid recall</h2>
+
+  <div class="trap">
+    <div class="trap-lbl">Trap 1</div>
+    <div class="trap-ttl">t(9;22) appears in two completely different diseases</div>
+    <p style="font-size:13px;color:#5a1010">Students assign Philadelphia chromosome exclusively to CML. However, t(9;22)/BCR-ABL1 also occurs in adult ALL — where it carries a poor prognosis. Always determine: acute (blasts, marrow failure) or chronic (mature cells, indolent)? Clinical context tells you which disease you're dealing with.</p>
+  </div>
+  <div class="trap">
+    <div class="trap-lbl">Trap 2</div>
+    <div class="trap-ttl">High WBC does not mean effective immunity</div>
+    <p style="font-size:13px;color:#5a1010">In acute leukaemia, the elevated WBC consists almost entirely of non-functional blasts. The patient is severely immunocompromised despite an extremely high count. "WBC 95 × 10⁹/L with recurrent severe infections" is a classic exam vignette testing this concept.</p>
+  </div>
+  <div class="trap">
+    <div class="trap-lbl">Trap 3</div>
+    <div class="trap-ttl">DIC is specific to APML (AML-M3), not all AML</div>
+    <p style="font-size:13px;color:#5a1010">When a vignette describes AML with DIC, the answer is AML-M3 (APML) with t(15;17)/PML-RARα. Abnormal promyelocytes trigger systemic DIC through procoagulant granule release. Do not generalise DIC to all AML subtypes.</p>
+  </div>
+  <div class="trap">
+    <div class="trap-lbl">Trap 4</div>
+    <div class="trap-ttl">CML vs leukaemoid reaction — use the LAP score</div>
+    <p style="font-size:13px;color:#5a1010">Both present with WBC &gt;50,000 × 10⁹/L with immature myeloid forms. Key discriminator: LAP score <strong>LOW in CML</strong> (neoplastic neutrophils lack enzyme); <strong>HIGH in leukaemoid reaction</strong> (reactive neutrophils have normal activity). Leukaemoid reaction also has no blasts and resolves with treatment.</p>
+  </div>
+  <div class="trap">
+    <div class="trap-lbl">Trap 5</div>
+    <div class="trap-ttl">FAB vs WHO blast threshold for AML diagnosis</div>
+    <p style="font-size:13px;color:#5a1010">FAB required ≥30% blasts; WHO (2001) reduced this to ≥20%. Modern practice uses WHO. If a vignette gives 22% blasts and asks whether AML diagnostic criteria are met — the answer is yes (WHO).</p>
+  </div>
+
+  <h3 style="margin-top:28px">Rapid recall — tap to reveal</h3>
+
+  <div class="rc">
+    <div class="rc-q" onclick="rcTog(this)">What morphological finding is pathognomonic for AML?<span class="rc-arr">›</span></div>
+    <div class="rc-a">Auer rods — pink rod-like cytoplasmic inclusions in myeloblasts formed from fused azurophilic granules. Never seen in ALL. Their presence on a blood film confirms AML.</div>
+  </div>
+  <div class="rc">
+    <div class="rc-q" onclick="rcTog(this)">What stains differentiate ALL blasts from AML blasts?<span class="rc-arr">›</span></div>
+    <div class="rc-a">PAS stain: dot positivity in ALL blasts; negative in AML. TdT: positive in ALL; negative in AML. MPO (myeloperoxidase): positive in AML myeloblasts; negative in ALL lymphoblasts.</div>
+  </div>
+  <div class="rc">
+    <div class="rc-q" onclick="rcTog(this)">What is pathognomonic for CLL on blood film and on lymph node biopsy?<span class="rc-arr">›</span></div>
+    <div class="rc-a">Blood film: smudge cells (Gumprecht shadows) — fragile CLL lymphocytes rupture during smear preparation. Lymph node biopsy: proliferation centres — foci of mitotically active larger cells within sheets of small lymphocytes. Both are pathognomonic for CLL/SLL.</div>
+  </div>
+  <div class="rc">
+    <div class="rc-q" onclick="rcTog(this)">What are the three phases of CML and their blast thresholds?<span class="rc-arr">›</span></div>
+    <div class="rc-a">Chronic phase: ≤10% blasts (mild/no symptoms). Accelerated phase: 10–19% blasts (basophilia, symptoms emerging). Blast crisis: ≥20% blasts (resembles acute leukaemia; poor prognosis).</div>
+  </div>
+  <div class="rc">
+    <div class="rc-q" onclick="rcTog(this)">Most common cancer in children? Most common adult leukaemia?<span class="rc-arr">›</span></div>
+    <div class="rc-a">Most common cancer in children: ALL (peak age 2–10 years; &gt;90% cure rate with treatment). Most common adult leukaemia: CLL (predominantly elderly; indolent; often asymptomatic at diagnosis).</div>
+  </div>
+
+  <div class="ref">
+    <strong>Reference:</strong> Robbins Basic Pathology, 9th Edition, Chapter 11<br>
+    Lymphoid neoplasms: pages 429–434 · Myeloid neoplasms: pages 444–448
+  </div>
+</div>
+
+</div><!-- end .content -->
+
+<script>
+function tog(btn){
+  var b=btn.nextElementSibling,a=btn.querySelector('.acc-arr'),o=b.classList.contains('open');
+  b.classList.toggle('open',!o);a.classList.toggle('open',!o);
+}
+function rcTog(q){
+  var a=q.nextElementSibling,r=q.querySelector('.rc-arr'),o=a.classList.contains('open');
+  a.classList.toggle('open',!o);r.classList.toggle('open',!o);
+}
+function chk(id,chosen,correct){
+  var bl=document.getElementById(id);
+  var opts=bl.querySelectorAll('.opt');
+  var ltrs=['A','B','C','D'];
+  opts.forEach(function(o,i){
+    o.classList.add('off');
+    if(ltrs[i]===correct)o.classList.add('correct');
+    else if(ltrs[i]===chosen&&chosen!==correct)o.classList.add('wrong');
+  });
+  var fc=document.getElementById(id+'-c'),fi=document.getElementById(id+'-i');
+  if(chosen===correct){if(fc){fc.classList.add('show','correct');}}
+  else{if(fi){fi.classList.add('show','wrong');}}
+}
+</script>
+</body>
+</html>
