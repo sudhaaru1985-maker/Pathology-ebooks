@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MAHSA University — Pathology CPAS e-Books</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --burgundy: #7B1D1D;
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --cream: #FAF6EF;
+  --slate: #2C3E50;
+  --slate-mid: #4A5568;
+  --slate-light: #718096;
+  --white: #FFFFFF;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Source Serif 4', serif;
+  background: var(--cream);
+  color: var(--slate);
+  min-height: 100vh;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, var(--slate) 0%, #1a252f 60%, var(--burgundy) 100%);
+  color: white;
+  padding: 60px 40px 50px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+header::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: 10%;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(123,29,29,0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+.header-tag {
+  display: inline-block;
+  background: rgba(201,168,76,0.18);
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+}
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  position: relative; z-index: 1;
+}
+header h1 span { color: var(--gold); }
+header p {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.60);
+  font-family: 'JetBrains Mono', monospace;
+  position: relative; z-index: 1;
+}
+
+/* MAIN */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 52px 32px 60px;
+}
+
+/* SECTION LABEL */
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--slate);
+  border-left: 4px solid var(--gold);
+  padding-left: 14px;
+  margin-bottom: 28px;
+}
+
+/* MODULE GRID */
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+  margin-bottom: 52px;
+}
+
+/* MODULE CARD */
+.module-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform .2s, box-shadow .2s;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+.module-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.13);
+}
+.card-top {
+  padding: 24px 22px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.card-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.card-meta { flex: 1; }
+.card-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 4px;
+}
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  line-height: 1.3;
+  color: var(--slate);
+}
+.card-body {
+  padding: 0 22px 16px;
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--slate-mid);
+  flex: 1;
+}
+.card-topics {
+  padding: 12px 22px;
+  background: var(--cream);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.topic-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 20px;
+  padding: 3px 10px;
+  color: var(--slate-mid);
+}
+.card-footer {
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--cream);
+}
+.card-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.status-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+}
+.status-live .status-dot { background: #1A6B3C; }
+.status-live { color: #1A6B3C; }
+.status-soon .status-dot { background: var(--gold); }
+.status-soon { color: #8a6a1a; }
+.card-arrow {
+  font-size: 1rem;
+  color: var(--slate-light);
+  transition: transform .2s;
+}
+.module-card:hover .card-arrow { transform: translateX(4px); }
+
+/* COMING SOON CARD */
+.module-card.coming-soon {
+  opacity: 0.65;
+  pointer-events: none;
+  cursor: default;
+}
+.module-card.coming-soon:hover { transform: none; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+
+/* INFO STRIP */
+.info-strip {
+  background: linear-gradient(135deg, var(--slate), #1a252f);
+  color: white;
+  border-radius: 16px;
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.info-item { text-align: center; }
+.info-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.info-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.55);
+}
+
+/* IFRAME GUIDE */
+.iframe-guide {
+  background: white;
+  border-radius: 16px;
+  padding: 28px 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  margin-bottom: 40px;
+}
+.iframe-guide h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--burgundy);
+  margin-bottom: 14px;
+}
+.iframe-guide p {
+  font-size: 0.85rem;
+  color: var(--slate-mid);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+.code-block {
+  background: #1a252f;
+  color: #E8C97A;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  padding: 16px 20px;
+  border-radius: 10px;
+  overflow-x: auto;
+  line-height: 1.8;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 28px 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--slate-light);
+  border-top: 1px solid rgba(0,0,0,0.07);
+}
+
+@media (max-width: 700px) {
+  header h1 { font-size: 1.8rem; }
+  main { padding: 32px 18px 40px; }
+  .info-strip { grid-template-columns: 1fr; gap: 16px; }
+  .module-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-tag">CPAS e-Book Library · Pathology Department</div>
+  <h1>MAHSA University<br/><span>Pathology e-Books</span></h1>
+  <p>Dr. Sudha Arumugam &nbsp;·&nbsp; MBBS Year 1 & 2 · Dentistry · Allied Health &nbsp;·&nbsp; Kolektif LMS</p>
+</header>
+
+<main>
+
+  <!-- STATS STRIP -->
+  <div class="info-strip">
+    <div class="info-item">
+      <div class="info-num">2</div>
+      <div class="info-label">Modules Live</div>
+    </div>
+    <div class="info-item">
+      <div class="info-num">9</div>
+      <div class="info-label">CPAS Sections Each</div>
+    </div>
+    <div class="info-item">
+      <div class="info-num">4</div>
+      <div class="info-label">Student Cohorts</div>
+    </div>
+  </div>
+
+  <!-- LIVE MODULES -->
+  <div class="section-label">Available Now</div>
+  <div class="section-title">CPAS e-Book Modules</div>
+
+  <div class="module-grid">
+
+    <!-- LEUKEMIA -->
+    <a class="module-card" href="./Leukemia_CPAS_Ebook_Scroll.html">
+      <div class="card-top">
+        <div class="card-icon" style="background:#1a3a5c;">🩸</div>
+        <div class="card-meta">
+          <div class="card-tag" style="color:#2E6B9B;">Haematopathology</div>
+          <div class="card-title">Leukemia</div>
+        </div>
+      </div>
+      <div class="card-body">
+        Classification, pathogenesis, morphology and clinical features of acute and chronic leukaemias. Includes ALL, AML, CLL, and CML with interactive MCQs.
+      </div>
+      <div class="card-topics">
+        <span class="topic-badge">ALL</span>
+        <span class="topic-badge">AML</span>
+        <span class="topic-badge">CLL</span>
+        <span class="topic-badge">CML</span>
+        <span class="topic-badge">Philadelphia Chr.</span>
+      </div>
+      <div class="card-footer">
+        <div class="card-status status-live"><div class="status-dot"></div> Live</div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+    <!-- ARTHRITIS -->
+    <a class="module-card" href="./arthritis/">
+      <div class="card-top">
+        <div class="card-icon" style="background:#3a1a1a;">🦴</div>
+        <div class="card-meta">
+          <div class="card-tag" style="color:#7B1D1D;">Musculoskeletal Pathology</div>
+          <div class="card-title">Disorders of Joints</div>
+        </div>
+      </div>
+      <div class="card-body">
+        Comprehensive coverage of OA, RA, Gout, Seronegative Spondyloarthropathies and Infectious Arthritis — with pathogenesis, morphology, and clinical application cases.
+      </div>
+      <div class="card-topics">
+        <span class="topic-badge">OA</span>
+        <span class="topic-badge">RA</span>
+        <span class="topic-badge">Gout</span>
+        <span class="topic-badge">Ankylosing SpA</span>
+        <span class="topic-badge">Suppurative</span>
+      </div>
+      <div class="card-footer">
+        <div class="card-status status-live"><div class="status-dot"></div> Live</div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+    <!-- PLACEHOLDER: Bone Tumours -->
+    <div class="module-card coming-soon">
+      <div class="card-top">
+        <div class="card-icon" style="background:#3a3a1a;">🔬</div>
+        <div class="card-meta">
+          <div class="card-tag" style="color:#8a6a1a;">Musculoskeletal Pathology</div>
+          <div class="card-title">Bone Tumours</div>
+        </div>
+      </div>
+      <div class="card-body">
+        Classification and pathology of benign and malignant bone tumours including osteosarcoma, chondrosarcoma, Ewing's sarcoma and metastatic bone disease.
+      </div>
+      <div class="card-topics">
+        <span class="topic-badge">Osteosarcoma</span>
+        <span class="topic-badge">Chondrosarcoma</span>
+        <span class="topic-badge">Ewing's</span>
+      </div>
+      <div class="card-footer">
+        <div class="card-status status-soon"><div class="status-dot"></div> Coming Soon</div>
+        <div class="card-arrow">→</div>
+      </div>
+    </div>
+
+    <!-- PLACEHOLDER: Liver Pathology -->
+    <div class="module-card coming-soon">
+      <div class="card-top">
+        <div class="card-icon" style="background:#1a3a1a;">🫀</div>
+        <div class="card-meta">
+          <div class="card-tag" style="color:#2E7D3A;">GI & Hepatic Pathology</div>
+          <div class="card-title">Liver Pathology</div>
+        </div>
+      </div>
+      <div class="card-body">
+        Hepatitis, cirrhosis, fatty liver disease and hepatic tumours. Covers pathogenesis, morphological grading and clinical correlations.
+      </div>
+      <div class="card-topics">
+        <span class="topic-badge">Hepatitis</span>
+        <span class="topic-badge">Cirrhosis</span>
+        <span class="topic-badge">NAFLD</span>
+        <span class="topic-badge">HCC</span>
+      </div>
+      <div class="card-footer">
+        <div class="card-status status-soon"><div class="status-dot"></div> Coming Soon</div>
+        <div class="card-arrow">→</div>
+      </div>
+    </div>
+
+    <!-- PLACEHOLDER: Renal Pathology -->
+    <div class="module-card coming-soon">
+      <div class="card-top">
+        <div class="card-icon" style="background:#1a1a3a;">🫘</div>
+        <div class="card-meta">
+          <div class="card-tag" style="color:#2E3D7D;">Renal Pathology</div>
+          <div class="card-title">Glomerular Diseases</div>
+        </div>
+      </div>
+      <div class="card-body">
+        Nephritic and nephrotic syndromes, glomerulonephritis classification, morphology and clinical presentations including IgA nephropathy and membranous GN.
+      </div>
+      <div class="card-topics">
+        <span class="topic-badge">Nephritic</span>
+        <span class="topic-badge">Nephrotic</span>
+        <span class="topic-badge">IgA Nephropathy</span>
+      </div>
+      <div class="card-footer">
+        <div class="card-status status-soon"><div class="status-dot"></div> Coming Soon</div>
+        <div class="card-arrow">→</div>
+      </div>
+    </div>
+
+    <!-- PLACEHOLDER: Lung Pathology -->
+    <div class="module-card coming-soon">
+      <div class="card-top">
+        <div class="card-icon" style="background:#2a1a3a;">🫁</div>
+        <div class="card-meta">
+          <div class="card-tag" style="color:#6B2E7D;">Pulmonary Pathology</div>
+          <div class="card-title">Lung Tumours & Pneumonia</div>
+        </div>
+      </div>
+      <div class="card-body">
+        Classification of lung carcinomas, pneumonia types, obstructive vs restrictive lung diseases with pathogenesis and morphological correlates.
+      </div>
+      <div class="card-topics">
+        <span class="topic-badge">NSCLC</span>
+        <span class="topic-badge">SCLC</span>
+        <span class="topic-badge">Pneumonia</span>
+        <span class="topic-badge">COPD</span>
+      </div>
+      <div class="card-footer">
+        <div class="card-status status-soon"><div class="status-dot"></div> Coming Soon</div>
+        <div class="card-arrow">→</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- IFRAME GUIDE -->
+  <div class="iframe-guide">
+    <h3>📋 Kolektif LMS — Embed Code</h3>
+    <p>To embed any module into Kolektif via iframe, use the following template. Replace the <code style="background:#f0e9dc;padding:2px 6px;border-radius:4px;font-family:monospace;font-size:0.82rem;">src</code> URL with the specific module link.</p>
+    <div class="code-block">&lt;iframe<br/>
+&nbsp;&nbsp;src="https://sudhaaru1985-maker.github.io/Pathology-ebooks/arthritis/"<br/>
+&nbsp;&nbsp;width="100%"<br/>
+&nbsp;&nbsp;height="900px"<br/>
+&nbsp;&nbsp;frameborder="0"<br/>
+&nbsp;&nbsp;allowfullscreen&gt;<br/>
+&lt;/iframe&gt;</div>
+  </div>
+
+</main>
+
+<footer>
+  MAHSA University · Department of Pathology · CPAS e-Book Library · Dr. Sudha Arumugam<br/>
+  Built for Kolektif LMS · GitHub Pages · © 2025
+</footer>
+
+</body>
+</html>
