@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soft Tissue Tumours — CPAS e-Book | MAHSA University Pathology</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #181c27;
+    --surface2: #1e2333;
+    --border: #2a3050;
+    --accent: #c8a96e;
+    --accent2: #5b8af0;
+    --accent3: #e07070;
+    --accent4: #6ecfa8;
+    --text: #e8e4dc;
+    --text-muted: #8a90a8;
+    --correct: #3a7d5c;
+    --correct-bg: #1a3328;
+    --wrong: #7d3a3a;
+    --wrong-bg: #331a1a;
+    --heading-font: 'Playfair Display', Georgia, serif;
+    --body-font: 'Source Serif 4', Georgia, serif;
+    --mono-font: 'JetBrains Mono', monospace;
+    --toc-width: 260px;
+    --radius: 10px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body-font);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    display: flex;
+  }
+
+  /* ─── TOC ────────────────────────────────────────────────── */
+  #toc {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: var(--toc-width);
+    min-width: var(--toc-width);
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    z-index: 100;
+  }
+  #toc .toc-brand {
+    font-family: var(--heading-font);
+    color: var(--accent);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  #toc .toc-section {
+    font-family: var(--mono-font);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+    padding-left: 0.5rem;
+  }
+  #toc a {
+    display: block;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: var(--body-font);
+    font-size: 0.82rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+    line-height: 1.4;
+  }
+  #toc a:hover, #toc a.active {
+    color: var(--accent);
+    background: rgba(200,169,110,0.1);
+  }
+
+  /* ─── MAIN ───────────────────────────────────────────────── */
+  main {
+    flex: 1;
+    min-width: 0;
+    padding: 3rem 3.5rem 6rem;
+    max-width: 960px;
+  }
+
+  /* ─── HERO ───────────────────────────────────────────────── */
+  .hero {
+    border-left: 4px solid var(--accent);
+    padding-left: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .hero .tag {
+    font-family: var(--mono-font);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 {
+    font-family: var(--heading-font);
+    font-size: 2.6rem;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 0.6rem;
+  }
+  .hero p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  /* ─── SECTION HEADERS ────────────────────────────────────── */
+  .section-block { margin-bottom: 3.5rem; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .section-num {
+    font-family: var(--mono-font);
+    font-size: 0.75rem;
+    color: var(--accent);
+    background: rgba(200,169,110,0.12);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  h2 {
+    font-family: var(--heading-font);
+    font-size: 1.6rem;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    flex: 1;
+  }
+
+  h3 {
+    font-family: var(--heading-font);
+    font-size: 1.15rem;
+    color: var(--accent);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  p { margin-bottom: 0.85rem; }
+
+  /* ─── LEARNING OUTCOMES ──────────────────────────────────── */
+  .lo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .lo-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent2);
+    border-radius: var(--radius);
+    padding: 1rem 1.2rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .lo-card .lo-verb {
+    font-family: var(--mono-font);
+    font-size: 0.7rem;
+    color: var(--accent2);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  /* ─── INFO BOX ───────────────────────────────────────────── */
+  .info-box {
+    background: var(--surface2);
+    border-left: 3px solid var(--accent2);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 1rem 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+  .info-box.warn { border-left-color: var(--accent3); }
+  .info-box.tip { border-left-color: var(--accent4); }
+  .info-box strong { color: var(--accent); }
+
+  /* ─── CLINICAL TRIGGER ───────────────────────────────────── */
+  .clinical-trigger {
+    background: linear-gradient(135deg, #1a2040 0%, #1e1630 100%);
+    border: 1px solid #3a4070;
+    border-radius: var(--radius);
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .clinical-trigger::before {
+    content: "CLINICAL SCENARIO";
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    font-family: var(--mono-font);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--accent2);
+    opacity: 0.6;
+  }
+  .clinical-trigger p { margin-bottom: 0.5rem; font-style: italic; color: #c8d4f5; }
+  .clinical-trigger .trigger-q {
+    margin-top: 1rem;
+    font-style: normal;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  /* ─── CLASSIFICATION TABLE ───────────────────────────────── */
+  .class-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+  .class-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    transition: transform 0.15s;
+  }
+  .class-card:hover { transform: translateY(-2px); }
+  .class-card .tissue-type {
+    font-family: var(--mono-font);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .class-card h4 {
+    font-family: var(--heading-font);
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+  .class-card ul { list-style: none; }
+  .class-card ul li {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    padding: 0.1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .class-card ul li::before { content: "·"; color: var(--accent); }
+  .benign { color: var(--accent4); }
+  .malignant { color: var(--accent3); }
+
+  /* ─── ACCORDION ──────────────────────────────────────────── */
+  .accordion { margin-bottom: 1rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .accordion-btn {
+    width: 100%;
+    background: var(--surface2);
+    border: none;
+    cursor: pointer;
+    padding: 1rem 1.4rem;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text);
+    font-family: var(--body-font);
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background 0.2s;
+    gap: 1rem;
+  }
+  .accordion-btn:hover { background: #232840; }
+  .accordion-btn .acc-title { display: flex; align-items: center; gap: 0.8rem; flex: 1; }
+  .acc-badge {
+    font-family: var(--mono-font);
+    font-size: 0.62rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+  .badge-benign { background: rgba(110,207,168,0.15); color: var(--accent4); }
+  .badge-malignant { background: rgba(224,112,112,0.15); color: var(--accent3); }
+  .badge-reactive { background: rgba(91,138,240,0.15); color: var(--accent2); }
+  .acc-arrow { color: var(--accent); font-size: 1.2rem; transition: transform 0.25s; flex-shrink: 0; }
+  .accordion.open .acc-arrow { transform: rotate(45deg); }
+  .accordion-body {
+    display: none;
+    background: var(--surface);
+    padding: 1.4rem 1.6rem;
+    border-top: 1px solid var(--border);
+  }
+  .accordion.open .accordion-body { display: block; }
+
+  /* Accordion body content */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.8rem;
+    margin: 1rem 0;
+  }
+  .feature-card {
+    background: var(--surface2);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    font-size: 0.88rem;
+  }
+  .feature-card .fc-label {
+    font-family: var(--mono-font);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .highlight-pill {
+    display: inline-block;
+    background: rgba(200,169,110,0.12);
+    color: var(--accent);
+    border: 1px solid rgba(200,169,110,0.25);
+    border-radius: 4px;
+    font-family: var(--mono-font);
+    font-size: 0.78rem;
+    padding: 0.15rem 0.5rem;
+    margin: 0.15rem;
+  }
+  .highlight-pill.blue { background: rgba(91,138,240,0.12); color: var(--accent2); border-color: rgba(91,138,240,0.25); }
+  .highlight-pill.red { background: rgba(224,112,112,0.12); color: var(--accent3); border-color: rgba(224,112,112,0.25); }
+  .highlight-pill.green { background: rgba(110,207,168,0.12); color: var(--accent4); border-color: rgba(110,207,168,0.25); }
+
+  /* ─── MCQ ────────────────────────────────────────────────── */
+  .mcq-block {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .mcq-block .case-stem {
+    background: rgba(91,138,240,0.07);
+    border-left: 3px solid var(--accent2);
+    padding: 0.9rem 1.2rem;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 1.2rem;
+    font-style: italic;
+    color: #c8d4f5;
+    font-size: 0.95rem;
+  }
+  .mcq-q { font-weight: 600; margin-bottom: 1rem; font-size: 0.97rem; }
+  .mcq-options { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .mcq-options li {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.65rem 1rem;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    font-size: 0.92rem;
+  }
+  .mcq-options li:hover { border-color: var(--accent2); background: rgba(91,138,240,0.05); }
+  .mcq-options li .opt-letter {
+    font-family: var(--mono-font);
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--accent2);
+    flex-shrink: 0;
+    width: 1.4rem;
+  }
+  .mcq-options li.correct { border-color: var(--correct) !important; background: var(--correct-bg) !important; }
+  .mcq-options li.wrong { border-color: var(--wrong) !important; background: var(--wrong-bg) !important; }
+  .mcq-options li.correct .opt-letter { color: var(--accent4); }
+  .mcq-options li.wrong .opt-letter { color: var(--accent3); }
+  .feedback-box {
+    margin-top: 1rem;
+    padding: 0.9rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    display: none;
+    line-height: 1.6;
+  }
+  .feedback-box.correct-fb { background: var(--correct-bg); border-left: 3px solid var(--accent4); color: #a8e6c8; display: block; }
+  .feedback-box.wrong-fb { background: var(--wrong-bg); border-left: 3px solid var(--accent3); color: #e6a8a8; display: block; }
+  .mcq-step {
+    font-family: var(--mono-font);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  /* ─── COMPARISON TABLE ───────────────────────────────────── */
+  .table-wrap { overflow-x: auto; margin-bottom: 1.5rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.83rem;
+    min-width: 700px;
+  }
+  thead tr { background: var(--surface2); }
+  th {
+    font-family: var(--mono-font);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    padding: 0.75rem 0.9rem;
+    text-align: left;
+    border-bottom: 2px solid var(--accent);
+    white-space: nowrap;
+  }
+  td {
+    padding: 0.65rem 0.9rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.55;
+    color: var(--text);
+  }
+  tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+  tr:hover td { background: rgba(200,169,110,0.04); }
+  td:first-child { font-weight: 600; color: var(--accent); white-space: nowrap; }
+
+  /* ─── TAKE HOME ──────────────────────────────────────────── */
+  .takehome-list { display: flex; flex-direction: column; gap: 0.6rem; }
+  .takehome-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: var(--surface2);
+    border-radius: 8px;
+    padding: 0.8rem 1.1rem;
+    font-size: 0.92rem;
+  }
+  .takehome-item .th-num {
+    font-family: var(--mono-font);
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    flex-shrink: 0;
+    width: 2rem;
+    padding-top: 0.05rem;
+  }
+
+  /* ─── EXAM FOCUS ─────────────────────────────────────────── */
+  .exam-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .exam-card {
+    background: var(--surface2);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+  }
+  .exam-card h4 {
+    font-family: var(--mono-font);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.8rem;
+  }
+  .exam-card.traps h4 { color: var(--accent3); }
+  .exam-card.recall h4 { color: var(--accent4); }
+  .exam-card ul { list-style: none; }
+  .exam-card ul li {
+    font-size: 0.86rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .exam-card ul li:last-child { border-bottom: none; }
+  .exam-card.traps ul li::before { content: "⚠"; font-size: 0.8rem; color: var(--accent3); flex-shrink: 0; }
+  .exam-card.recall ul li::before { content: "→"; font-size: 0.8rem; color: var(--accent4); flex-shrink: 0; }
+
+  /* ─── ETIOLOGY TABLE ─────────────────────────────────────── */
+  .etio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.85rem; margin: 1rem 0; }
+  .etio-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.9rem 1.1rem;
+  }
+  .etio-card .etio-icon { font-size: 1.3rem; margin-bottom: 0.4rem; }
+  .etio-card .etio-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.3rem; color: var(--accent); }
+  .etio-card .etio-detail { font-size: 0.82rem; color: var(--text-muted); }
+
+  /* ─── GENE TABLE PILL ────────────────────────────────────── */
+  .gene-pill {
+    display: inline-block;
+    font-family: var(--mono-font);
+    font-size: 0.72rem;
+    background: rgba(91,138,240,0.12);
+    color: var(--accent2);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    margin: 0.1rem;
+  }
+
+  /* ─── PRIOR KNOWLEDGE ────────────────────────────────────── */
+  .pk-quiz { display: flex; flex-direction: column; gap: 0.6rem; }
+  .pk-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--surface2);
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+    gap: 1rem;
+  }
+  .pk-item:hover { border-color: var(--accent2); }
+  .pk-item .pk-q { flex: 1; }
+  .pk-item .pk-ans {
+    font-family: var(--mono-font);
+    font-size: 0.78rem;
+    color: var(--accent);
+    background: rgba(200,169,110,0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    display: none;
+    white-space: nowrap;
+  }
+  .pk-item.revealed .pk-ans { display: block; }
+  .pk-item .pk-reveal-btn {
+    font-family: var(--mono-font);
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .pk-item.revealed .pk-reveal-btn { display: none; }
+
+  /* ─── SCROLLBAR ──────────────────────────────────────────── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+  /* ─── RESPONSIVE ─────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    #toc { display: none; }
+    main { padding: 2rem 1.5rem 4rem; max-width: 100%; }
+    .exam-cols { grid-template-columns: 1fr; }
+  }
+
+  /* ─── DIVIDER ────────────────────────────────────────────── */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+  ul.std-list { margin-left: 1.5rem; margin-bottom: 0.8rem; }
+  ul.std-list li { margin-bottom: 0.25rem; font-size: 0.92rem; }
+</style>
+</head>
+<body>
+
+<!-- ═══ STICKY TOC ═══════════════════════════════════════════ -->
+<nav id="toc">
+  <div class="toc-brand">Pathology · MBBS Y2</div>
+  <div class="toc-section">Module</div>
+  <a href="#lo">1. Learning Outcomes</a>
+  <a href="#pk">2. Prior Knowledge</a>
+  <a href="#ct">3. Clinical Trigger</a>
+  <a href="#cf">4. Classification</a>
+  <div class="toc-section">Tumour Types</div>
+  <a href="#fatty">5a. Fatty Tumours</a>
+  <a href="#fibrous">5b. Fibrous Tumours</a>
+  <a href="#skeletal">5c. Skeletal Muscle</a>
+  <a href="#nerve">5d. Nerve Tumours</a>
+  <a href="#other">5e. Other Tumours</a>
+  <div class="toc-section">Application</div>
+  <a href="#cases">6. Case MCQs</a>
+  <a href="#compare">7. Comparison Table</a>
+  <a href="#takehome">8. Take-Home</a>
+  <a href="#examfocus">9. Exam Focus</a>
+</nav>
+
+<!-- ═══ MAIN CONTENT ═════════════════════════════════════════ -->
+<main>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="tag">CPAS e-Book · Pathology · MBBS Year 2</p>
+    <h1>Soft Tissue Tumours</h1>
+    <p>Dr. Sudha Arumugam &nbsp;·&nbsp; MAHSA University &nbsp;·&nbsp; Robbins & Cotran, 10th Ed.</p>
+  </div>
+
+  <!-- ─── 1. LEARNING OUTCOMES ─────────────────────────────── -->
+  <section class="section-block" id="lo">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Learning Outcomes</h2>
+    </div>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.2rem;">On completing this module, you should be able to:</p>
+    <div class="lo-grid">
+      <div class="lo-card"><span class="lo-verb">Classify</span>Soft tissue tumours by tissue of origin and benign/malignant status.</div>
+      <div class="lo-card"><span class="lo-verb">Describe</span>General and morphological features of fatty tumours (lipoma, liposarcoma).</div>
+      <div class="lo-card"><span class="lo-verb">Describe</span>Features of fibrous tumours and tumour-like lesions (nodular fasciitis, fibromatoses, fibrosarcoma).</div>
+      <div class="lo-card"><span class="lo-verb">Describe</span>Features of skeletal muscle tumours (rhabdomyosarcoma subtypes).</div>
+      <div class="lo-card"><span class="lo-verb">Describe</span>Features of peripheral nerve tumours (schwannoma, neurofibroma, MPNST).</div>
+      <div class="lo-card"><span class="lo-verb">Apply</span>Diagnostic criteria including morphology, immunohistochemistry and cytogenetics to clinical scenarios.</div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─── 2. PRIOR KNOWLEDGE BRIDGE ───────────────────────── -->
+  <section class="section-block" id="pk">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Prior Knowledge Bridge</h2>
+    </div>
+    <p style="color:var(--text-muted); margin-bottom:1rem; font-size:0.9rem;">Click each question to reveal the answer — check what you already know before diving in.</p>
+    <div class="pk-quiz">
+      <div class="pk-item" onclick="this.classList.toggle('revealed')">
+        <span class="pk-q">What is the difference between a benign tumour and a malignant tumour?</span>
+        <span class="pk-ans">Benign: encapsulated, no invasion/metastasis. Malignant: infiltrative, metastatic potential.</span>
+        <span class="pk-reveal-btn">Reveal ▶</span>
+      </div>
+      <div class="pk-item" onclick="this.classList.toggle('revealed')">
+        <span class="pk-q">Name the three basic cell shapes seen in histological sections of soft tissue tumours.</span>
+        <span class="pk-ans">Spindle cell, Small round cell, Epithelioid cell</span>
+        <span class="pk-reveal-btn">Reveal ▶</span>
+      </div>
+      <div class="pk-item" onclick="this.classList.toggle('revealed')">
+        <span class="pk-q">What do S-100 protein, desmin, and CD31 immunostains broadly indicate?</span>
+        <span class="pk-ans">S-100 → neural/Schwann; Desmin → muscle; CD31 → endothelial</span>
+        <span class="pk-reveal-btn">Reveal ▶</span>
+      </div>
+      <div class="pk-item" onclick="this.classList.toggle('revealed')">
+        <span class="pk-q">What is neurofibromatosis type 1 (NF1) and which gene is mutated?</span>
+        <span class="pk-ans">AD disorder with multiple neurofibromas, café-au-lait spots; NF1 gene on chr 17</span>
+        <span class="pk-reveal-btn">Reveal ▶</span>
+      </div>
+      <div class="pk-item" onclick="this.classList.toggle('revealed')">
+        <span class="pk-q">What imaging modality is preferred for soft tissue masses of the extremities and why?</span>
+        <span class="pk-ans">MRI — best delineation of muscle, tumour, and blood vessels</span>
+        <span class="pk-reveal-btn">Reveal ▶</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─── 3. CLINICAL TRIGGER ──────────────────────────────── -->
+  <section class="section-block" id="ct">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Clinical Trigger</h2>
+    </div>
+    <div class="clinical-trigger">
+      <p>A 58-year-old male presents to the surgical OPD with a <strong>3-month history of a slowly enlarging, painless mass in the posterior thigh</strong>. He initially ignored it, thinking it was a "pulled muscle." On examination, the mass is firm, deep-seated, approximately 7 cm, and non-tender. There is no overlying skin change. His past medical history includes chemotherapy for colon cancer 10 years ago.</p>
+      <p>Ultrasound-guided biopsy shows <strong>spindle cells in a herringbone pattern</strong> with areas of necrosis.</p>
+      <p class="trigger-q">→ As you study this module, consider: What is the likely diagnosis? What are the differential diagnoses? What prognostic factors apply to this patient? How would you distinguish this from a benign process?</p>
+    </div>
+    <div class="info-box warn">
+      <strong>⚠ Diagnostic Delay is Common</strong><br>
+      Soft tissue sarcomas are frequently misdiagnosed as haematomas or "pulled muscles." Any soft tissue mass &gt;5 cm, deep to fascia, or persisting beyond 4–6 weeks warrants imaging and biopsy.
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─── 4. CLASSIFICATION FRAMEWORK ─────────────────────── -->
+  <section class="section-block" id="cf">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Classification Framework</h2>
+    </div>
+    <p style="margin-bottom:1.2rem;">Soft tissue tumours are classified by <strong>tissue of origin</strong>. Each tissue type produces both benign and malignant variants.</p>
+    <div class="class-grid">
+      <div class="class-card">
+        <span class="tissue-type" style="color:var(--accent);">Adipose Tissue</span>
+        <h4>Fatty Tumours</h4>
+        <ul>
+          <li><span class="benign">Lipoma</span></li>
+          <li><span class="malignant">Liposarcoma</span></li>
+        </ul>
+      </div>
+      <div class="class-card">
+        <span class="tissue-type" style="color:var(--accent2);">Fibrous Tissue</span>
+        <h4>Fibrous Tumours</h4>
+        <ul>
+          <li><span class="benign">Nodular fasciitis</span></li>
+          <li><span class="benign">Fibromatoses</span></li>
+          <li><span class="malignant">Fibrosarcoma</span></li>
+        </ul>
+      </div>
+      <div class="class-card">
+        <span class="tissue-type" style="color:var(--accent3);">Fibrohistiocytic</span>
+        <h4>Fibrohistiocytic</h4>
+        <ul>
+          <li><span class="benign">Fibrous histiocytoma</span></li>
+          <li><span class="malignant">DFSP</span></li>
+          <li><span class="malignant">MFH</span></li>
+        </ul>
+      </div>
+      <div class="class-card">
+        <span class="tissue-type" style="color:var(--accent4);">Skeletal Muscle</span>
+        <h4>Skeletal Muscle</h4>
+        <ul>
+          <li><span class="benign">Rhabdomyoma</span></li>
+          <li><span class="malignant">Rhabdomyosarcoma</span></li>
+        </ul>
+      </div>
+      <div class="class-card">
+        <span class="tissue-type" style="color:#b88aff;">Smooth Muscle</span>
+        <h4>Smooth Muscle</h4>
+        <ul>
+          <li><span class="benign">Leiomyoma</span></li>
+          <li><span class="malignant">Leiomyosarcoma</span></li>
+        </ul>
+      </div>
+      <div class="class-card">
+        <span class="tissue-type" style="color:#ff9f7a;">Vascular</span>
+        <h4>Vascular Tumours</h4>
+        <ul>
+          <li><span class="benign">Haemangioma</span></li>
+          <li><span class="benign">Lymphangioma</span></li>
+          <li><span class="malignant">Angiosarcoma</span></li>
+        </ul>
+      </div>
+      <div class="class-card">
+        <span class="tissue-type" style="color:#7af0d0;">Nerve</span>
+        <h4>Nerve Tumours</h4>
+        <ul>
+          <li><span class="benign">Schwannoma</span></li>
+          <li><span class="benign">Neurofibroma</span></li>
+          <li><span class="malignant">MPNST</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Etiology at a Glance</h3>
+    <div class="etio-grid">
+      <div class="etio-card">
+        <div class="etio-icon">☢️</div>
+        <div class="etio-title">Radiation Therapy</div>
+        <div class="etio-detail">History of prior radiation increases sarcoma risk; classic latency ~10 years</div>
+      </div>
+      <div class="etio-card">
+        <div class="etio-icon">🦟</div>
+        <div class="etio-title">Lymphoedema</div>
+        <div class="etio-detail">Post-surgical, radiation-induced or filarial lymphoedema → angiosarcoma</div>
+      </div>
+      <div class="etio-card">
+        <div class="etio-icon">☣️</div>
+        <div class="etio-title">Chemical Exposure</div>
+        <div class="etio-detail">Thorotrast, vinyl chloride, arsenic → hepatic angiosarcoma</div>
+      </div>
+      <div class="etio-card">
+        <div class="etio-icon">🧬</div>
+        <div class="etio-title">Genetic Syndromes</div>
+        <div class="etio-detail">NF1 → nerve sheath tumours; Li-Fraumeni; Familial GIST (KIT mutation)</div>
+      </div>
+      <div class="etio-card">
+        <div class="etio-icon">🦠</div>
+        <div class="etio-title">Viral Infection</div>
+        <div class="etio-detail">Human Herpesvirus 8 (HHV-8) → Kaposi sarcoma</div>
+      </div>
+    </div>
+
+    <h3>Cytogenetics — Key Translocations</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Tumour</th><th>Gene Mutation</th><th>Genes Involved</th></tr></thead>
+        <tbody>
+          <tr><td>Alveolar Rhabdomyosarcoma</td><td>t(2;13)(q35;q14) / t(1;13)</td><td><span class="gene-pill">PAX3-FOXO1A</span> / <span class="gene-pill">PAX7-FOXO1A</span></td></tr>
+          <tr><td>Myxoid Liposarcoma</td><td>t(12;16)(q13;p11)</td><td><span class="gene-pill">FUS-DDIT3</span></td></tr>
+          <tr><td>Atypical Lipomatous Tumour</td><td>Amplification</td><td><span class="gene-pill">MDM2</span> <span class="gene-pill">CDK4</span> <span class="gene-pill">HMGA2</span></td></tr>
+          <tr><td>Dermatofibrosarcoma Protuberans</td><td>t(17;22)(q22;q13)</td><td><span class="gene-pill">COL1A1-PDGFB</span></td></tr>
+          <tr><td>Desmoid-type Fibromatosis</td><td>Activating mutation</td><td><span class="gene-pill">BCTN1</span></td></tr>
+          <tr><td>Clear Cell Sarcoma</td><td>t(12;22)(q13;q12)</td><td><span class="gene-pill">ATF1-EWSR1</span></td></tr>
+          <tr><td>Synovial Sarcoma</td><td>t(X;18)</td><td><span class="gene-pill">SYT-SSX</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─── 5. INDIVIDUAL DISEASE ACCORDIONS ─────────────────── -->
+
+  <!-- 5a. FATTY TUMOURS -->
+  <section class="section-block" id="fatty">
+    <div class="section-header">
+      <span class="section-num">05a</span>
+      <h2>Fatty Tumours</h2>
+    </div>
+
+    <!-- Lipoma -->
+    <div class="accordion" id="acc-lipoma">
+      <button class="accordion-btn" onclick="toggleAcc('acc-lipoma')">
+        <span class="acc-title">
+          <span class="acc-badge badge-benign">Benign</span>
+          Lipoma
+        </span>
+        <span class="acc-arrow">+</span>
+      </button>
+      <div class="accordion-body">
+        <p>The <strong>most common benign soft tissue tumour</strong>. Arises from mature adipocytes.</p>
+        <div class="feature-grid">
+          <div class="feature-card"><span class="fc-label">Clinical</span>Soft, mobile, lobulated lump — usually painless. Commonly subcutaneous.</div>
+          <div class="feature-card"><span class="fc-label">Gross</span>Well-encapsulated, yellowish mass with smooth, greasy surface.</div>
+          <div class="feature-card"><span class="fc-label">Histology</span>Encapsulated mass of benign-looking mature adipocytes — indistinguishable from normal fat.</div>
+          <div class="feature-card"><span class="fc-label">Treatment</span>Simple excision. Recurrence is rare.</div>
+        </div>
+        <div class="info-box tip"><strong>Memory hook:</strong> Lipoma = fat with a capsule, normal-looking cells, soft and mobile = benign.</div>
+      </div>
+    </div>
+
+    <!-- Liposarcoma -->
+    <div class="accordion" id="acc-liposarc">
+      <button class="accordion-btn" onclick="toggleAcc('acc-liposarc')">
+        <span class="acc-title">
+          <span class="acc-badge badge-malignant">Malignant</span>
+          Liposarcoma
+        </span>
+        <span class="acc-arrow">+</span>
+      </button>
+      <div class="accordion-body">
+        <p>Malignant tumour of adipose tissue. Second most common soft tissue sarcoma in adults.</p>
+        <div class="feature-grid">
+          <div class="feature-card"><span class="fc-label">Age/Site</span>Adults 50–60 years. Deep soft tissues & retroperitoneum.</div>
+          <div class="feature-card"><span class="fc-label">Diagnostic Cell</span><strong>Lipoblast</strong> — multivacuolated cell that scallops the nucleus (pathognomonic).</div>
+          <div class="feature-card"><span class="fc-label">Subtypes</span>Well-differentiated, Myxoid (most common), Pleomorphic (worst prognosis).</div>
+          <div class="feature-card"><span class="fc-label">Genetics</span>Myxoid → <span class="highlight-pill blue">t(12;16)</span> FUS-DDIT3. Well-diff → MDM2/CDK4 amplification.</div>
+        </div>
+        <h3>Subtypes Comparison</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Subtype</th><th>Differentiation</th><th>Prognosis</th><th>Key Feature</th></tr></thead>
+            <tbody>
+              <tr><td>Well-differentiated</td><td>High (resembles fat)</td><td>Good (low grade)</td><td>MDM2/CDK4 amplification</td></tr>
+              <tr><td>Myxoid</td><td>Intermediate</td><td>Intermediate</td><td>Chicken-wire vasculature; t(12;16)</td></tr>
+              <tr><td>Pleomorphic</td><td>Low (anaplastic)</td><td>Poor (high grade)</td><td>Bizarre giant cells</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="info-box warn"><strong>Exam Trap:</strong> Lipoblasts are REQUIRED for diagnosis of liposarcoma. Lipoma never contains lipoblasts.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5b. FIBROUS TUMOURS -->
+  <section class="section-block" id="fibrous">
+    <div class="section-header">
+      <span class="section-num">05b</span>
+      <h2>Fibrous Tumours & Tumour-Like Lesions</h2>
+    </div>
+    <div class="info-box"><strong>Key Concept — Reactive Pseudosarcomatous Proliferations:</strong> These are non-neoplastic lesions that form tumour-like masses in response to trauma. They mimic sarcoma clinically and histologically. Include <em>Nodular Fasciitis</em> and <em>Myositis Ossificans</em>.</div>
+
+    <!-- Nodular Fasciitis -->
+    <div class="accordion" id="acc-nf">
+      <button class="accordion-btn" onclick="toggleAcc('acc-nf')">
+        <span class="acc-title">
+          <span class="acc-badge badge-reactive">Reactive</span>
+          Nodular Fasciitis
+        </span>
+        <span class="acc-arrow">+</span>
+      </button>
+      <div class="accordion-body">
+        <p>The <strong>most common pseudosarcoma</strong>. Non-neoplastic reactive fibroblastic proliferation often related to local trauma.</p>
+        <div class="feature-grid">
+          <div class="feature-card"><span class="fc-label">Population</span>Commonly affects adults (any age). Rapid growth over weeks.</div>
+          <div class="feature-card"><span class="fc-label">Sites</span>Forearm, chest wall, and back.</div>
+          <div class="feature-card"><span class="fc-label">Clinical</span>Rapidly growing, possibly painful mass — alarming but BENIGN.</div>
+          <div class="feature-card"><span class="fc-label">Histology</span>Highly cellular with <strong>immature fibroblasts arranged randomly</strong>. Abundant mitotic figures (but atypical mitoses absent).</div>
+          <div class="feature-card"><span class="fc-label">Treatment</span>Simple excision. Spontaneous regression can occur.</div>
+        </div>
+        <div class="info-box warn"><strong>Classic Trap:</strong> Abundant mitotic figures → students may call it malignant. Remember: mitoses can be abundant in reactive conditions. Lack of ATYPICAL mitoses is reassuring.</div>
+      </div>
+    </div>
+
+    <!-- Myositis Ossificans -->
+    <div class="accordion" id="acc-mo">
+      <button class="accordion-btn" onclick="toggleAcc('acc-mo')">
+        <span class="acc-title">
+          <span class="acc-badge badge-reactive">Reactive</span>
+          Myositis Ossificans
+        </span>
+        <span class="acc-arrow">+</span>
+      </button>
+      <div class="accordion-body">
+        <p>Characterised by <strong>metaplastic bone formation in muscle</strong> following trauma.</p>
+        <div class="feature-grid">
+          <div class="feature-card"><span class="fc-label">Population</span>Athletic adolescents and young adults post-trauma.</div>
+          <div class="feature-card"><span class="fc-label">Site</span>Muscles of extremities.</div>
+          <div class="feature-card"><span class="fc-label">Evolution</span>Early: painful, swollen. Late: painless, hard mass (mineralized & ossified).</div>
+          <div class="feature-card"><span class="fc-label">Key Feature</span>Peripheral mineralisation on X-ray (the lesion mineralizes from outside in — opposite of osteosarcoma).</div>
+        </div>
+        <div class="info-box tip"><strong>Zonal Pattern:</strong> Centre = undifferentiated cells → Middle = osteoblasts → Periphery = mature bone. Osteosarcoma is the OPPOSITE (central ossification).</div>
+      </div>
+    </div>
+
+    <!-- Desmoid Tumours -->
+    <div class="accordion" id="acc-desmoid">
+      <button class="accordion-btn" onclick="toggleAcc('acc-desmoid')">
+        <span class="acc-title">
+          <span class="acc-badge badge-reactive">Locally Aggressive</span>
+          Deep Fibromatoses (Desmoid Tumours)
+        </span>
+        <span class="acc-arrow">+</span>
+      </button>
+      <div class="accordion-body">
+        <p>Large, infiltrative fibroblastic masses that are <strong>locally aggressive but do not metastasise</strong>. Can recur after incomplete excision.</p>
+        <div class="feature-grid">
+          <div class="feature-card"><span class="fc-label">Age</span>Any age; more common in teens & young adults.</div>
+          <div class="feature-card"><span class="fc-label">Sites</span>Extra-abdominal (shoulders, chest wall, thigh), Abdominal wall (females), Intra-abdominal (mesentery).</div>
+          <div class="feature-card"><span class="fc-label">Association</span>FAP (Familial Adenomatous Polyposis) → APC gene mutation. Sporadic → CTNNB1 (β-catenin) mutation.</div>
+          <div class="feature-card"><span class="fc-label">Histology</span>Bland fibrocytic cells in storiform/haphazard pattern with abundant collagen. Low mitotic rate.</div>
+        </div>
+        <div class="info-box warn"><strong>Remember:</strong> Desmoid = <strong>no metastasis</strong> but locally destructive. High recurrence rate after incomplete excision (up to 70%).</div>
+      </div>
+    </div>
+
+    <!-- Fibrosarcoma -->
+    <div class="accordion" id="acc-fibrosarc">
+      <button class="accordion-btn" onclick="toggleAcc('acc-fibrosarc')">
+        <span class="acc-title">
+          <span class="acc-badge badge-malignant">Malignant</span>
+          Fibrosarcoma
+        </span>
+        <span class="acc-arrow">+</span>
+      </button>
+      <div class="accordion-body">
+        <p>Aggressive malignant tumour of fibroblasts. Can occur anywhere in the body.</p>
+        <div class="feature-grid">
+          <div class="feature-card"><span class="fc-label">Gross</span>Unencapsulated, infiltrative mass with <strong>fish-flesh appearance</strong>. Areas of haemorrhage and necrosis.</div>
+          <div class="feature-card"><span class="fc-label">Histology</span>Highly cellular with spindle cells in classic <strong>herringbone pattern</strong>.</div>
+          <div class="feature-card"><span class="fc-label">Prognosis</span>Recurrence in 50% of cases. Metastasis in &gt;25% cases.</div>
+          <div class="feature-card"><span class="fc-label">Pattern</span><span class="highlight-pill">Herringbone</span> = fibrosarcoma (see architectural patterns)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5c. SKELETAL MUSCLE TUMOURS -->
+  <section class="section-block" id="skeletal">
+    <div class="section-header">
+      <span class="section-num">05c</span>
+      <h2>Skeletal Muscle Tumours</h2>
+    </div>
+
+    <!-- RMS -->
+    <div class="accordion" id="acc-rms">
+      <button class="accordion-btn" onclick="toggleAcc('acc-rms')">
+        <span class="acc-title">
+          <span class="acc-badge badge-malignant">Malignant</span>
+          Rhabdomyosarcoma (RMS)
+        </span>
+        <span class="acc-arrow">+</span>
+      </button>
+      <div class="accordion-body">
+        <p><strong>Most common soft tissue sarcoma of childhood and adolescence.</strong></p>
+        <div class="feature-grid">
+          <div class="feature-card"><span class="fc-label">Sites</span>Head & neck, genitourinary tract, extremities.</div>
+          <div class="feature-card"><span class="fc-label">Diagnostic Cell</span><strong>Rhabdomyoblast</strong> — eosinophilic granular cytoplasm. Elongated forms = <em>strap cells / tadpole cells</em>.</div>
+          <div class="feature-card"><span class="fc-label">IHC Markers</span><span class="highlight-pill green">Desmin</span> <span class="highlight-pill green">MYOD1</span> <span class="highlight-pill green">Myogenin</span></div>
+          <div class="feature-card"><span class="fc-label">Subtypes</span>Embryonal (most common), Alveolar (worst prognosis), Pleomorphic (adults).</div>
+        </div>
+
+        <h3>Embryonal RMS / Sarcoma Botyroides</h3>
+        <ul class="std-list">
+          <li><strong>Most common</strong> subtype of RMS.</li>
+          <li><em>Sarcoma botyroides</em> = grape-like polypoid mass projecting into body cavities (nasopharynx, bladder, vagina).</li>
+          <li>Key histological feature: <strong>cambium layer</strong> (dense condensation of tumour cells beneath epithelium) + cytoplasmic cross-striations.</li>
+          <li>Genetics: loss of heterozygosity at 11p15.</li>
+        </ul>
+
+        <h3>Alveolar RMS</h3>
+        <ul class="std-list">
+          <li>Worst prognosis among RMS subtypes.</li>
+          <li>Tumour cells arranged in alveolar-like spaces separated by fibrous septa.</li>
+          <li>Genetics: <span class="highlight-pill blue">t(2;13)</span> → PAX3-FOXO1A or <span class="highlight-pill blue">t(1;13)</span> → PAX7-FOXO1A.</li>
+        </ul>
+        <div class="info-box warn"><strong>Exam Trap:</strong> RMS is the most common soft tissue SARCOMA in CHILDREN — not adults. In adults, the most common is liposarcoma/MFH (undifferentiated pleomorphic sarcoma).</div>
+      </div>
+    </div>
+
+    <!-- Synovial Sarcoma -->
+    <div class="accordion" id="acc-syno">
+      <button class="accordion-btn" onclick="toggleAcc('acc-syno')">
+        <span class="acc-title">
+          <span class="acc-badge badge-malignant">Malignant</span>
+          Synovial Sarcoma
+        </span>
+        <span class="acc-arrow">+</span>
+      </button>
+      <div class="accordion-body">
+        <p>Despite the name, <strong>less than 10% occur intra-articularly</strong>. Mostly in deep soft tissue around knee/thigh in young adults.</p>
+        <div class="feature-grid">
+          <div class="feature-card"><span class="fc-label">Age Group</span>20–40 years.</div>
+          <div class="feature-card"><span class="fc-label">Site</span>Deep soft tissues near knee and thigh. NOT truly synovial origin.</div>
+          <div class="feature-card"><span class="fc-label">Histology</span><strong>Biphasic</strong>: epithelial gland-like structures + spindle cells. <strong>Monophasic</strong>: only one type.</div>
+          <div class="feature-card"><span class="fc-label">Genetics</span><span class="highlight-pill blue">t(X;18)</span> → SYT-SSX fusion.</div>
+          <div class="feature-card"><span class="fc-label">IHC</span><span class="highlight-pill green">Cytokeratin</span> <span class="highlight-pill green">EMA</span> (epithelial markers in a "non-epithelial" tumour).</div>
+        </div>
+        <div class="info-box warn"><strong>Classic Trap:</strong> Synovial sarcoma stains positive for CYTOKERATIN despite being a soft tissue sarcoma — not a carcinoma!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5d. NERVE TUMOURS -->
+  <section class="section-block" id="nerve">
+    <div class="section-header">
+      <span class="section-num">05d</span>
+      <h2>Peripheral Nerve Tumours</h2>
+    </div>
+    <p style="margin-bottom:1rem;">Associated with familial syndromes: <strong>NF1</strong> (neurofibromas), <strong>NF2</strong> (bilateral vestibular schwannomas), and <strong>Schwannomatosis</strong>.</p>
+
+    <!-- Schwannoma -->
+    <div class="accordion" id="acc-schwannoma">
+      <button class="accordion-btn" onclick="toggleAcc('acc-schwannoma')">
+        <span class="acc-title">
+          <span class="acc-badge badge-benign">Benign</span>
+          Schwannoma (Neurilemmoma)
+        </span>
+        <span class="acc-arrow">+</span>
+      </button>
+      <div class="accordion-body">
+        <p>Benign tumour of Schwann cell differentiation. Arises from peripheral nerves but <strong>does not invade the nerve</strong>.</p>
+        <div class="feature-grid">
+          <div class="feature-card"><span class="fc-label">Site</span>Vestibular branch of VIII CN at cerebellopontine angle (acoustic neuroma), peripheral nerves.</div>
+          <div class="feature-card"><span class="fc-label">Genetics</span>Mutation of <span class="highlight-pill blue">NF2 gene</span> on chromosome 22 (merlin protein).</div>
+          <div class="feature-card"><span class="fc-label">Gross</span>Well-circumscribed, encapsulated, firm grey mass attached to — but not invading — the nerve.</div>
+          <div class="feature-card"><span class="fc-label">IHC</span><span class="highlight-pill green">S-100 protein</span> strongly positive.</div>
+        </div>
+
+        <h3>Two Histological Patterns — Antoni A & Antoni B</h3>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span class="fc-label" style="color:var(--accent);">Antoni A</span>
+            <strong>Densely cellular</strong>. Spindle cells in fascicles. Nuclei aligned in parallel rows with nuclear-free zones = <strong>Verocay bodies</strong> (palisading pattern).
+          </div>
+          <div class="feature-card">
+            <span class="fc-label" style="color:var(--accent2);">Antoni B</span>
+            <strong>Loose, hypocellular</strong>. Myxoid extracellular matrix. Less organised architecture.
+          </div>
+        </div>
+        <div class="info-box tip"><strong>Memory:</strong> Antoni A = <em>A</em>rranged (orderly palisading, Verocay bodies). Antoni B = <em>B</em>lurred (loose, disorganised).</div>
+      </div>
+    </div>
+
+    <!-- Neurofibroma -->
+    <div class="accordion" id="acc-nfibroma">
+      <button class="accordion-btn" onclick="toggleAcc('acc-nfibroma')">
+        <span class="acc-title">
+          <span class="acc-badge badge-benign">Benign</span>
+          Neurofibroma
+        </span>
+        <span class="acc-arrow">+</span>
+      </button>
+      <div class="accordion-body">
+        <p>Benign tumour where <strong>neoplastic Schwann cells are admixed with fibroblasts, mast cells, and CD34+ spindle cells</strong> — unlike schwannoma which is a pure Schwann cell tumour.</p>
+        <div class="feature-grid">
+          <div class="feature-card"><span class="fc-label">Genetics</span>Associated with <span class="highlight-pill">NF1</span> (chr 17).</div>
+          <div class="feature-card"><span class="fc-label">Types</span>Cutaneous (pedunculated), Diffuse (plaque-like, NF1), Plexiform (deep, pathognomonic of NF1).</div>
+          <div class="feature-card"><span class="fc-label">Histology</span>Unencapsulated nodule in dermis/subcutis. Mixed cells in myxoid stroma.</div>
+          <div class="feature-card"><span class="fc-label">Malignant Risk</span>Plexiform neurofibromas carry risk of transformation to <strong>MPNST</strong>.</div>
+        </div>
+        <div class="info-box warn"><strong>Schwannoma vs Neurofibroma:</strong> Schwannoma = pure Schwann cells, encapsulated, NF2. Neurofibroma = mixed cells, unencapsulated, NF1. Plexiform NF = pathognomonic of NF1.</div>
+      </div>
+    </div>
+
+    <!-- MPNST -->
+    <div class="accordion" id="acc-mpnst">
+      <button class="accordion-btn" onclick="toggleAcc('acc-mpnst')">
+        <span class="acc-title">
+          <span class="acc-badge badge-malignant">Malignant</span>
+          Malignant Peripheral Nerve Sheath Tumour (MPNST)
+        </span>
+        <span class="acc-arrow">+</span>
+      </button>
+      <div class="accordion-body">
+        <p>Aggressive spindle cell sarcoma arising from peripheral nerves or from pre-existing neurofibromas.</p>
+        <div class="feature-grid">
+          <div class="feature-card"><span class="fc-label">Risk Factors</span>50% arise in NF1 patients. Can arise de novo or from plexiform neurofibroma.</div>
+          <div class="feature-card"><span class="fc-label">Histology</span>High-grade spindle cell sarcoma. Loss of S-100 expression (unlike benign counterparts).</div>
+          <div class="feature-card"><span class="fc-label">Prognosis</span>Poor. 5-year survival ~20–50% depending on grade and resectability.</div>
+          <div class="feature-card"><span class="fc-label">IHC</span>Focal/lost S-100. Positive SOX10 may help.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5e. OTHER TUMOURS (Architectural Patterns & IHC Summary) -->
+  <section class="section-block" id="other">
+    <div class="section-header">
+      <span class="section-num">05e</span>
+      <h2>Architectural Patterns & IHC Summary</h2>
+    </div>
+
+    <div class="accordion" id="acc-arch">
+      <button class="accordion-btn" onclick="toggleAcc('acc-arch')">
+        <span class="acc-title">
+          Histological Architectural Patterns
+        </span>
+        <span class="acc-arrow">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Pattern</th><th>Description</th><th>Tumour Type</th></tr></thead>
+            <tbody>
+              <tr><td>Fascicular</td><td>Eosinophilic spindle cells in fascicles intersecting at right angles</td><td>Smooth muscle (leiomyoma/sarcoma)</td></tr>
+              <tr><td>Storiform</td><td>Short fascicles radiating from a central point like spokes on a wheel</td><td>Fibrohistiocytic tumours (MFH, DFSP)</td></tr>
+              <tr><td>Palisading</td><td>Nuclei arranged in parallel columns (like a picket fence) with nuclear-free zones (Verocay bodies)</td><td>Schwann cell tumours</td></tr>
+              <tr><td>Herringbone</td><td>Interlacing fascicles creating a chevron/herringbone appearance</td><td>Fibrosarcoma</td></tr>
+              <tr><td>Biphasic</td><td>Mixture of fascicles of spindle cells and groups of epithelioid cells</td><td>Synovial sarcoma</td></tr>
+              <tr><td>Alveolar</td><td>Cells lining fibrous septa creating alveolar-like spaces</td><td>Alveolar rhabdomyosarcoma</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion" id="acc-ihc">
+      <button class="accordion-btn" onclick="toggleAcc('acc-ihc')">
+        <span class="acc-title">
+          Immunohistochemistry (IHC) Markers by Tumour Group
+        </span>
+        <span class="acc-arrow">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Tumour Group</th><th>Key Markers</th></tr></thead>
+            <tbody>
+              <tr><td>Synovial sarcoma, Epithelioid sarcoma</td><td><span class="highlight-pill green">Cytokeratin</span> <span class="highlight-pill green">EMA</span></td></tr>
+              <tr><td>Nerve sheath group</td><td><span class="highlight-pill blue">S-100 protein</span> <span class="highlight-pill blue">CD57</span> <span class="highlight-pill blue">NGF receptor</span></td></tr>
+              <tr><td>Muscle group (skeletal)</td><td><span class="highlight-pill">Desmin</span> <span class="highlight-pill">MYOD1</span> <span class="highlight-pill">Myogenin</span></td></tr>
+              <tr><td>Muscle group (smooth)</td><td><span class="highlight-pill">Desmin</span> <span class="highlight-pill">Smooth muscle actin (SMA)</span></td></tr>
+              <tr><td>Endothelial group</td><td><span class="highlight-pill red">CD31</span> <span class="highlight-pill red">CD34</span> <span class="highlight-pill red">FLI-1</span> <span class="highlight-pill red">vWF</span></td></tr>
+              <tr><td>Adipocytic</td><td><span class="highlight-pill">MDM2</span> (well-diff liposarcoma)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─── 6. APPLICATION CASES WITH MCQs ───────────────────── -->
+  <section class="section-block" id="cases">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Application Cases with Stepwise MCQs</h2>
+    </div>
+
+    <!-- CASE 1 -->
+    <h3>Case 1 — The Thigh Mass</h3>
+    <div class="mcq-block" id="mcq1">
+      <div class="case-stem">A 55-year-old man presents with a 6-month history of a deep, painless, enlarging mass in the posterior thigh. MRI shows a 9 cm heterogeneous mass deep to fascia. Biopsy reveals spindle cells in a herringbone pattern with areas of necrosis and no lipoblasts.</div>
+      <p class="mcq-step">Step 1 of 3 — Diagnosis</p>
+      <p class="mcq-q">What is the most likely diagnosis?</p>
+      <ul class="mcq-options" id="mcq1-opts">
+        <li onclick="answerMCQ('mcq1', this, false, 'Liposarcoma requires the presence of lipoblasts — large cells with scalloped nuclei and multiple vacuoles. This biopsy shows no lipoblasts.')"><span class="opt-letter">A</span>Liposarcoma</li>
+        <li onclick="answerMCQ('mcq1', this, false, 'Nodular fasciitis is a reactive, benign, rapidly growing lesion in young adults — typically <5 cm and superficial. This does not fit.')"><span class="opt-letter">B</span>Nodular fasciitis</li>
+        <li onclick="answerMCQ('mcq1', this, true, 'Correct! Fibrosarcoma presents as a deep, unencapsulated mass in adults with spindle cells in a herringbone pattern and areas of haemorrhage/necrosis. No lipoblasts eliminates liposarcoma.')"><span class="opt-letter">C</span>Fibrosarcoma</li>
+        <li onclick="answerMCQ('mcq1', this, false, 'Synovial sarcoma is biphasic (spindle + epithelioid cells) and typically occurs in the 20–40 age group around the knee. Purely spindle-cell herringbone pattern points away from this.')"><span class="opt-letter">D</span>Synovial sarcoma</li>
+      </ul>
+      <div class="feedback-box" id="mcq1-fb"></div>
+    </div>
+
+    <div class="mcq-block" id="mcq1b">
+      <div class="case-stem">Same patient. You are reviewing the prognosis.</div>
+      <p class="mcq-step">Step 2 of 3 — Prognosis</p>
+      <p class="mcq-q">Which combination of features most significantly worsens this patient's prognosis?</p>
+      <ul class="mcq-options" id="mcq1b-opts">
+        <li onclick="answerMCQ('mcq1b', this, false, 'Patient age >50 does worsen prognosis, but size >5 cm and deep location are more directly linked to recurrence and metastasis in staging systems.')"><span class="opt-letter">A</span>Age >50 only</li>
+        <li onclick="answerMCQ('mcq1b', this, true, 'Correct! Size >5 cm, high histologic grade, and deep location are the three most important adverse prognostic factors for soft tissue sarcomas in staging systems (FNCLCC grading).')"><span class="opt-letter">B</span>Size >5 cm, high grade, deep location</li>
+        <li onclick="answerMCQ('mcq1b', this, false, 'Pain is not a primary prognostic factor in soft tissue sarcomas. Many high-grade sarcomas are painless.')"><span class="opt-letter">C</span>Painless nature and slow growth</li>
+        <li onclick="answerMCQ('mcq1b', this, false, 'Anatomic site (posterior thigh vs anterior) per se is not a primary prognostic variable. Depth to fascia is more important.')"><span class="opt-letter">D</span>Location in thigh vs other extremity sites</li>
+      </ul>
+      <div class="feedback-box" id="mcq1b-fb"></div>
+    </div>
+
+    <div class="mcq-block" id="mcq1c">
+      <div class="case-stem">The patient undergoes wide excision. Histology shows positive surgical margins.</div>
+      <p class="mcq-step">Step 3 of 3 — Management Implications</p>
+      <p class="mcq-q">What does a positive surgical margin most directly imply?</p>
+      <ul class="mcq-options" id="mcq1c-opts">
+        <li onclick="answerMCQ('mcq1c', this, false, 'Positive margins imply risk of LOCAL recurrence, not necessarily immediate metastatic spread — though long-term metastasis risk may be higher overall.')"><span class="opt-letter">A</span>Immediate haematogenous metastasis</li>
+        <li onclick="answerMCQ('mcq1c', this, true, 'Correct! Positive surgical margins are a key prognostic factor for local recurrence. Fibrosarcoma has a 50% recurrence rate; positive margins significantly increase this risk and adjuvant radiotherapy is typically indicated.')"><span class="opt-letter">B</span>Increased risk of local recurrence, requiring adjuvant therapy</li>
+        <li onclick="answerMCQ('mcq1c', this, false, 'Positive margins do not indicate transformation to a higher-grade tumour.')"><span class="opt-letter">C</span>Tumour grade transformation</li>
+        <li onclick="answerMCQ('mcq1c', this, false, 'While re-excision or radiotherapy may be needed, positive margins do not automatically mean the patient needs chemotherapy as a first-line adjuvant.')"><span class="opt-letter">D</span>Need for chemotherapy only</li>
+      </ul>
+      <div class="feedback-box" id="mcq1c-fb"></div>
+    </div>
+
+    <!-- CASE 2 -->
+    <h3>Case 2 — The Child with a Mass</h3>
+    <div class="mcq-block" id="mcq2">
+      <div class="case-stem">A 6-year-old boy is brought to the clinic with a grape-like mass protruding from the urethral meatus. Biopsy reveals primitive round cells with eosinophilic cytoplasm and a dense condensation of cells beneath the epithelial surface (cambium layer). IHC is positive for desmin and myogenin.</div>
+      <p class="mcq-step">Step 1 of 2 — Diagnosis</p>
+      <p class="mcq-q">What is the diagnosis?</p>
+      <ul class="mcq-options" id="mcq2-opts">
+        <li onclick="answerMCQ('mcq2', this, false, 'Alveolar RMS has a worse prognosis, shows PAX3/7-FOXO1A translocations, and does NOT form botryoid polypoid masses. This case shows the classic botryoid pattern.')"><span class="opt-letter">A</span>Alveolar rhabdomyosarcoma</li>
+        <li onclick="answerMCQ('mcq2', this, true, 'Correct! Embryonal RMS, specifically the sarcoma botyroides subtype (botyroides = grape-like), forms polypoid masses in the bladder/vagina/nasopharynx of children. The cambium layer is pathognomonic.')"><span class="opt-letter">B</span>Embryonal rhabdomyosarcoma — sarcoma botyroides subtype</li>
+        <li onclick="answerMCQ('mcq2', this, false, 'Neurofibroma is a nerve sheath tumour — it stains for S-100, not desmin/myogenin, and does not form botryoid masses.')"><span class="opt-letter">C</span>Neurofibroma</li>
+        <li onclick="answerMCQ('mcq2', this, false, 'Ewing sarcoma is a bone tumour with CD99+ small round blue cells and t(11;22) EWS-FLI1. It does not form botryoid masses and would not stain for myogenin.')"><span class="opt-letter">D</span>Ewing sarcoma</li>
+      </ul>
+      <div class="feedback-box" id="mcq2-fb"></div>
+    </div>
+
+    <div class="mcq-block" id="mcq2b">
+      <div class="case-stem">Same patient. Genetic analysis is performed.</div>
+      <p class="mcq-step">Step 2 of 2 — Genetics</p>
+      <p class="mcq-q">Which genetic finding would indicate the WORST prognosis in rhabdomyosarcoma?</p>
+      <ul class="mcq-options" id="mcq2b-opts">
+        <li onclick="answerMCQ('mcq2b', this, false, 'Loss of heterozygosity at 11p15 is seen in embryonal RMS and is associated with a BETTER prognosis compared to alveolar RMS.')"><span class="opt-letter">A</span>Loss of heterozygosity at 11p15</li>
+        <li onclick="answerMCQ('mcq2b', this, true, 'Correct! t(2;13) producing PAX3-FOXO1A fusion is characteristic of ALVEOLAR RMS which has the WORST prognosis among RMS subtypes. PAX7-FOXO1A from t(1;13) has a slightly better prognosis than PAX3.')"><span class="opt-letter">B</span>t(2;13) producing PAX3-FOXO1A fusion</li>
+        <li onclick="answerMCQ('mcq2b', this, false, 'MYOD1 L122R mutation is seen in spindle cell/sclerosing RMS and carries a poor prognosis, but PAX3-FOXO1A in alveolar RMS is the classic high-risk marker.')"><span class="opt-letter">C</span>MYOD1 point mutation</li>
+        <li onclick="answerMCQ('mcq2b', this, false, 'CDK4 amplification is associated with well-differentiated/dedifferentiated liposarcoma — not rhabdomyosarcoma.')"><span class="opt-letter">D</span>CDK4 amplification</li>
+      </ul>
+      <div class="feedback-box" id="mcq2b-fb"></div>
+    </div>
+
+    <!-- CASE 3 -->
+    <h3>Case 3 — Young Adult with Nerve Pain</h3>
+    <div class="mcq-block" id="mcq3">
+      <div class="case-stem">A 28-year-old woman presents with multiple soft pedunculated skin nodules over her trunk and upper limbs since childhood. She also has café-au-lait spots. Biopsy of one nodule shows unencapsulated lesion composed of Schwann cells, fibroblasts, mast cells and CD34+ spindle cells in a myxoid stroma.</div>
+      <p class="mcq-step">Single Best Answer — Diagnosis and Implications</p>
+      <p class="mcq-q">What is the diagnosis and what is the greatest oncological concern for this patient?</p>
+      <ul class="mcq-options" id="mcq3-opts">
+        <li onclick="answerMCQ('mcq3', this, false, 'Schwannoma is encapsulated, composed purely of Schwann cells, and is associated with NF2. These nodules are unencapsulated mixed-cell lesions — consistent with neurofibroma in NF1, not schwannoma.')"><span class="opt-letter">A</span>Multiple schwannomas (NF2); risk of bilateral acoustic neuromas</li>
+        <li onclick="answerMCQ('mcq3', this, false, 'Lipomas are mature adipocyte tumours. These lesions have the characteristic mixed-cell composition of neurofibroma, not adipocytes.')"><span class="opt-letter">B</span>Multiple lipomas; cosmetic concern only</li>
+        <li onclick="answerMCQ('mcq3', this, true, 'Correct! Cutaneous neurofibromas in NF1 (NF1 gene, chr 17). The greatest concern is that deep plexiform neurofibromas in NF1 can undergo malignant transformation into Malignant Peripheral Nerve Sheath Tumour (MPNST) — a life-threatening complication.')"><span class="opt-letter">C</span>Cutaneous neurofibromas (NF1); risk of malignant transformation to MPNST</li>
+        <li onclick="answerMCQ('mcq3', this, false, 'Desmoid tumours are fibromatoses, not neural tumours. They are associated with APC/beta-catenin mutations and FAP, not neurofibromatosis.')"><span class="opt-letter">D</span>Cutaneous desmoid tumours; local recurrence risk</li>
+      </ul>
+      <div class="feedback-box" id="mcq3-fb"></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─── 7. MASTER COMPARISON TABLE ──────────────────────── -->
+  <section class="section-block" id="compare">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>Master Comparison Table</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Tumour</th>
+            <th>B/M</th>
+            <th>Age/Site</th>
+            <th>Gross</th>
+            <th>Key Histology</th>
+            <th>IHC / Genetics</th>
+            <th>Prognosis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lipoma</td>
+            <td><span class="highlight-pill green">Benign</span></td>
+            <td>Any; subcutaneous</td>
+            <td>Encapsulated, yellow, greasy</td>
+            <td>Mature adipocytes, no atypia</td>
+            <td>—</td>
+            <td>Excellent; rare recurrence</td>
+          </tr>
+          <tr>
+            <td>Liposarcoma</td>
+            <td><span class="highlight-pill red">Malignant</span></td>
+            <td>50–60y; retroperitoneum, deep thigh</td>
+            <td>Large, lobulated, yellow-white</td>
+            <td>Lipoblasts (pathognomonic)</td>
+            <td>MDM2/CDK4 (WD); t(12;16) FUS-DDIT3 (myxoid)</td>
+            <td>WD: good; Myxoid: intermediate; Pleomorphic: poor</td>
+          </tr>
+          <tr>
+            <td>Nodular Fasciitis</td>
+            <td><span class="highlight-pill blue">Reactive</span></td>
+            <td>Adults; forearm, chest, back</td>
+            <td>Small, poorly defined</td>
+            <td>Immature fibroblasts, random arrangement, abundant mitoses (typical)</td>
+            <td>SMA+</td>
+            <td>Excellent; self-limiting</td>
+          </tr>
+          <tr>
+            <td>Desmoid (Fibromatosis)</td>
+            <td><span class="highlight-pill" style="background:rgba(255,159,122,0.15);color:#ff9f7a;border-color:rgba(255,159,122,0.3);">Locally Aggressive</span></td>
+            <td>Teens–adults; abdominal wall, mesentery</td>
+            <td>Large, firm, infiltrative, white</td>
+            <td>Bland fibrocytes, storiform, abundant collagen</td>
+            <td>CTNNB1 / APC mutation; β-catenin+</td>
+            <td>No metastasis; high recurrence (up to 70%)</td>
+          </tr>
+          <tr>
+            <td>Fibrosarcoma</td>
+            <td><span class="highlight-pill red">Malignant</span></td>
+            <td>Adults; anywhere</td>
+            <td>Unencapsulated, fish-flesh, haemorrhage & necrosis</td>
+            <td>Spindle cells in herringbone pattern</td>
+            <td>No specific marker</td>
+            <td>50% recurrence; >25% metastasis</td>
+          </tr>
+          <tr>
+            <td>Embryonal RMS (Botyroides)</td>
+            <td><span class="highlight-pill red">Malignant</span></td>
+            <td>Children; GU tract, H&N</td>
+            <td>Grape-like polypoid mass</td>
+            <td>Cambium layer, rhabdomyoblasts, cross-striations</td>
+            <td>Desmin, Myogenin, MYOD1+; LOH 11p15</td>
+            <td>Relatively better (vs alveolar)</td>
+          </tr>
+          <tr>
+            <td>Alveolar RMS</td>
+            <td><span class="highlight-pill red">Malignant</span></td>
+            <td>Adolescents; extremities</td>
+            <td>Firm, invasive</td>
+            <td>Cells lining fibrous septa, alveolar spaces</td>
+            <td>PAX3-FOXO1A t(2;13) or PAX7-FOXO1A t(1;13)</td>
+            <td>Worst among RMS subtypes</td>
+          </tr>
+          <tr>
+            <td>Synovial Sarcoma</td>
+            <td><span class="highlight-pill red">Malignant</span></td>
+            <td>20–40y; deep soft tissue near knee</td>
+            <td>Calcified foci common on imaging</td>
+            <td>Biphasic (spindle + epithelioid glands) or monophasic</td>
+            <td>Cytokeratin, EMA+; t(X;18) SYT-SSX</td>
+            <td>Intermediate; ~50% 5-year survival</td>
+          </tr>
+          <tr>
+            <td>Schwannoma</td>
+            <td><span class="highlight-pill green">Benign</span></td>
+            <td>Any; VIII CN, peripheral nerves</td>
+            <td>Encapsulated, attached to nerve</td>
+            <td>Antoni A (Verocay bodies) + Antoni B (myxoid)</td>
+            <td>S-100+++; NF2 gene mutation</td>
+            <td>Excellent after excision</td>
+          </tr>
+          <tr>
+            <td>Neurofibroma</td>
+            <td><span class="highlight-pill green">Benign</span></td>
+            <td>Any; skin, deep in NF1</td>
+            <td>Unencapsulated nodule/plaque</td>
+            <td>Mixed Schwann, fibroblasts, mast cells, CD34+ spindle cells in myxoid stroma</td>
+            <td>S-100+, CD34+; NF1 gene mutation</td>
+            <td>Good; plexiform type → MPNST risk</td>
+          </tr>
+          <tr>
+            <td>MPNST</td>
+            <td><span class="highlight-pill red">Malignant</span></td>
+            <td>Any; NF1 patients, nerve roots</td>
+            <td>Large, infiltrative, fusiform nerve mass</td>
+            <td>High-grade spindle cells; loss of S-100</td>
+            <td>Focal/lost S-100; NF1 loss</td>
+            <td>Poor; 20–50% 5-year survival</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─── 8. TAKE-HOME MESSAGES ───────────────────────────── -->
+  <section class="section-block" id="takehome">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>Key Take-Home Messages</h2>
+    </div>
+    <div class="takehome-list">
+      <div class="takehome-item"><span class="th-num">01</span>Soft tissue tumours are classified by tissue of origin. Each tissue has a benign and a malignant counterpart.</div>
+      <div class="takehome-item"><span class="th-num">02</span><strong>Lipoblast</strong> = diagnostic cell of liposarcoma. A multivacuolated cell that scallops the nucleus. Never found in lipoma.</div>
+      <div class="takehome-item"><span class="th-num">03</span>Nodular fasciitis = benign pseudosarcoma. Abundant mitotic figures ≠ malignant; absence of ATYPICAL mitoses is key.</div>
+      <div class="takehome-item"><span class="th-num">04</span>Desmoid tumours = locally aggressive, no metastasis, but HIGH recurrence. Associated with APC/β-catenin mutations.</div>
+      <div class="takehome-item"><span class="th-num">05</span><strong>Herringbone pattern</strong> = Fibrosarcoma. <strong>Storiform</strong> = Fibrohistiocytic. <strong>Palisading + Verocay</strong> = Schwannoma.</div>
+      <div class="takehome-item"><span class="th-num">06</span>RMS is the most common soft tissue SARCOMA in CHILDREN. Cambium layer + botyroides pattern = embryonal subtype. PAX3-FOXO1A = alveolar (worst prognosis).</div>
+      <div class="takehome-item"><span class="th-num">07</span>Synovial sarcoma is NOT from synovium. It stains for cytokeratin/EMA (like a carcinoma) and has t(X;18).</div>
+      <div class="takehome-item"><span class="th-num">08</span>Schwannoma (NF2, encapsulated, Antoni A+B, pure S-100+) vs Neurofibroma (NF1, unencapsulated, mixed cells). Plexiform neurofibroma = pathognomonic of NF1 and carries MPNST risk.</div>
+      <div class="takehome-item"><span class="th-num">09</span>Adverse prognostic factors: tumour size >5 cm, high histological grade, deep location, positive surgical margins, age >50, recurrent disease.</div>
+      <div class="takehome-item"><span class="th-num">10</span>MRI is the investigation of choice for extremity soft tissue masses. CT for abdominal/retroperitoneal lesions.</div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─── 9. EXAM FOCUS ───────────────────────────────────── -->
+  <section class="section-block" id="examfocus">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2>Exam Focus — Common Traps & Rapid Recall</h2>
+    </div>
+    <div class="exam-cols">
+      <div class="exam-card traps">
+        <h4>⚠ Common Exam Traps</h4>
+        <ul>
+          <li>Mitotic figures in nodular fasciitis → NOT malignant; look for ATYPICAL mitoses</li>
+          <li>Synovial sarcoma stains cytokeratin/EMA → NOT a carcinoma</li>
+          <li>Lipoma ≠ Liposarcoma: lipoblasts are REQUIRED for liposarcoma diagnosis</li>
+          <li>Schwannoma (NF2, encapsulated) ≠ Neurofibroma (NF1, unencapsulated)</li>
+          <li>RMS is the #1 soft tissue sarcoma in CHILDREN — not adults (adults = liposarcoma/MFH)</li>
+          <li>Desmoid = NO metastasis but locally destructive + high recurrence</li>
+          <li>Myositis ossificans mineralizes PERIPHERALLY — opposite of osteosarcoma</li>
+          <li>S-100 loss in MPNST distinguishes it from benign nerve sheath tumours</li>
+          <li>"Synovial" sarcoma rarely arises from synovium — misleading name!</li>
+          <li>Sarcoma botyroides = subtype of embryonal RMS, NOT a separate entity</li>
+        </ul>
+      </div>
+      <div class="exam-card recall">
+        <h4>→ Rapid Recall Associations</h4>
+        <ul>
+          <li>Lipoblast → Liposarcoma</li>
+          <li>Cambium layer + Botyroides → Embryonal RMS</li>
+          <li>Verocay bodies + Antoni A/B → Schwannoma</li>
+          <li>Herringbone → Fibrosarcoma</li>
+          <li>Storiform → MFH / Fibrohistiocytic tumours</li>
+          <li>t(X;18) SYT-SSX → Synovial sarcoma</li>
+          <li>t(2;13) PAX3-FOXO1A → Alveolar RMS</li>
+          <li>HHV-8 → Kaposi sarcoma</li>
+          <li>NF1 → Neurofibroma / MPNST risk</li>
+          <li>NF2 → Schwannoma (bilateral acoustic)</li>
+          <li>APC / CTNNB1 → Desmoid (fibromatosis)</li>
+          <li>COL1A1-PDGFB t(17;22) → DFSP</li>
+          <li>MDM2, CDK4 amplification → Well-diff liposarcoma</li>
+          <li>Desmin + Myogenin → RMS</li>
+          <li>CD31 + vWF → Angiosarcoma / Endothelial</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div style="margin-top:3rem; padding: 1.5rem; background: var(--surface2); border-radius: var(--radius); font-size:0.82rem; color:var(--text-muted); text-align:center; border: 1px solid var(--border);">
+    <strong style="color:var(--accent);">MAHSA University — Department of Pathology</strong><br>
+    CPAS e-Book · Soft Tissue Tumours · MBBS Year 2<br>
+    Reference: Robbins & Cotran Pathologic Basis of Disease, 10th Edition<br>
+    <span style="font-family:var(--mono-font); font-size:0.7rem;">Generated for Kolektif LMS · GitHub Pages compatible</span>
+  </div>
+
+</main>
+
+<script>
+// ─── ACCORDION ────────────────────────────────────────────
+function toggleAcc(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+}
+
+// ─── MCQ ──────────────────────────────────────────────────
+function answerMCQ(mcqId, el, isCorrect, feedback) {
+  const opts = document.getElementById(mcqId + '-opts');
+  const fb = document.getElementById(mcqId + '-fb');
+  
+  // Prevent re-answering
+  if (opts.dataset.answered) return;
+  opts.dataset.answered = '1';
+
+  // Disable all options
+  Array.from(opts.children).forEach(li => {
+    li.style.pointerEvents = 'none';
+  });
+
+  // Mark selected
+  el.classList.add(isCorrect ? 'correct' : 'wrong');
+
+  // Show feedback
+  fb.textContent = (isCorrect ? '✓ Correct! ' : '✗ Incorrect. ') + feedback;
+  fb.className = 'feedback-box ' + (isCorrect ? 'correct-fb' : 'wrong-fb');
+}
+
+// ─── ACTIVE TOC HIGHLIGHT ─────────────────────────────────
+const sections = document.querySelectorAll('section.section-block');
+const tocLinks = document.querySelectorAll('#toc a');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      tocLinks.forEach(a => a.classList.remove('active'));
+      const active = document.querySelector('#toc a[href="#' + entry.target.id + '"]');
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
