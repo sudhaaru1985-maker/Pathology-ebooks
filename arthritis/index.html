@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Disorders of Joints — CPAS e-Book | MAHSA University Pathology</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --burgundy: #7B1D1D;
+  --burgundy-light: #9B3030;
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --cream: #FAF6EF;
+  --cream-dark: #F0E9DC;
+  --slate: #2C3E50;
+  --slate-mid: #4A5568;
+  --slate-light: #718096;
+  --white: #FFFFFF;
+  --oa-color: #2E7D6B;
+  --ra-color: #6B2E7D;
+  --gout-color: #7D5A2E;
+  --sero-color: #2E4B7D;
+  --infect-color: #7D2E2E;
+  --correct: #1A6B3C;
+  --incorrect: #7D1A1A;
+  --shadow: 0 4px 20px rgba(0,0,0,0.10);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.15);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Source Serif 4', serif;
+  background: var(--cream);
+  color: var(--slate);
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── TOC SIDEBAR ─────────────────────────── */
+#toc {
+  position: fixed;
+  top: 0; left: 0;
+  width: 260px;
+  height: 100vh;
+  background: var(--slate);
+  overflow-y: auto;
+  z-index: 100;
+  padding: 24px 0 40px;
+  transition: transform .3s ease;
+}
+
+#toc-header {
+  padding: 0 20px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  margin-bottom: 12px;
+}
+
+#toc-header .toc-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+}
+
+#toc-header .toc-subtitle {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+#toc ul { list-style: none; padding: 0 10px; }
+#toc ul li a {
+  display: block;
+  padding: 7px 12px;
+  border-radius: 6px;
+  color: rgba(255,255,255,0.70);
+  text-decoration: none;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  transition: background .18s, color .18s;
+  font-family: 'Source Serif 4', serif;
+}
+#toc ul li a:hover,
+#toc ul li a.active {
+  background: rgba(201,168,76,0.18);
+  color: var(--gold-light);
+}
+#toc ul li a.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  color: rgba(255,255,255,0.30);
+  padding-top: 14px;
+  cursor: default;
+  pointer-events: none;
+}
+#toc ul li a.section-label:hover { background: transparent; }
+
+/* ── MAIN CONTENT ──────────────────────── */
+#main {
+  margin-left: 260px;
+  flex: 1;
+  min-height: 100vh;
+}
+
+/* ── HERO ──────────────────────────────── */
+#hero {
+  background: linear-gradient(135deg, var(--slate) 0%, #1a252f 50%, var(--burgundy) 100%);
+  color: white;
+  padding: 70px 60px 60px;
+  position: relative;
+  overflow: hidden;
+}
+#hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+}
+#hero::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: 40%;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(123,29,29,0.3) 0%, transparent 70%);
+}
+.hero-tag {
+  display: inline-block;
+  background: rgba(201,168,76,0.20);
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+#hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  line-height: 1.1;
+  font-weight: 900;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+#hero h1 span { color: var(--gold); }
+.hero-meta {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.60);
+  font-family: 'JetBrains Mono', monospace;
+  position: relative; z-index: 1;
+}
+
+/* ── SECTIONS ─────────────────────────── */
+section {
+  padding: 52px 60px;
+  border-bottom: 1px solid var(--cream-dark);
+}
+section:nth-child(even) { background: #fdfaf4; }
+
+.section-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  color: var(--slate);
+  margin-bottom: 28px;
+  border-left: 4px solid var(--gold);
+  padding-left: 16px;
+}
+
+/* ── LEARNING OUTCOMES ─────────────────── */
+.lo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+.lo-item {
+  background: white;
+  border: 1px solid var(--cream-dark);
+  border-left: 4px solid var(--burgundy);
+  border-radius: 8px;
+  padding: 16px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  box-shadow: var(--shadow);
+}
+.lo-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  background: var(--burgundy);
+  color: white;
+  border-radius: 50%;
+  width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.lo-text { font-size: 0.875rem; line-height: 1.55; color: var(--slate-mid); }
+
+/* ── PRIOR KNOWLEDGE ──────────────────── */
+.pk-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+.pk-card {
+  background: white;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--gold);
+}
+.pk-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--burgundy);
+  margin-bottom: 10px;
+}
+.pk-card p { font-size: 0.84rem; line-height: 1.6; color: var(--slate-mid); }
+
+/* ── CLINICAL TRIGGER ──────────────────── */
+.trigger-box {
+  background: linear-gradient(135deg, #1a252f, var(--slate));
+  color: white;
+  border-radius: 16px;
+  padding: 36px 40px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.trigger-box::before {
+  content: '🏥';
+  position: absolute;
+  right: 30px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 5rem;
+  opacity: 0.08;
+}
+.trigger-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.trigger-box p {
+  font-size: 0.93rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.88);
+}
+.trigger-box .highlight {
+  color: var(--gold-light);
+  font-style: italic;
+}
+.trigger-questions {
+  background: rgba(255,255,255,0.07);
+  border-left: 3px solid var(--gold);
+  padding: 12px 16px;
+  margin-top: 16px;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.85rem;
+}
+
+/* ── CLASSIFICATION ────────────────────── */
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
+}
+.class-card {
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+}
+.class-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.class-card ul { list-style: none; padding: 0; }
+.class-card ul li {
+  font-size: 0.8rem;
+  padding: 3px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.85);
+}
+.class-card ul li:last-child { border: none; }
+.card-deg { background: var(--oa-color); }
+.card-auto { background: var(--ra-color); }
+.card-crys { background: var(--gout-color); }
+.card-inf { background: var(--infect-color); }
+.card-met { background: #4A7D5A; }
+.card-neo { background: #4A4A7D; }
+
+/* ── ACCORDIONS ───────────────────────── */
+.disease-accordion {
+  border: 1px solid var(--cream-dark);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.acc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  cursor: pointer;
+  user-select: none;
+  transition: background .2s;
+}
+.acc-header:hover { filter: brightness(0.96); }
+.acc-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.acc-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.acc-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+.acc-sub { font-size: 0.75rem; opacity: 0.75; font-family: 'JetBrains Mono', monospace; }
+.acc-chevron {
+  font-size: 1.2rem;
+  transition: transform .3s;
+  opacity: 0.7;
+}
+.acc-body {
+  display: none;
+  padding: 0 24px 24px;
+  background: white;
+}
+.acc-body.open { display: block; }
+.acc-chevron.open { transform: rotate(180deg); }
+
+/* OA styles */
+.acc-oa .acc-header { background: #E8F5F2; }
+.acc-oa .acc-icon { background: var(--oa-color); color: white; }
+.acc-oa .acc-name { color: var(--oa-color); }
+
+/* RA styles */
+.acc-ra .acc-header { background: #F2E8F5; }
+.acc-ra .acc-icon { background: var(--ra-color); color: white; }
+.acc-ra .acc-name { color: var(--ra-color); }
+
+/* Gout styles */
+.acc-gout .acc-header { background: #F5F0E8; }
+.acc-gout .acc-icon { background: var(--gout-color); color: white; }
+.acc-gout .acc-name { color: var(--gout-color); }
+
+/* Seroneg styles */
+.acc-sero .acc-header { background: #E8EEF5; }
+.acc-sero .acc-icon { background: var(--sero-color); color: white; }
+.acc-sero .acc-name { color: var(--sero-color); }
+
+/* Infect styles */
+.acc-infect .acc-header { background: #F5E8E8; }
+.acc-infect .acc-icon { background: var(--infect-color); color: white; }
+.acc-infect .acc-name { color: var(--infect-color); }
+
+/* ── INNER ACCORDION CONTENT ──────────── */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+.info-block {
+  background: var(--cream);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.info-block.full-width { grid-column: 1/-1; }
+.info-block h5 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--gold);
+  color: var(--slate-mid);
+}
+.info-block ul { list-style: none; padding: 0; }
+.info-block ul li {
+  font-size: 0.84rem;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  color: var(--slate-mid);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  line-height: 1.5;
+}
+.info-block ul li::before { content: '▸'; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+.info-block p { font-size: 0.84rem; line-height: 1.65; color: var(--slate-mid); }
+
+.pathogen-step {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 12px;
+  align-items: flex-start;
+}
+.step-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--burgundy);
+  color: white;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.step-content { font-size: 0.84rem; line-height: 1.6; color: var(--slate-mid); }
+.step-content strong { color: var(--slate); }
+
+.morph-badge {
+  display: inline-block;
+  background: var(--cream-dark);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  margin: 3px;
+  color: var(--slate-mid);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── APPLICATION CASES ─────────────────── */
+.case-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.case-header {
+  background: linear-gradient(135deg, var(--slate), #1a252f);
+  color: white;
+  padding: 22px 26px;
+}
+.case-header .case-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.case-header h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; }
+.case-vignette {
+  padding: 22px 26px;
+  background: #fdfaf4;
+  border-bottom: 1px solid var(--cream-dark);
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--slate-mid);
+}
+.case-vignette strong { color: var(--burgundy); }
+.mcq-section { padding: 22px 26px; }
+.mcq-q {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--slate);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.mcq-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+.mcq-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 2px solid var(--cream-dark);
+  cursor: pointer;
+  transition: all .2s;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--slate-mid);
+  background: white;
+  text-align: left;
+}
+.mcq-option:hover { border-color: var(--gold); background: #fdf9ee; }
+.mcq-option .opt-letter {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--cream-dark);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-weight: 600;
+  color: var(--slate-mid);
+}
+.mcq-option.correct {
+  border-color: #1A6B3C;
+  background: #F0FAF4;
+}
+.mcq-option.correct .opt-letter { background: #1A6B3C; color: white; }
+.mcq-option.incorrect {
+  border-color: #7D1A1A;
+  background: #FDF0F0;
+}
+.mcq-option.incorrect .opt-letter { background: #7D1A1A; color: white; }
+.mcq-feedback {
+  display: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.83rem;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+.mcq-feedback.correct-fb {
+  background: #F0FAF4;
+  border-left: 4px solid #1A6B3C;
+  color: #1A4A2B;
+}
+.mcq-feedback.incorrect-fb {
+  background: #FDF0F0;
+  border-left: 4px solid #7D1A1A;
+  color: #4A1A1A;
+}
+.mcq-feedback.show { display: block; }
+.mcq-step-divider {
+  border: none;
+  border-top: 2px dashed var(--cream-dark);
+  margin: 20px 0;
+}
+
+/* ── COMPARISON TABLE ─────────────────── */
+.comp-table-wrap { overflow-x: auto; }
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.comp-table thead tr {
+  background: var(--slate);
+  color: white;
+}
+.comp-table thead th {
+  padding: 14px 16px;
+  text-align: left;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+.comp-table thead th:first-child { background: #1a252f; }
+.comp-table tbody tr:nth-child(even) { background: #fdfaf4; }
+.comp-table tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--cream-dark);
+  vertical-align: top;
+  line-height: 1.55;
+  color: var(--slate-mid);
+}
+.comp-table tbody td:first-child {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--slate);
+  background: var(--cream);
+  white-space: nowrap;
+}
+.col-oa { border-top: 3px solid var(--oa-color); }
+.col-ra { border-top: 3px solid var(--ra-color); }
+.col-gout { border-top: 3px solid var(--gout-color); }
+.col-sero { border-top: 3px solid var(--sero-color); }
+
+/* ── KEY MESSAGES ─────────────────────── */
+.key-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
+}
+.key-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  border-bottom: 4px solid var(--gold);
+}
+.key-emoji { font-size: 1.8rem; margin-bottom: 10px; }
+.key-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--burgundy); margin-bottom: 8px; }
+.key-card p { font-size: 0.82rem; line-height: 1.6; color: var(--slate-mid); }
+
+/* ── EXAM FOCUS ───────────────────────── */
+.trap-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-bottom: 28px; }
+.trap-card {
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+  border-left: 5px solid var(--burgundy);
+}
+.trap-card h5 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--burgundy);
+  margin-bottom: 8px;
+}
+.trap-card p { font-size: 0.83rem; line-height: 1.6; color: var(--slate-mid); }
+
+.recall-box {
+  background: linear-gradient(135deg, var(--slate), #1a252f);
+  color: white;
+  border-radius: 16px;
+  padding: 28px 32px;
+}
+.recall-box h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.recall-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.recall-item {
+  background: rgba(255,255,255,0.07);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.85);
+}
+.recall-item strong { display: block; color: var(--gold-light); margin-bottom: 4px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* ── MOBILE TOGGLE ────────────────────── */
+#toc-toggle {
+  display: none;
+  position: fixed;
+  top: 16px; left: 16px;
+  z-index: 200;
+  background: var(--slate);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* ── RESPONSIVE ───────────────────────── */
+@media (max-width: 900px) {
+  #toc { transform: translateX(-100%); }
+  #toc.open { transform: translateX(0); }
+  #main { margin-left: 0; }
+  #toc-toggle { display: block; }
+  section { padding: 36px 24px; }
+  #hero { padding: 60px 24px 40px; }
+  #hero h1 { font-size: 2rem; }
+  .pk-grid, .class-grid, .key-grid, .recall-grid { grid-template-columns: 1fr; }
+  .info-grid { grid-template-columns: 1fr; }
+  .trap-grid { grid-template-columns: 1fr; }
+}
+
+/* ── PROGRESS BAR ─────────────────────── */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 260px; right: 0;
+  height: 3px;
+  background: var(--gold);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 99;
+  transition: transform .05s;
+}
+@media (max-width: 900px) { #progress-bar { left: 0; } }
+
+.footnote {
+  font-size: 0.75rem;
+  color: var(--slate-light);
+  text-align: center;
+  padding: 30px 20px;
+  font-family: 'JetBrains Mono', monospace;
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="toc-toggle" onclick="document.getElementById('toc').classList.toggle('open')">☰</button>
+
+<!-- TOC -->
+<nav id="toc">
+  <div id="toc-header">
+    <div class="toc-logo">Disorders of Joints</div>
+    <div class="toc-subtitle">CPAS e-Book · MAHSA Pathology</div>
+  </div>
+  <ul>
+    <li><a href="#lo" class="section-label">Framework</a></li>
+    <li><a href="#lo">1. Learning Outcomes</a></li>
+    <li><a href="#prior">2. Prior Knowledge</a></li>
+    <li><a href="#trigger">3. Clinical Trigger</a></li>
+    <li><a href="#classify">4. Classification</a></li>
+    <li><a href="#diseases" class="section-label">Disease Detail</a></li>
+    <li><a href="#oa">5a. Osteoarthritis</a></li>
+    <li><a href="#ra">5b. Rheumatoid Arthritis</a></li>
+    <li><a href="#gout">5c. Gout</a></li>
+    <li><a href="#sero">5d. Seronegative SpA</a></li>
+    <li><a href="#infect">5e. Infectious Arthritis</a></li>
+    <li><a href="#cases" class="section-label">Application</a></li>
+    <li><a href="#cases">6. Application Cases</a></li>
+    <li><a href="#table">7. Master Comparison</a></li>
+    <li><a href="#messages">8. Key Take-home</a></li>
+    <li><a href="#exam">9. Exam Focus</a></li>
+  </ul>
+</nav>
+
+<!-- MAIN -->
+<main id="main">
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-tag">CPAS e-Book · MBBS Year 2 · Pathology</div>
+  <h1>Disorders of <span>Joints</span></h1>
+  <div class="hero-meta">Dr. Sudha Arumugam &nbsp;|&nbsp; MAHSA University &nbsp;|&nbsp; Understand & Apply Level</div>
+</div>
+
+<!-- 1. LEARNING OUTCOMES -->
+<section id="lo">
+  <div class="section-number">Section 01</div>
+  <h2>Learning Outcomes</h2>
+  <p style="font-size:0.88rem;color:var(--slate-light);margin-bottom:20px;line-height:1.6;">On completion of this topic, you should be able to:</p>
+  <div class="lo-grid">
+    <div class="lo-item"><div class="lo-num">1</div><div class="lo-text">Define osteoarthritis (OA) and identify its key characteristics as a degenerative joint disease.</div></div>
+    <div class="lo-item"><div class="lo-num">2</div><div class="lo-text">Explain the pathogenesis of OA including chondrocyte injury, cartilage degradation, and subchondral bone changes.</div></div>
+    <div class="lo-item"><div class="lo-num">3</div><div class="lo-text">Discuss the morphology and clinical course of OA including Heberden's nodes and Bouchard's nodes.</div></div>
+    <div class="lo-item"><div class="lo-num">4</div><div class="lo-text">Define rheumatoid arthritis (RA) as a chronic, systemic autoimmune disorder affecting joints and extraarticular structures.</div></div>
+    <div class="lo-item"><div class="lo-num">5</div><div class="lo-text">Explain the pathogenesis of RA including autoantibody production (RF, anti-CCP), pannus formation, and cytokine cascades.</div></div>
+    <div class="lo-item"><div class="lo-num">6</div><div class="lo-text">Discuss the morphology, clinical course, complications, and extraarticular manifestations of RA.</div></div>
+    <div class="lo-item"><div class="lo-num">7</div><div class="lo-text">Define and classify gout into primary and secondary categories based on pathophysiology.</div></div>
+    <div class="lo-item"><div class="lo-num">8</div><div class="lo-text">Explain the pathogenesis of gout and describe the morphology of tophi and joint changes.</div></div>
+    <div class="lo-item"><div class="lo-num">9</div><div class="lo-text">Discuss the clinical course and complications of gout including gouty nephropathy and chronic tophaceous arthritis.</div></div>
+  </div>
+</section>
+
+<!-- 2. PRIOR KNOWLEDGE BRIDGE -->
+<section id="prior">
+  <div class="section-number">Section 02</div>
+  <h2>Prior Knowledge Bridge</h2>
+  <p style="font-size:0.88rem;color:var(--slate-light);margin-bottom:22px;line-height:1.6;">Before diving in, recall these foundational concepts from Year 1 and earlier Year 2 modules.</p>
+  <div class="pk-grid">
+    <div class="pk-card">
+      <h4>🦴 Joint Anatomy</h4>
+      <p>Synovial joints consist of articular cartilage (type II collagen + proteoglycans), synovial membrane (secretes synovial fluid), joint capsule, and subchondral bone. Cartilage is avascular and relies on diffusion for nutrition.</p>
+    </div>
+    <div class="pk-card">
+      <h4>🔥 Inflammation Basics</h4>
+      <p>Acute inflammation involves vascular changes, neutrophil recruitment, and chemical mediators (PGE₂, LTB₄). Chronic inflammation involves lymphocytes, plasma cells, and macrophages. Granulomatous inflammation features palisaded macrophages (histiocytes) around a necrotic core.</p>
+    </div>
+    <div class="pk-card">
+      <h4>🧬 Autoimmunity</h4>
+      <p>Loss of immune tolerance leads to autoreactive T and B cells attacking self-antigens. HLA molecules (MHC class II) present antigens to CD4+ T helper cells (Th1, Th17). Cytokines like TNF-α, IL-1, IL-6, IL-17, and IFN-γ drive tissue destruction.</p>
+    </div>
+    <div class="pk-card">
+      <h4>🧫 Purine Metabolism</h4>
+      <p>Purines (adenine, guanine) are degraded to uric acid via xanthine oxidase. Uric acid is the final breakdown product in humans (no uricase). Normal serum urate ≤6.8 mg/dL. Hyperuricemia → monosodium urate (MSU) crystal deposition in cool peripheral joints.</p>
+    </div>
+    <div class="pk-card">
+      <h4>🩺 Matrix Metalloproteinases</h4>
+      <p>MMPs are zinc-dependent enzymes that degrade extracellular matrix components (collagen, proteoglycans). They are upregulated by pro-inflammatory cytokines (IL-1β, TNF-α) and play a central role in both OA and RA cartilage destruction.</p>
+    </div>
+    <div class="pk-card">
+      <h4>🦠 HLA Associations</h4>
+      <p>HLA-DR4/DR1 → Rheumatoid arthritis (class II, activates CD4+ T cells). HLA-B27 → Seronegative spondyloarthropathies (class I, activates CD8+ T cells). These genetic associations explain familial clustering and variable disease expression.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. CLINICAL TRIGGER -->
+<section id="trigger">
+  <div class="section-number">Section 03</div>
+  <h2>Clinical Trigger</h2>
+  <div class="trigger-box">
+    <div class="trigger-label">📋 Case Scenario A</div>
+    <p>A <strong class="highlight">49-year-old man</strong> presents with a <strong class="highlight">10-year history of episodic joint pain</strong> involving his hands and feet in a <strong class="highlight">remitting and relapsing pattern</strong>. On examination, his hands show <strong class="highlight">swan-neck deformities and ulnar deviation</strong> of the fingers. Laboratory investigations reveal elevated ESR, positive rheumatoid factor, and anti-CCP antibodies. His symptoms significantly improve following <strong class="highlight">methotrexate therapy</strong>.</p>
+    <div class="trigger-questions">
+      <strong style="color:var(--gold-light);">Think about:</strong> What type of arthritis presents symmetrically with small joint involvement, systemic features, and responds to DMARDs? What autoantibodies would you request?
+    </div>
+  </div>
+  <div class="trigger-box">
+    <div class="trigger-label">📋 Case Scenario B</div>
+    <p>An <strong class="highlight">otherwise healthy 44-year-old man</strong> has increasing <strong class="highlight">back pain and right hip pain for a decade</strong>. Pain is <strong class="highlight">worse at end of day</strong> and after activity. Examination shows <strong class="highlight">bony enlargement of DIP joints</strong>. X-ray spine shows <strong class="highlight">prominent osteophytes</strong> on vertebral bodies; X-ray pelvis shows <strong class="highlight">sclerosis and joint space narrowing</strong> at the right acetabulum. Inflammatory markers are normal.</p>
+    <div class="trigger-questions">
+      <strong style="color:var(--gold-light);">Think about:</strong> Which arthritis is degenerative, worsens with use, affects weight-bearing joints, lacks systemic features, and shows osteophytes on imaging?
+    </div>
+  </div>
+</section>
+
+<!-- 4. CLASSIFICATION -->
+<section id="classify">
+  <div class="section-number">Section 04</div>
+  <h2>Classification Framework</h2>
+  <div class="class-grid">
+    <div class="class-card card-deg">
+      <h4>🦴 Degenerative</h4>
+      <ul><li>Osteoarthritis (OA)</li><li>Secondary OA (post-traumatic)</li></ul>
+    </div>
+    <div class="class-card card-auto">
+      <h4>🛡️ Autoimmune</h4>
+      <ul><li>Rheumatoid arthritis (RA)</li><li>ANA-positive diseases (SLE, etc.)</li><li>Juvenile Idiopathic Arthritis (JIA)</li></ul>
+    </div>
+    <div class="class-card card-crys">
+      <h4>💎 Crystalline</h4>
+      <ul><li>Gout (MSU crystals)</li><li>Pseudogout / CPPD</li></ul>
+    </div>
+    <div class="class-card card-inf">
+      <h4>🦠 Infectious</h4>
+      <ul><li>Bacterial (suppurative)</li><li>Viral arthritis</li></ul>
+    </div>
+    <div class="class-card card-met" style="background:#3A6B4A;">
+      <h4>⚗️ Metabolic / Endocrine</h4>
+      <ul><li>Hyperthyroidism</li><li>Hyperparathyroidism</li></ul>
+    </div>
+    <div class="class-card card-neo" style="background:#3A3A6B;">
+      <h4>🔬 Seronegative SpA</h4>
+      <ul><li>Ankylosing spondylitis</li><li>Reactive arthritis (Reiter's)</li><li>Psoriatic arthropathy</li><li>Enteropathic arthropathy</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- 5. DISEASE ACCORDIONS -->
+<section id="diseases">
+  <div class="section-number">Section 05</div>
+  <h2>Disease / Condition Accordions</h2>
+
+  <!-- OA -->
+  <div class="disease-accordion acc-oa" id="oa">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-title">
+        <div class="acc-icon">🦴</div>
+        <div>
+          <div class="acc-name">Osteoarthritis (OA)</div>
+          <div class="acc-sub">Degenerative Joint Disease</div>
+        </div>
+      </div>
+      <div class="acc-chevron">▼</div>
+    </div>
+    <div class="acc-body">
+      <div class="info-grid">
+        <div class="info-block">
+          <h5>Definition</h5>
+          <p>A degenerative joint disease characterised by progressive degeneration of articular cartilage, with secondary changes in the subchondral bone and periarticular structures. It is <strong>not primarily inflammatory</strong> but involves low-grade synovitis.</p>
+        </div>
+        <div class="info-block">
+          <h5>Affected Joints</h5>
+          <ul>
+            <li>Hip and knee (weight-bearing)</li>
+            <li>Cervical and lumbar spine</li>
+            <li>DIP joints → Heberden's nodes</li>
+            <li>PIP joints → Bouchard's nodes</li>
+            <li>First carpometacarpal joint</li>
+          </ul>
+        </div>
+        <div class="info-block full-width">
+          <h5>Pathogenesis (Step-by-step)</h5>
+          <div class="pathogen-step"><div class="step-num">1</div><div class="step-content"><strong>Chondrocyte injury:</strong> Obesity, aging, trauma, microfractures, and anatomic abnormalities lead to mechanical stress on chondrocytes, generating reactive oxygen species and impaired repair.</div></div>
+          <div class="pathogen-step"><div class="step-num">2</div><div class="step-content"><strong>Cartilage degradation:</strong> Stressed chondrocytes release MMPs (collagenase, stromelysin) and aggrecanases driven by PGE₂, NO, and TNF. IL-8 and BMPs are released. Degradation exceeds repair — type II collagen and proteoglycans are lost.</div></div>
+          <div class="pathogen-step"><div class="step-num">3</div><div class="step-content"><strong>Fragmentation & fibrillation:</strong> The cartilage surface cracks and fragments, producing loose bodies (joint mice) that irritate the synovium.</div></div>
+          <div class="pathogen-step"><div class="step-num">4</div><div class="step-content"><strong>Subchondral bone changes:</strong> Exposed subchondral bone undergoes <em>eburnation</em> (polished ivory appearance from friction), subchondral cyst formation, and sclerosis. Bone remodels with osteophyte formation at joint margins.</div></div>
+          <div class="pathogen-step"><div class="step-num">5</div><div class="step-content"><strong>Low-grade synovitis:</strong> Cytokines (IL-1β, TNF-α) from the synovium perpetuate cartilage degradation, though synovitis is far less severe than in RA.</div></div>
+        </div>
+        <div class="info-block">
+          <h5>Morphology (Gross)</h5>
+          <ul>
+            <li>Fibrillation of articular cartilage (surface cracks)</li>
+            <li>Eburnated articular surface (ivory-like subchondral bone)</li>
+            <li>Subchondral cysts (fluid-filled spaces)</li>
+            <li>Osteophytes (bony spurs at joint margins)</li>
+            <li>Loose bodies ("joint mice")</li>
+          </ul>
+        </div>
+        <div class="info-block">
+          <h5>Morphology (Histology)</h5>
+          <ul>
+            <li>Loss of basophilic staining (proteoglycan depletion)</li>
+            <li>Vertical clefts in cartilage (fibrillation)</li>
+            <li>Chondrocyte cloning (clusters)</li>
+            <li>Chondrocyte dropout and apoptosis (late)</li>
+            <li>Subchondral bone changes — microfractures, sclerosis</li>
+          </ul>
+        </div>
+        <div class="info-block">
+          <h5>Clinical Features</h5>
+          <ul>
+            <li>Deep, aching joint pain — worsens with use, eases with rest</li>
+            <li>Morning stiffness &lt;30 minutes (key: brief)</li>
+            <li>Crepitus (audible/palpable grinding)</li>
+            <li>Bony enlargement — Heberden's (DIP) & Bouchard's (PIP) nodes</li>
+            <li>Small joint effusions</li>
+            <li>Limitation of movement; NO systemic features</li>
+          </ul>
+        </div>
+        <div class="info-block">
+          <h5>Risk Factors</h5>
+          <ul>
+            <li>Older age (risk ↑ from 40 years)</li>
+            <li>Obesity (excess mechanical load)</li>
+            <li>Joint injury / long-term overuse</li>
+            <li>Family history (genetic predisposition)</li>
+            <li>Malformed joints (e.g., knock-knees, congenital hip dysplasia)</li>
+            <li>Physical inactivity (weak periarticular muscles)</li>
+          </ul>
+        </div>
+        <div class="info-block">
+          <h5>Complications</h5>
+          <ul>
+            <li>Nerve root compression by osteophytes → radicular pain, neurological deficits</li>
+            <li>Joint deformity and instability</li>
+            <li>Muscle spasm and atrophy</li>
+            <li>Significant disability (hip/knee OA)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RA -->
+  <div class="disease-accordion acc-ra" id="ra">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-title">
+        <div class="acc-icon">🛡️</div>
+        <div>
+          <div class="acc-name">Rheumatoid Arthritis (RA)</div>
+          <div class="acc-sub">Chronic Systemic Autoimmune Arthritis</div>
+        </div>
+      </div>
+      <div class="acc-chevron">▼</div>
+    </div>
+    <div class="acc-body">
+      <div class="info-grid">
+        <div class="info-block">
+          <h5>Definition</h5>
+          <p>A chronic, systemic, autoimmune disorder principally affecting joints, producing a non-suppurative proliferative and inflammatory synovitis that progresses to destruction of articular cartilage, fibrous ankylosis, and bony ankylosis. Extraarticular lesions occur in skin, heart, lungs, and blood vessels.</p>
+        </div>
+        <div class="info-block">
+          <h5>Etiology / Genetics</h5>
+          <ul>
+            <li>HLA-DR4 / HLA-DR1 (class II MHC) — 50% risk contribution</li>
+            <li>PTPN22 alleles (immune regulation gene)</li>
+            <li>Environmental triggers: smoking, infections</li>
+            <li>Loss of tolerance → citrullination of self-proteins</li>
+          </ul>
+        </div>
+        <div class="info-block full-width">
+          <h5>Pathogenesis (Step-by-step)</h5>
+          <div class="pathogen-step"><div class="step-num">1</div><div class="step-content"><strong>Loss of tolerance:</strong> Genetic predisposition + environmental triggers (infection, smoking) → enzymatic citrullination of self-proteins (e.g., fibrinogen, vimentin) → development of anti-citrullinated protein antibodies (ACPA/anti-CCP) and rheumatoid factor (RF, auto-Ab against Fc of IgG).</div></div>
+          <div class="pathogen-step"><div class="step-num">2</div><div class="step-content"><strong>T cell & B cell activation:</strong> Th1 cells release IFN-γ → activates synovial fibroblasts and macrophages. Th17 cells release IL-17 → recruits neutrophils and monocytes. B cells produce RF and ACPA.</div></div>
+          <div class="pathogen-step"><div class="step-num">3</div><div class="step-content"><strong>Synovial inflammation:</strong> TNF-α and IL-1 → stimulate synovial fibroblasts and chondrocytes to release collagenase, stromelysin, elastase, PGE₂ → destroy cartilage. IL-6 drives acute phase response (elevated ESR, CRP).</div></div>
+          <div class="pathogen-step"><div class="step-num">4</div><div class="step-content"><strong>Pannus formation:</strong> Hyperplastic synovial tissue (pannus) composed of inflammatory cells, granulation tissue, and fibroblast-like synoviocytes grows over articular cartilage → direct erosion.</div></div>
+          <div class="pathogen-step"><div class="step-num">5</div><div class="step-content"><strong>Bone destruction:</strong> RANKL expressed on T cells and synoviocytes → activates osteoclasts → periarticular bone resorption and erosions.</div></div>
+          <div class="pathogen-step"><div class="step-num">6</div><div class="step-content"><strong>Ankylosis:</strong> Persistent destruction → fibrous ankylosis (fibrous tissue bridges joint) → bony ankylosis (bone bridges joint space).</div></div>
+        </div>
+        <div class="info-block">
+          <h5>Joint Morphology</h5>
+          <ul>
+            <li>Synovial hyperplasia with villous projections</li>
+            <li>Dense infiltration: T cells (Th1/Th17), B cells, plasma cells, macrophages, dendritic cells</li>
+            <li>Lymphoid aggregates (germinal centres) in synovium</li>
+            <li>Increased vascularity (angiogenesis)</li>
+            <li>Rice bodies — organized fibrin fragments floating in joint fluid</li>
+            <li>Neutrophils in synovial fluid</li>
+            <li>Pannus → fibrous ankylosis → bony ankylosis</li>
+          </ul>
+        </div>
+        <div class="info-block">
+          <h5>Extraarticular Morphology</h5>
+          <ul>
+            <li><strong>Rheumatoid nodules</strong> (skin): areas of fibrinoid necrosis surrounded by a palisade of macrophages (histiocytes) and lymphocytes. Located at pressure areas: ulnar forearm, elbows, occiput, lumbosacral area</li>
+            <li><strong>Vasculitis</strong>: peripheral neuropathy, skin ulcers, gangrene</li>
+            <li>Lungs: pleuritis, interstitial fibrosis</li>
+            <li>Heart: pericarditis</li>
+            <li>Kidneys: AA amyloidosis (from chronic inflammation)</li>
+          </ul>
+        </div>
+        <div class="info-block">
+          <h5>Clinical Features (Joints)</h5>
+          <ul>
+            <li>Females > Males; any age (including children — Still's disease)</li>
+            <li>Symmetrical polyarthritis — small joints first (MCP, PIP), then larger joints</li>
+            <li>Morning stiffness >1 hour (key distinguishing feature)</li>
+            <li>Swollen, warm, painful joints</li>
+            <li>Swan-neck deformity (PIP hyperextension, DIP flexion)</li>
+            <li>Boutonnière deformity (PIP flexion, DIP hyperextension)</li>
+            <li>Ulnar deviation of MCP joints</li>
+            <li>X-ray: diffuse osteopenia, joint space loss, periarticular erosions, ulnar drift</li>
+          </ul>
+        </div>
+        <div class="info-block">
+          <h5>Extraarticular Manifestations</h5>
+          <ul>
+            <li>Ocular: keratoconjunctivitis sicca, scleritis, episcleritis</li>
+            <li>Pulmonary: pleural disease, interstitial lung disease</li>
+            <li>Cardiac: pericarditis, coronary artery disease</li>
+            <li>Renal: AA amyloid, membranous GN, tubulo-interstitial nephritis</li>
+            <li>Haematological: anaemia of chronic disease, Felty's syndrome (RA + splenomegaly + neutropaenia)</li>
+            <li>Neurological: entrapment neuropathy (carpal tunnel), cervical myelopathy</li>
+          </ul>
+        </div>
+        <div class="info-block">
+          <h5>Laboratory Investigations</h5>
+          <ul>
+            <li>Rheumatoid Factor (RF): positive in ~80%</li>
+            <li>Anti-CCP (anti-cyclic citrullinated peptide): positive in ~70%, more specific</li>
+            <li>Elevated ESR, CRP (active inflammation)</li>
+            <li>Normocytic normochromic anaemia</li>
+            <li>X-ray / MRI for erosions and joint damage</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GOUT -->
+  <div class="disease-accordion acc-gout" id="gout">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-title">
+        <div class="acc-icon">💎</div>
+        <div>
+          <div class="acc-name">Gouty Arthritis</div>
+          <div class="acc-sub">Crystalline Arthritis · MSU Crystal Deposition</div>
+        </div>
+      </div>
+      <div class="acc-chevron">▼</div>
+    </div>
+    <div class="acc-body">
+      <div class="info-grid">
+        <div class="info-block">
+          <h5>Definition</h5>
+          <p>A metabolic disorder characterised by transient attacks of acute arthritis initiated by deposition of monosodium urate (MSU) crystals in and around joints. Requires sustained hyperuricaemia (serum urate >6.8 mg/dL).</p>
+        </div>
+        <div class="info-block">
+          <h5>Classification</h5>
+          <ul>
+            <li><strong>Primary Gout (90%):</strong> Overproduction (diet, unknown enzyme defects, partial HGPRT deficiency) OR reduced renal excretion with normal production</li>
+            <li><strong>Secondary Gout (10%):</strong> Overproduction (leukemias/neoplasms → high nucleic acid turnover; Lesch-Nyhan syndrome — complete HGPRT deficiency) OR reduced excretion (chronic renal disease)</li>
+          </ul>
+        </div>
+        <div class="info-block full-width">
+          <h5>Pathogenesis (Step-by-step)</h5>
+          <div class="pathogen-step"><div class="step-num">1</div><div class="step-content"><strong>Hyperuricaemia:</strong> Excessive uric acid production or decreased renal excretion → serum urate supersaturation.</div></div>
+          <div class="pathogen-step"><div class="step-num">2</div><div class="step-content"><strong>Crystal precipitation:</strong> MSU crystals deposit in cooler areas (first MTP joint — podagra, ankle, wrist). Triggers include dehydration, trauma, alcohol, sudden dietary change.</div></div>
+          <div class="pathogen-step"><div class="step-num">3</div><div class="step-content"><strong>Macrophage activation:</strong> MSU crystals are phagocytosed by macrophages → activates NLRP3 inflammasome → releases IL-1β, TNF-α, IL-6 → releases LTB₄, prostaglandins, free radicals → neutrophil chemotaxis.</div></div>
+          <div class="pathogen-step"><div class="step-num">4</div><div class="step-content"><strong>Neutrophil cycle:</strong> Neutrophils phagocytose crystals → lysis of neutrophils → release of lysosomal enzymes and crystals → perpetuates inflammation → tissue injury.</div></div>
+          <div class="pathogen-step"><div class="step-num">5</div><div class="step-content"><strong>Resolution:</strong> Anti-inflammatory mechanisms (lipoxin production, TGF-β) → resolution of acute attack, but recurrence leads to chronic disease.</div></div>
+        </div>
+        <div class="info-block">
+          <h5>Risk Factors</h5>
+          <ul>
+            <li>Male sex (4× more common); women post-menopause</li>
+            <li>Age: men 30–50 years</li>
+            <li>High-purine diet: red meat, shellfish, organ meat</li>
+            <li>Alcohol (especially beer — contains purines; reduces urate excretion)</li>
+            <li>Obesity</li>
+            <li>Drugs: thiazide diuretics, aspirin (low dose), ciclosporin</li>
+            <li>HGPRT deficiency, Lesch-Nyhan syndrome</li>
+          </ul>
+        </div>
+        <div class="info-block">
+          <h5>Morphology</h5>
+          <ul>
+            <li><strong>Acute arthritis:</strong> MSU crystals in joint fluid; neutrophilic synovitis; needle-shaped, negatively birefringent crystals (yellow when parallel to slow axis of polarizer)</li>
+            <li><strong>Tophi:</strong> Aggregates of MSU crystals surrounded by granulomatous inflammation (palisaded macrophages and foreign body giant cells)</li>
+            <li><strong>Chronic tophaceous arthritis:</strong> Chalky deposits in synovium; synovial hyperplasia and fibrosis</li>
+            <li><strong>Gouty nephropathy:</strong> Urate crystal deposition in renal interstitium and tubules; can lead to nephrolithiasis</li>
+            <li><strong>Tophi in other sites:</strong> Tendons, ligaments, bursae, ear pinnae</li>
+          </ul>
+        </div>
+        <div class="info-block">
+          <h5>Clinical Stages</h5>
+          <ul>
+            <li><strong>Asymptomatic hyperuricaemia:</strong> No joint symptoms yet</li>
+            <li><strong>Acute gouty arthritis:</strong> Sudden onset, severe pain, redness, swelling of first MTP (podagra) — often nocturnal; self-limiting in 3–10 days</li>
+            <li><strong>Intercritical gout:</strong> Asymptomatic intervals between attacks</li>
+            <li><strong>Chronic tophaceous gout:</strong> Persistent joint damage, tophus formation, deformity; develops years after first attack</li>
+          </ul>
+        </div>
+        <div class="info-block">
+          <h5>Pseudogout (CPPD) — Compare</h5>
+          <ul>
+            <li>Calcium pyrophosphate crystal deposition</li>
+            <li>Rhomboid-shaped crystals (NOT needle-shaped)</li>
+            <li>Positively birefringent on polarising microscopy</li>
+            <li>Chalky white friable deposits in articular cartilage</li>
+            <li>Affects knees most commonly (compare to gout → first MTP)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERONEG SpA -->
+  <div class="disease-accordion acc-sero" id="sero">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-title">
+        <div class="acc-icon">🔗</div>
+        <div>
+          <div class="acc-name">Seronegative Spondyloarthropathies</div>
+          <div class="acc-sub">HLA-B27 Associated · RF-Negative</div>
+        </div>
+      </div>
+      <div class="acc-chevron">▼</div>
+    </div>
+    <div class="acc-body">
+      <div class="info-grid">
+        <div class="info-block">
+          <h5>Shared Features (Heterogeneous Group)</h5>
+          <ul>
+            <li>Absence of Rheumatoid Factor (seronegative)</li>
+            <li>Pathology in ligaments (enthesitis) rather than synovium</li>
+            <li>Association with HLA-B27</li>
+            <li>Sacroiliac joint involvement (sacroiliitis)</li>
+            <li>Ankylosis of joints</li>
+            <li>Pathogenesis: T cell response against unknown antigen (triggered by infection) cross-reacts with joint antigens</li>
+          </ul>
+        </div>
+        <div class="info-block">
+          <h5>Types</h5>
+          <ul>
+            <li><strong>Ankylosing Spondylitis:</strong> Bridging spinal osteophytes, sacroiliitis, enthesitis, uveitis; bamboo spine on X-ray; 90% HLA-B27 positive</li>
+            <li><strong>Reactive Arthritis (Reiter's):</strong> Triad — arthritis + non-gonococcal urethritis/cervicitis + conjunctivitis; follows Chlamydia, Shigella, Salmonella, Campylobacter, Yersinia infection</li>
+            <li><strong>Psoriatic Arthropathy:</strong> Arthritis with psoriatic skin disease; DIP joint involvement characteristic</li>
+            <li><strong>Enteropathic Arthropathy:</strong> Ulcerative colitis, Crohn's disease associated</li>
+            <li><strong>Juvenile Ankylosing Spondylitis</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFECTIOUS -->
+  <div class="disease-accordion acc-infect" id="infect">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-title">
+        <div class="acc-icon">🦠</div>
+        <div>
+          <div class="acc-name">Infectious (Suppurative) Arthritis</div>
+          <div class="acc-sub">Bacterial & Viral Joint Infections</div>
+        </div>
+      </div>
+      <div class="acc-chevron">▼</div>
+    </div>
+    <div class="acc-body">
+      <div class="info-grid">
+        <div class="info-block">
+          <h5>Routes of Infection</h5>
+          <ul>
+            <li>Haematogenous (most common)</li>
+            <li>Direct inoculation through skin (trauma, surgery)</li>
+            <li>Spread from soft tissue abscess or osteomyelitis</li>
+          </ul>
+        </div>
+        <div class="info-block">
+          <h5>Clinical Features</h5>
+          <ul>
+            <li>Sudden onset — acutely painful, warm, swollen joint</li>
+            <li>Restricted range of motion</li>
+            <li>Fever and neutrophilic leucocytosis</li>
+            <li>Can cause rapid permanent joint destruction if untreated</li>
+          </ul>
+        </div>
+        <div class="info-block full-width">
+          <h5>Age-Based Organism Pattern</h5>
+          <ul>
+            <li>Neonates and infants → <strong>Haemophilus influenzae</strong></li>
+            <li>Older children and adults → <strong>Staphylococcus aureus</strong> (most common overall)</li>
+            <li>Sickle cell disease patients → <strong>Salmonella</strong></li>
+            <li>Sexually active young women → <strong>Neisseria gonorrhoeae</strong> (gonococcal arthritis)</li>
+            <li>Intravenous drug abusers → involves axial joints; often unusual organisms</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. APPLICATION CASES -->
+<section id="cases">
+  <div class="section-number">Section 06</div>
+  <h2>Application Cases with Stepwise MCQs</h2>
+
+  <!-- CASE 1 — OA -->
+  <div class="case-card">
+    <div class="case-header">
+      <div class="case-num">Case 1 · Osteoarthritis</div>
+      <h3>The Retired Farmer with Knee Pain</h3>
+    </div>
+    <div class="case-vignette">
+      A <strong>68-year-old obese male farmer</strong> presents with a <strong>5-year history of worsening right knee pain</strong>. The pain is dull and aching, worsened by prolonged standing and climbing stairs, and partially relieved by rest. He reports <strong>brief morning stiffness lasting about 15 minutes</strong>. On examination, there is bony enlargement of the DIP joints of both hands and audible crepitus on knee flexion. No systemic symptoms. X-ray shows <strong>joint space narrowing, subchondral sclerosis, and osteophytes</strong>. ESR and CRP are normal.
+    </div>
+    <div class="mcq-section">
+      <!-- Q1 -->
+      <div class="mcq-q">Step 1: Which pathological process best explains the ivory-like appearance of the articular surface seen on gross examination of this patient's knee?</div>
+      <div class="mcq-options">
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq1')"><span class="opt-letter">A</span>Pannus formation eroding the cartilage from the synovial side</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'correct','mcq1')"><span class="opt-letter">B</span>Eburnation of exposed subchondral bone due to cartilage loss and friction</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq1')"><span class="opt-letter">C</span>MSU crystal deposition causing a chalky surface appearance</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq1')"><span class="opt-letter">D</span>Fibrinoid necrosis of the synovial membrane</button>
+      </div>
+      <div id="mcq1-correct" class="mcq-feedback correct-fb">✅ <strong>Correct — B.</strong> Eburnation is the hallmark gross finding in OA. When articular cartilage is fully lost, the exposed subchondral bone is subjected to repeated friction, becoming polished and ivory-like. This is distinct from pannus (RA), tophaceous deposits (gout), or fibrinoid necrosis (RA nodules).</div>
+      <div id="mcq1-incorrect" class="mcq-feedback incorrect-fb">❌ <strong>Incorrect.</strong> Remember the gross pathology sequence in OA: cartilage fibrillation → fragmentation → full thickness loss → subchondral bone is exposed → friction produces the polished ivory appearance called <em>eburnation</em>. Pannus is an RA feature; chalky deposits are gout/pseudogout; fibrinoid necrosis is seen in RA nodules.</div>
+      <hr class="mcq-step-divider"/>
+      <!-- Q2 -->
+      <div class="mcq-q">Step 2: The bony swellings on the DIP joints are called Heberden's nodes. What do they represent histologically?</div>
+      <div class="mcq-options">
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq2')"><span class="opt-letter">A</span>Tophi — aggregates of MSU crystals surrounded by granulomatous inflammation</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq2')"><span class="opt-letter">B</span>Subcutaneous rheumatoid nodules with fibrinoid necrosis</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'correct','mcq2')"><span class="opt-letter">C</span>Cartilaginous and bony osteophytes forming at the DIP joint margins</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq2')"><span class="opt-letter">D</span>Synovial cysts filled with synovial fluid</button>
+      </div>
+      <div id="mcq2-correct" class="mcq-feedback correct-fb">✅ <strong>Correct — C.</strong> Heberden's nodes (DIP) and Bouchard's nodes (PIP) are bony enlargements caused by marginal osteophyte formation in OA. They represent reactive bone proliferation at joint margins as the body attempts to stabilise the degenerating joint. They are NOT tophi (gout), rheumatoid nodules (RA), or synovial cysts (ganglion).</div>
+      <div id="mcq2-incorrect" class="mcq-feedback incorrect-fb">❌ <strong>Incorrect.</strong> Heberden's nodes = osteophytes at DIP joints in OA. Keep this distinct from: tophi (gout — MSU crystals + granulomatous inflammation), rheumatoid nodules (RA — fibrinoid necrosis + palisaded macrophages), and ganglion cysts (synovial fluid-filled cysts near tendon sheaths).</div>
+      <hr class="mcq-step-divider"/>
+      <!-- Q3 -->
+      <div class="mcq-q">Step 3: Which combination of features most strongly supports a diagnosis of OA over RA in this patient?</div>
+      <div class="mcq-options">
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq3')"><span class="opt-letter">A</span>Symmetrical joint involvement, morning stiffness >1 hour, elevated ESR</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq3')"><span class="opt-letter">B</span>Positive rheumatoid factor, extra-articular manifestations, systemic fatigue</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'correct','mcq3')"><span class="opt-letter">C</span>Pain worsening with use, brief morning stiffness, normal inflammatory markers, osteophytes on X-ray</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq3')"><span class="opt-letter">D</span>Young female patient, swan-neck deformities, positive anti-CCP antibodies</button>
+      </div>
+      <div id="mcq3-correct" class="mcq-feedback correct-fb">✅ <strong>Correct — C.</strong> OA is characterised by: pain that worsens with use (not rest), morning stiffness &lt;30 minutes (RA is &gt;1 hour), normal inflammatory markers (ESR/CRP), and X-ray findings of osteophytes + subchondral sclerosis + joint space narrowing. Options A, B, and D all describe RA features.</div>
+      <div id="mcq3-incorrect" class="mcq-feedback incorrect-fb">❌ <strong>Incorrect.</strong> The key OA vs RA differentiators are: (1) Stiffness duration — OA &lt;30 min; RA &gt;1 hour; (2) Inflammatory markers — OA normal; RA elevated; (3) Autoantibodies — OA absent; RA has RF and anti-CCP; (4) X-ray — OA shows osteophytes; RA shows erosions and periarticular osteopenia.</div>
+    </div>
+  </div>
+
+  <!-- CASE 2 — RA -->
+  <div class="case-card">
+    <div class="case-header">
+      <div class="case-num">Case 2 · Rheumatoid Arthritis</div>
+      <h3>The Young Woman with Stiff Morning Hands</h3>
+    </div>
+    <div class="case-vignette">
+      A <strong>32-year-old female teacher</strong> presents with a <strong>6-month history of pain and swelling in both hands and wrists</strong>. She reports significant <strong>morning stiffness lasting over 2 hours</strong>, bilateral involvement, fatigue, and a low-grade fever. On examination, both MCP and PIP joints are swollen and tender symmetrically. She also has small subcutaneous nodules on her elbows. Labs: RF positive, anti-CCP positive, ESR 85 mm/hr, normocytic anaemia. X-ray shows <strong>periarticular osteopenia and marginal erosions</strong>.
+    </div>
+    <div class="mcq-section">
+      <!-- Q1 -->
+      <div class="mcq-q">Step 1: Which autoantibody is MORE specific for rheumatoid arthritis and is present in approximately 70% of patients?</div>
+      <div class="mcq-options">
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq4')"><span class="opt-letter">A</span>Anti-nuclear antibody (ANA)</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq4')"><span class="opt-letter">B</span>Rheumatoid factor (RF)</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'correct','mcq4')"><span class="opt-letter">C</span>Anti-cyclic citrullinated peptide (anti-CCP / ACPA)</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq4')"><span class="opt-letter">D</span>Anti-double-stranded DNA (anti-dsDNA)</button>
+      </div>
+      <div id="mcq4-correct" class="mcq-feedback correct-fb">✅ <strong>Correct — C.</strong> Anti-CCP (ACPA) is present in ~70% of RA patients and is highly specific for RA. RF (IgM against the Fc portion of IgG) is positive in ~80% but is less specific as it also occurs in SLE, Sjögren's, and infections. ANA is characteristic of SLE. Anti-dsDNA is specific for SLE.</div>
+      <div id="mcq4-incorrect" class="mcq-feedback incorrect-fb">❌ <strong>Incorrect.</strong> RF is positive in 80% of RA but lacks specificity (also positive in SLE, Sjögren's, hepatitis). Anti-CCP (ACPA) is positive in ~70% of RA and is much more specific — detecting citrullinated proteins that result from enzymatic modification of self-antigens. ANA → SLE; anti-dsDNA → SLE.</div>
+      <hr class="mcq-step-divider"/>
+      <!-- Q2 -->
+      <div class="mcq-q">Step 2: The subcutaneous nodules on her elbows are biopsied. Which histological finding is CHARACTERISTIC of rheumatoid nodules?</div>
+      <div class="mcq-options">
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq5')"><span class="opt-letter">A</span>Aggregates of monosodium urate crystals with surrounding giant cells</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'correct','mcq5')"><span class="opt-letter">B</span>Central fibrinoid necrosis surrounded by a palisade of macrophages (histiocytes) and lymphocytes</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq5')"><span class="opt-letter">C</span>Cyst wall lined by flattened synovial-like cells with mucinous content</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq5')"><span class="opt-letter">D</span>Pannus tissue composed of proliferating synoviocytes invading cartilage</button>
+      </div>
+      <div id="mcq5-correct" class="mcq-feedback correct-fb">✅ <strong>Correct — B.</strong> The classic histology of a rheumatoid nodule is: central fibrinoid necrosis (amorphous eosinophilic material) surrounded by a palisade of macrophages (histiocytes) and lymphocytes, with a peripheral layer of fibrous tissue. They occur at pressure points: elbow, ulnar forearm, occiput, lumbosacral. This is a granulomatous pattern.</div>
+      <div id="mcq5-incorrect" class="mcq-feedback incorrect-fb">❌ <strong>Incorrect.</strong> Remember: Rheumatoid nodule = central fibrinoid necrosis + palisaded macrophages + peripheral lymphocytes. MSU crystal aggregates with giant cells = tophus (gout). Mucinous cyst lined by synovial cells = ganglion cyst. Pannus = joint finding in RA, not a nodule.</div>
+      <hr class="mcq-step-divider"/>
+      <!-- Q3 -->
+      <div class="mcq-q">Step 3: Which cytokine, produced by Th17 cells, is responsible for recruiting neutrophils and monocytes into the rheumatoid joint?</div>
+      <div class="mcq-options">
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq6')"><span class="opt-letter">A</span>IFN-γ (interferon gamma)</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq6')"><span class="opt-letter">B</span>IL-1β (interleukin-1 beta)</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'correct','mcq6')"><span class="opt-letter">C</span>IL-17 (interleukin-17)</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq6')"><span class="opt-letter">D</span>RANKL (receptor activator of NF-κB ligand)</button>
+      </div>
+      <div id="mcq6-correct" class="mcq-feedback correct-fb">✅ <strong>Correct — C.</strong> IL-17 from Th17 cells recruits neutrophils and monocytes to the inflamed joint. Key cytokine roles in RA: IFN-γ (Th1) → activates macrophages and synoviocytes; TNF-α and IL-1 → proteases destroy cartilage; IL-6 → acute phase response (elevated ESR/CRP); IL-17 (Th17) → neutrophil/monocyte recruitment; RANKL → osteoclast activation → bone erosion.</div>
+      <div id="mcq6-incorrect" class="mcq-feedback incorrect-fb">❌ <strong>Incorrect.</strong> Cytokine roles in RA: IFN-γ (Th1) activates synovial cells and macrophages; IL-1β and TNF-α drive cartilage destruction via MMPs; IL-17 (Th17) specifically recruits neutrophils and monocytes; RANKL drives osteoclast-mediated bone resorption. Knowing which T cell produces which cytokine and its downstream effect is key for MCQs.</div>
+    </div>
+  </div>
+
+  <!-- CASE 3 — GOUT -->
+  <div class="case-card">
+    <div class="case-header">
+      <div class="case-num">Case 3 · Gout</div>
+      <h3>The Man Who Can't Walk After the Wedding Feast</h3>
+    </div>
+    <div class="case-vignette">
+      A <strong>48-year-old male</strong> wakes at 3 AM with <strong>excruciating pain, redness, and swelling of the right big toe</strong>. He attended a wedding the evening before and consumed large amounts of red meat, shellfish, and beer. He has had 2 similar episodes in the past. His GP measures serum urate: <strong>9.2 mg/dL</strong>. Joint aspiration shows <strong>needle-shaped, negatively birefringent crystals</strong> under polarised light. He also has a family history of gout and takes low-dose aspirin.
+    </div>
+    <div class="mcq-section">
+      <!-- Q1 -->
+      <div class="mcq-q">Step 1: Under polarising microscopy, the crystals from gout appear needle-shaped and negatively birefringent. What is the correct appearance?</div>
+      <div class="mcq-options">
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq7')"><span class="opt-letter">A</span>Rhomboid-shaped, positively birefringent — yellow when perpendicular to the slow axis</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'correct','mcq7')"><span class="opt-letter">B</span>Needle-shaped, negatively birefringent — yellow when parallel to the slow axis (blue when perpendicular)</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq7')"><span class="opt-letter">C</span>Rhomboid-shaped, negatively birefringent — seen in calcium pyrophosphate disease</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq7')"><span class="opt-letter">D</span>Needle-shaped, positively birefringent — chalky white deposits in articular cartilage</button>
+      </div>
+      <div id="mcq7-correct" class="mcq-feedback correct-fb">✅ <strong>Correct — B.</strong> MSU crystals (gout) = needle-shaped + negatively birefringent = yellow when parallel to the slow axis of the compensator (blue when perpendicular). CPPD (pseudogout) = rhomboid-shaped + positively birefringent = blue when parallel, yellow when perpendicular. The mnemonic: "Gout = NEGATIVE birefringence; Pseudogout = POSITIVE birefringence."</div>
+      <div id="mcq7-incorrect" class="mcq-feedback incorrect-fb">❌ <strong>Incorrect.</strong> Crystal comparison: Gout (MSU) = needle-shaped + NEGATIVELY birefringent. Pseudogout (CPPD) = rhomboid-shaped + POSITIVELY birefringent. High-yield exam distinction! Also, negatively birefringent means yellow when crystals are parallel to the slow axis of the polarising compensator.</div>
+      <hr class="mcq-step-divider"/>
+      <!-- Q2 -->
+      <div class="mcq-q">Step 2: What is the primary cellular mechanism causing severe pain in acute gout?</div>
+      <div class="mcq-options">
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq8')"><span class="opt-letter">A</span>Th17 cells releasing IL-17 to recruit neutrophils to the pannus</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq8')"><span class="opt-letter">B</span>Autoantibodies (RF and anti-CCP) binding joint antigens causing complement activation</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'correct','mcq8')"><span class="opt-letter">C</span>Macrophage phagocytosis of MSU crystals → NLRP3 inflammasome activation → IL-1β release → neutrophil recruitment and lysosomal enzyme release</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq8')"><span class="opt-letter">D</span>Osteoclast-mediated bone resorption driven by RANKL</button>
+      </div>
+      <div id="mcq8-correct" class="mcq-feedback correct-fb">✅ <strong>Correct — C.</strong> The key acute gout mechanism: MSU crystals → phagocytosed by macrophages → activate the NLRP3 inflammasome → release IL-1β (primary mediator) + chemokines → neutrophil recruitment → neutrophils phagocytose crystals → lysis → release lysosomal enzymes + more crystals → amplified inflammation and severe pain. This is why IL-1 inhibitors (e.g., anakinra) are effective in gout.</div>
+      <div id="mcq8-incorrect" class="mcq-feedback incorrect-fb">❌ <strong>Incorrect.</strong> Acute gout pathogenesis is crystal-driven, not autoimmune. The sequence is: MSU crystals → macrophage phagocytosis → NLRP3 inflammasome → IL-1β release → neutrophil chemotaxis → neutrophil crystal phagocytosis → neutrophil lysis → lysosomal enzyme release → tissue injury and pain. Options A and D describe RA mechanisms.</div>
+      <hr class="mcq-step-divider"/>
+      <!-- Q3 -->
+      <div class="mcq-q">Step 3: The patient develops chronic tophaceous gout. A tophus is biopsied. What is the histological appearance?</div>
+      <div class="mcq-options">
+        <button class="mcq-option" onclick="answerMCQ(this,'correct','mcq9')"><span class="opt-letter">A</span>Aggregates of MSU crystals surrounded by granulomatous inflammation with foreign body giant cells and palisaded macrophages</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq9')"><span class="opt-letter">B</span>Central fibrinoid necrosis surrounded by a palisade of macrophages and lymphocytes</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq9')"><span class="opt-letter">C</span>Hyperplastic synovial villi with dense lymphoid infiltrate and increased vascularity</button>
+        <button class="mcq-option" onclick="answerMCQ(this,'incorrect','mcq9')"><span class="opt-letter">D</span>Fibrillated articular cartilage with chondrocyte cloning and subchondral cyst formation</button>
+      </div>
+      <div id="mcq9-correct" class="mcq-feedback correct-fb">✅ <strong>Correct — A.</strong> A tophus = deposits of MSU crystals surrounded by a granulomatous reaction with foreign body giant cells, palisaded macrophages, and lymphocytes. In fixed tissue, the crystals dissolve leaving amorphous spaces (their shape is preserved only in alcohol-fixed, unstained tissue). Tophi can form in tendons, bursae, cartilage (ear pinna), and kidney (gouty nephropathy).</div>
+      <div id="mcq9-incorrect" class="mcq-feedback incorrect-fb">❌ <strong>Incorrect.</strong> Tophus = MSU crystal aggregate + granulomatous inflammation (giant cells + palisaded macrophages). Option B = rheumatoid nodule. Option C = RA synovium (pannus precursor). Option D = OA cartilage changes. Each arthritis has a distinctive histological signature — commit these to memory!</div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. MASTER COMPARISON TABLE -->
+<section id="table">
+  <div class="section-number">Section 07</div>
+  <h2>Master Comparison Table</h2>
+  <div class="comp-table-wrap">
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="col-oa">Osteoarthritis (OA)</th>
+          <th class="col-ra">Rheumatoid Arthritis (RA)</th>
+          <th class="col-gout">Gout</th>
+          <th class="col-sero">Ankylosing Spondylitis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>TYPE</td><td>Degenerative</td><td>Autoimmune / Inflammatory</td><td>Metabolic / Crystalline</td><td>Autoimmune (Seronegative SpA)</td></tr>
+        <tr><td>AGE OF ONSET</td><td>Usually &gt;40 years</td><td>Any age; peak 30–50 yrs (F&gt;M)</td><td>Men 30–50; women post-menopause</td><td>Young adults &lt;30 yrs (M&gt;F)</td></tr>
+        <tr><td>SEX PREDISPOSITION</td><td>F &gt; M (elderly)</td><td>F : M = 3 : 1</td><td>M : F = 4 : 1</td><td>M &gt; F</td></tr>
+        <tr><td>JOINTS AFFECTED</td><td>Hip, knee, spine, DIP, PIP, CMC</td><td>MCP, PIP (small → large); symmetrical</td><td>1st MTP (podagra), ankle, wrist, knee</td><td>Sacroiliac joints, spine (axial)</td></tr>
+        <tr><td>JOINT PATTERN</td><td>Asymmetric; weight-bearing</td><td>Symmetrical; peripheral</td><td>Monoarticular (acute); oligoarticular (chronic)</td><td>Axial; ascending</td></tr>
+        <tr><td>MORNING STIFFNESS</td><td>&lt;30 minutes</td><td>&gt;1 hour</td><td>Not characteristic (acute attacks)</td><td>Prominent; improves with exercise</td></tr>
+        <tr><td>PAIN CHARACTER</td><td>Worsens with use; eases with rest</td><td>Constant; worse on waking</td><td>Sudden, severe, nocturnal attacks</td><td>Chronic, insidious back pain; worse at rest</td></tr>
+        <tr><td>SYSTEMIC FEATURES</td><td>Absent</td><td>Present (fatigue, fever, weight loss)</td><td>Mild (with acute attack)</td><td>Present (uveitis, enthesitis)</td></tr>
+        <tr><td>KEY PATHOLOGY</td><td>Cartilage fibrillation, eburnation, osteophytes, subchondral cysts</td><td>Synovial hyperplasia, pannus, fibrinoid necrosis in nodules, ankylosis</td><td>MSU crystal deposition, tophi (granulomatous), gouty nephropathy</td><td>Enthesitis, sacroiliitis, bridging osteophytes (bamboo spine)</td></tr>
+        <tr><td>HISTOLOGY LANDMARK</td><td>Fibrillated cartilage, chondrocyte cloning, eburnated bone</td><td>Lymphoid aggregates in synovium, pannus, rice bodies, rheumatoid nodule (fibrinoid necrosis + palisaded macrophages)</td><td>MSU crystals + foreign body giant cells (tophus)</td><td>Enthesitis → ossification; synovitis less prominent</td></tr>
+        <tr><td>AUTOANTIBODIES</td><td>None</td><td>RF (80%), anti-CCP (70%)</td><td>None</td><td>None (seronegative by definition)</td></tr>
+        <tr><td>HLA ASSOCIATION</td><td>None specific</td><td>HLA-DR4 / DR1</td><td>None (HGPRT enzyme defect in primary)</td><td>HLA-B27 (90%)</td></tr>
+        <tr><td>INFLAMMATORY MARKERS</td><td>Normal (ESR, CRP)</td><td>Elevated ESR, CRP, anaemia</td><td>Elevated during acute attack</td><td>Elevated during flares</td></tr>
+        <tr><td>SYNOVIAL FLUID</td><td>Non-inflammatory (&lt;2000 WBC)</td><td>Inflammatory (2000–50,000 WBC, mostly PMNs)</td><td>Inflammatory + needle MSU crystals</td><td>Variable</td></tr>
+        <tr><td>X-RAY FINDINGS</td><td>Joint space narrowing, osteophytes, subchondral sclerosis, cysts. NO erosions</td><td>Periarticular osteopenia, joint space loss, marginal erosions, ulnar drift. NO osteophytes</td><td>Punched-out periarticular erosions (chronic); tophi visible as soft tissue densities</td><td>Sacroiliitis, syndesmophytes, bamboo spine (late)</td></tr>
+        <tr><td>EXTRA-ARTICULAR</td><td>None (local: osteophyte nerve compression)</td><td>Rheumatoid nodules (skin, lung), vasculitis, pericarditis, Felty's syndrome, AA amyloid</td><td>Tophi (tendons, ear pinna), gouty nephropathy, nephrolithiasis</td><td>Uveitis, aortitis, pulmonary fibrosis</td></tr>
+        <tr><td>KEY TREATMENT PRINCIPLE</td><td>NSAIDs, physiotherapy, joint replacement</td><td>DMARDs (methotrexate), biologics (anti-TNF), steroids</td><td>Colchicine/NSAIDs (acute); allopurinol/febuxostat (chronic); dietary modification</td><td>NSAIDs, anti-TNF biologics, physiotherapy</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 8. KEY TAKE-HOME MESSAGES -->
+<section id="messages">
+  <div class="section-number">Section 08</div>
+  <h2>Key Take-Home Messages</h2>
+  <div class="key-grid">
+    <div class="key-card">
+      <div class="key-emoji">🦴</div>
+      <h4>OA — Wear & Tear, Not Inflammation</h4>
+      <p>OA is fundamentally a mechanical cartilage failure disease. The key sequence is chondrocyte injury → MMP-driven cartilage degradation → eburnation → osteophyte formation. It lacks systemic features and inflammatory markers. Morning stiffness is brief (&lt;30 min). Heberden's nodes (DIP) and Bouchard's nodes (PIP) are osteophytes.</p>
+    </div>
+    <div class="key-card">
+      <div class="key-emoji">🛡️</div>
+      <h4>RA — Autoimmunity Destroys the Synovium</h4>
+      <p>RA is a systemic autoimmune disease where pannus (hyperplastic synovium) erodes cartilage and bone. RF and anti-CCP antibodies are diagnostic markers. Pannus → fibrous ankylosis → bony ankylosis. The hallmark histology of rheumatoid nodules is fibrinoid necrosis surrounded by palisaded macrophages. Morning stiffness &gt;1 hour is the clinical clue.</p>
+    </div>
+    <div class="key-card">
+      <div class="key-emoji">💎</div>
+      <h4>Gout — MSU Crystals Drive Inflammasome</h4>
+      <p>Gout is a metabolic disorder where hyperuricaemia leads to MSU crystal deposition, NLRP3 inflammasome activation, and IL-1β-driven neutrophil recruitment. The classic presentation is nocturnal podagra (1st MTP). Tophi = MSU crystals + granulomatous inflammation. MSU crystals are negatively birefringent and needle-shaped on polarising microscopy.</p>
+    </div>
+    <div class="key-card">
+      <div class="key-emoji">🔗</div>
+      <h4>Seronegative SpA — HLA-B27 is the Key</h4>
+      <p>This group shares RF negativity, HLA-B27 association, sacroiliac involvement, and enthesitis (ligament/tendon insertion pathology). Ankylosing spondylitis causes bamboo spine. Reactive arthritis (Reiter's) follows genitourinary or GI infections and presents as a classic triad: arthritis + urethritis + conjunctivitis.</p>
+    </div>
+    <div class="key-card">
+      <div class="key-emoji">🔬</div>
+      <h4>Crystal Distinction — Gout vs Pseudogout</h4>
+      <p>Gout = MSU crystals: NEEDLE-shaped, NEGATIVELY birefringent (yellow when parallel). Pseudogout (CPPD) = calcium pyrophosphate crystals: RHOMBOID-shaped, POSITIVELY birefringent (blue when parallel, yellow when perpendicular). Gout affects the 1st MTP joint; pseudogout favours the knee. This distinction is a high-yield MCQ trap.</p>
+    </div>
+    <div class="key-card">
+      <div class="key-emoji">🏥</div>
+      <h4>Bacterial Arthritis — Organism Matters by Age</h4>
+      <p>Suppurative arthritis requires urgent treatment to prevent permanent joint destruction. Organism prediction by patient profile: neonates → H. influenzae; adults → S. aureus; sickle cell → Salmonella; sexually active women → N. gonorrhoeae. Always aspirate the joint — pus confirms the diagnosis.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 9. EXAM FOCUS -->
+<section id="exam">
+  <div class="section-number">Section 09</div>
+  <h2>Exam Focus — Common Traps & Rapid Recall</h2>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--burgundy);margin-bottom:16px;">⚠️ Common Exam Traps</h3>
+  <div class="trap-grid">
+    <div class="trap-card">
+      <h5>Trap 1: Nodes Confusion</h5>
+      <p><strong>Heberden's nodes</strong> (DIP joints) and <strong>Bouchard's nodes</strong> (PIP joints) are both features of OA — they are osteophytes, NOT rheumatoid nodules. Rheumatoid nodules have fibrinoid necrosis and occur at pressure points, not necessarily joints. They are NOT tophi either.</p>
+    </div>
+    <div class="trap-card">
+      <h5>Trap 2: Crystal Birefringence</h5>
+      <p>Students often swap gout and pseudogout crystals. Remember: <strong>gout = NEEDLE + NEGATIVE birefringence</strong>; <strong>pseudogout = RHOMBOID + POSITIVE birefringence</strong>. The common trap is describing gout crystals as rhomboid or saying CPPD is negatively birefringent — both are wrong.</p>
+    </div>
+    <div class="trap-card">
+      <h5>Trap 3: Seronegative = No RF, Not No Antibodies</h5>
+      <p>Seronegative spondyloarthropathies are "seronegative" specifically for <strong>Rheumatoid Factor</strong>. They are HLA-B27 positive. Students mistakenly think "seronegative" means no autoimmune process at all — the HLA association confirms immune involvement.</p>
+    </div>
+    <div class="trap-card">
+      <h5>Trap 4: Morning Stiffness Duration</h5>
+      <p>The duration of morning stiffness is a critical differentiator in exams. <strong>OA: &lt;30 minutes</strong> (brief, joint "warms up"). <strong>RA: &gt;1 hour</strong> (prolonged, systemic). A vignette describing "stiffness relieved after 20 minutes" points to OA, not RA.</p>
+    </div>
+    <div class="trap-card">
+      <h5>Trap 5: OA X-ray vs RA X-ray</h5>
+      <p><strong>OA X-ray</strong>: osteophytes, joint space narrowing, subchondral sclerosis, cysts — but <strong>NO erosions</strong>. <strong>RA X-ray</strong>: periarticular osteopenia, joint space loss, marginal erosions, ulnar drift — but <strong>NO osteophytes</strong>. Examiners love asking candidates to distinguish these.</p>
+    </div>
+    <div class="trap-card">
+      <h5>Trap 6: Primary vs Secondary Gout</h5>
+      <p>Primary gout (90%) is mostly idiopathic overproduction or reduced excretion of uric acid. Secondary gout can arise from haematological malignancies (leukemia, lymphoma) due to high cell turnover. A patient with gout and recent chemotherapy → suspect secondary gout from tumour lysis syndrome.</p>
+    </div>
+  </div>
+
+  <div class="recall-box">
+    <h4>⚡ Rapid Recall: High-Yield Associations</h4>
+    <div class="recall-grid">
+      <div class="recall-item"><strong>Eburnation</strong>Polished ivory appearance of exposed subchondral bone in OA — from friction after cartilage loss</div>
+      <div class="recall-item"><strong>Pannus</strong>Hyperplastic synovial mass in RA that erodes cartilage and bone — the defining RA lesion</div>
+      <div class="recall-item"><strong>Tophus</strong>MSU crystal aggregate + foreign body giant cells + palisaded macrophages = pathognomonic of chronic gout</div>
+      <div class="recall-item"><strong>Rice bodies</strong>Organized fibrin fragments floating in RA joint fluid — not pathognomonic but classic</div>
+      <div class="recall-item"><strong>Podagra</strong>Acute gout of the 1st metatarsophalangeal joint — classic presentation; occurs at night</div>
+      <div class="recall-item"><strong>Bamboo Spine</strong>Bridging syndesmophytes in ankylosing spondylitis on X-ray — pathognomonic</div>
+      <div class="recall-item"><strong>Anti-CCP</strong>Most specific autoantibody for RA (~70% sensitive, &gt;95% specific); targets citrullinated proteins</div>
+      <div class="recall-item"><strong>HLA-B27</strong>Key gene for seronegative spondyloarthropathies — 90% of ankylosing spondylitis patients are positive</div>
+      <div class="recall-item"><strong>NLRP3 Inflammasome</strong>Activated by MSU crystals in macrophages → releases IL-1β → hallmark of acute gout pathogenesis</div>
+      <div class="recall-item"><strong>RANKL</strong>Expressed on T cells in RA → activates osteoclasts → periarticular bone erosion</div>
+      <div class="recall-item"><strong>Lesch-Nyhan Syndrome</strong>Complete HGPRT deficiency → secondary gout + self-mutilation + neurological features</div>
+      <div class="recall-item"><strong>Felty's Syndrome</strong>RA + splenomegaly + neutropaenia — a severe extraarticular complication of RA</div>
+    </div>
+  </div>
+</section>
+
+<div class="footnote">
+  CPAS e-Book · Disorders of Joints · MAHSA University · MBBS Year 2 Pathology<br/>
+  Dr. Sudha Arumugam · Kolektif LMS Framework · © 2025
+</div>
+
+</main>
+
+<script>
+// Accordion toggle
+function toggleAcc(header) {
+  const body = header.nextElementSibling;
+  const chevron = header.querySelector('.acc-chevron');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  chevron.classList.toggle('open', !isOpen);
+}
+
+// MCQ answer handler
+function answerMCQ(btn, result, qid) {
+  // Find parent mcq-options
+  const opts = btn.closest('.mcq-options');
+  if (opts.querySelector('.correct') || opts.querySelector('.incorrect')) return; // already answered
+
+  if (result === 'correct') {
+    btn.classList.add('correct');
+    document.getElementById(qid + '-correct').classList.add('show');
+  } else {
+    btn.classList.add('incorrect');
+    // Also highlight correct
+    const allBtns = opts.querySelectorAll('.mcq-option');
+    allBtns.forEach(b => {
+      if (b.querySelector('.opt-letter')) {
+        // Check if this is the correct one by seeing which feedback exists
+      }
+    });
+    document.getElementById(qid + '-incorrect').classList.add('show');
+  }
+  // Disable all buttons in this question
+  opts.querySelectorAll('.mcq-option').forEach(b => b.style.pointerEvents = 'none');
+}
+
+// Progress bar
+window.addEventListener('scroll', () => {
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = window.scrollY / docHeight;
+  document.getElementById('progress-bar').style.transform = `scaleX(${progress})`;
+});
+
+// Active TOC highlight
+const sections = document.querySelectorAll('section[id], div[id]');
+const tocLinks = document.querySelectorAll('#toc a[href^="#"]');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      tocLinks.forEach(link => link.classList.remove('active'));
+      const id = entry.target.id;
+      const active = document.querySelector(`#toc a[href="#${id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
+
+// Auto-open disease accordions when navigating
+document.querySelectorAll('#toc a[href^="#"]').forEach(link => {
+  link.addEventListener('click', () => {
+    const id = link.getAttribute('href').substring(1);
+    const target = document.getElementById(id);
+    if (target && target.classList.contains('disease-accordion')) {
+      const body = target.querySelector('.acc-body');
+      const chevron = target.querySelector('.acc-chevron');
+      if (body && !body.classList.contains('open')) {
+        body.classList.add('open');
+        chevron.classList.add('open');
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>
+Add arthritis CPAS ebook
