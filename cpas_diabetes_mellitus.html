@@ -1,0 +1,2125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CPAS e-Book | Diabetes Mellitus | MAHSA University</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand:       #1a4f7a;
+    --brand-light: #e8f2fa;
+    --brand-mid:   #2c73b0;
+    --accent:      #c0392b;
+    --accent-light:#fdecea;
+    --gold:        #d4870d;
+    --gold-light:  #fef6e4;
+    --green:       #1a6b3a;
+    --green-light: #e6f5ec;
+    --purple:      #5b3fa6;
+    --purple-light:#f0ecfb;
+    --teal:        #0f6e6e;
+    --teal-light:  #e2f5f5;
+    --bg:          #f5f6f8;
+    --surface:     #ffffff;
+    --border:      #dde2ea;
+    --text:        #1c2333;
+    --text-muted:  #5c6478;
+    --text-light:  #8a93a6;
+    --radius:      10px;
+    --shadow:      0 2px 12px rgba(26,79,122,0.08);
+    --shadow-lg:   0 6px 30px rgba(26,79,122,0.13);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  /* ── SIDEBAR TOC ── */
+  #toc {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 260px;
+    min-width: 260px;
+    background: var(--brand);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.2) transparent;
+  }
+
+  #toc::-webkit-scrollbar { width: 4px; }
+  #toc::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
+
+  .toc-header {
+    padding: 24px 20px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .toc-logo {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .toc-title {
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .toc-subtitle {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 4px;
+  }
+
+  .toc-nav { padding: 12px 0 24px; }
+
+  .toc-nav a {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 20px;
+    text-decoration: none;
+    color: rgba(255,255,255,0.72);
+    font-size: 12.5px;
+    line-height: 1.4;
+    transition: background 0.15s, color 0.15s;
+    border-left: 3px solid transparent;
+  }
+
+  .toc-nav a:hover, .toc-nav a.active {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border-left-color: #7ec8f5;
+  }
+
+  .toc-num {
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.35);
+    min-width: 18px;
+    padding-top: 1px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── MAIN CONTENT ── */
+  #main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 0 60px;
+    max-width: 900px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--brand) 0%, #0d3558 100%);
+    padding: 48px 48px 40px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: 60px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7ec8f5;
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 28px;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .hero-badge {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.08);
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .hero-badge span { font-size: 14px; }
+
+  /* ── SECTIONS ── */
+  .section {
+    padding: 40px 48px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--brand-mid);
+    margin-bottom: 10px;
+  }
+
+  .section-label .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--brand-mid);
+    display: inline-block;
+  }
+
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--brand);
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  p { margin-bottom: 14px; color: var(--text); }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── LEARNING OUTCOMES ── */
+  .lo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  .lo-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    box-shadow: var(--shadow);
+  }
+
+  .lo-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .lo-text { font-size: 13.5px; line-height: 1.5; color: var(--text); }
+
+  /* ── PRIOR KNOWLEDGE ── */
+  .pk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .pk-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--brand-mid);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: var(--shadow);
+  }
+
+  .pk-card h4 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--brand-mid);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .pk-card ul {
+    list-style: none;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .pk-card ul li::before {
+    content: '› ';
+    color: var(--brand-mid);
+    font-weight: 600;
+  }
+
+  /* ── CLINICAL TRIGGER ── */
+  .trigger-box {
+    background: var(--brand-light);
+    border: 1.5px solid #b8d5ef;
+    border-left: 5px solid var(--brand-mid);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-top: 18px;
+  }
+
+  .trigger-box .scenario-tag {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--brand-mid);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .trigger-box p {
+    font-family: 'Lora', serif;
+    font-size: 15.5px;
+    font-style: italic;
+    color: var(--brand);
+    line-height: 1.7;
+  }
+
+  .trigger-questions {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .trigger-q {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13.5px;
+  }
+
+  .trigger-q .qnum {
+    background: var(--brand-mid);
+    color: white;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  /* ── CLASSIFICATION ── */
+  .classif-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+    background: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    font-size: 13.5px;
+  }
+
+  .classif-table thead {
+    background: var(--brand);
+    color: white;
+  }
+
+  .classif-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .classif-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  .classif-table tr:last-child td { border-bottom: none; }
+  .classif-table tr:nth-child(even) td { background: var(--bg); }
+
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 9px;
+    border-radius: 20px;
+    margin: 1px 2px;
+  }
+
+  .tag-blue   { background: var(--brand-light); color: var(--brand); }
+  .tag-red    { background: var(--accent-light); color: var(--accent); }
+  .tag-gold   { background: var(--gold-light); color: var(--gold); }
+  .tag-green  { background: var(--green-light); color: var(--green); }
+  .tag-purple { background: var(--purple-light); color: var(--purple); }
+
+  /* ── DIAGNOSTIC CRITERIA ── */
+  .diag-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 18px;
+  }
+
+  .diag-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    box-shadow: var(--shadow);
+    text-align: center;
+  }
+
+  .diag-card h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .diag-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 12.5px;
+  }
+
+  .diag-row:last-child { border-bottom: none; }
+  .diag-label { color: var(--text-muted); }
+  .diag-val { font-weight: 600; }
+  .diag-normal { color: var(--green); }
+  .diag-igt    { color: var(--gold); }
+  .diag-dm     { color: var(--accent); }
+
+  /* ── ACCORDIONS ── */
+  .accordion-group { margin-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+
+  .accordion {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.2s;
+  }
+
+  .accordion.open { box-shadow: var(--shadow-lg); }
+
+  .accordion-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    gap: 12px;
+    transition: background 0.15s;
+  }
+
+  .accordion-trigger:hover { background: var(--bg); }
+
+  .accordion-trigger-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .acc-icon {
+    width: 36px; height: 36px;
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px;
+    flex-shrink: 0;
+  }
+
+  .acc-title { font-size: 15px; font-weight: 500; color: var(--text); }
+  .acc-subtitle { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  .acc-chevron {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.25s, background 0.15s;
+  }
+
+  .accordion.open .acc-chevron { transform: rotate(180deg); background: var(--brand-light); }
+
+  .acc-chevron svg { width: 12px; height: 12px; stroke: var(--text-muted); }
+
+  .accordion-body {
+    display: none;
+    padding: 0 20px 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .accordion.open .accordion-body { display: block; }
+
+  .acc-body-inner { padding-top: 18px; }
+
+  /* Accordion body styles */
+  .info-block {
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+
+  .info-block h5 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 7px;
+  }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+
+  .highlight-box {
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+
+  .hb-blue   { background: var(--brand-light); border-left: 4px solid var(--brand-mid); }
+  .hb-red    { background: var(--accent-light); border-left: 4px solid var(--accent); }
+  .hb-gold   { background: var(--gold-light); border-left: 4px solid var(--gold); }
+  .hb-green  { background: var(--green-light); border-left: 4px solid var(--green); }
+  .hb-purple { background: var(--purple-light); border-left: 4px solid var(--purple); }
+  .hb-teal   { background: var(--teal-light); border-left: 4px solid var(--teal); }
+
+  .hb-blue h5   { color: var(--brand); }
+  .hb-red h5    { color: var(--accent); }
+  .hb-gold h5   { color: var(--gold); }
+  .hb-green h5  { color: var(--green); }
+  .hb-purple h5 { color: var(--purple); }
+  .hb-teal h5   { color: var(--teal); }
+
+  .pathway-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 14px 0;
+  }
+
+  .pathway-step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .ps-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .ps-dot {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .ps-line {
+    width: 2px;
+    flex: 1;
+    min-height: 12px;
+    background: var(--border);
+  }
+
+  .ps-content {
+    padding-bottom: 16px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .ps-content strong { display: block; font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+
+  /* ── SYMPTOMS GRID ── */
+  .symptom-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+
+  .symptom-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .symptom-card .sym-name {
+    font-weight: 600;
+    color: var(--brand);
+    margin-bottom: 4px;
+    font-size: 13.5px;
+  }
+
+  /* ── MCQ SECTION ── */
+  .case-box {
+    background: linear-gradient(135deg, var(--brand) 0%, #0d3558 100%);
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    margin-bottom: 24px;
+    color: white;
+  }
+
+  .case-box .case-tag {
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7ec8f5;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .case-box p {
+    color: rgba(255,255,255,0.9);
+    font-size: 14.5px;
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  .mcq-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+  }
+
+  .mcq-step {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--brand-mid);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .mcq-q {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 16px;
+    line-height: 1.55;
+  }
+
+  .mcq-options { display: flex; flex-direction: column; gap: 8px; }
+
+  .mcq-option {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    cursor: pointer;
+    text-align: left;
+    font-size: 13.5px;
+    color: var(--text);
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .mcq-option:hover { border-color: var(--brand-mid); background: var(--brand-light); }
+
+  .mcq-option .opt-letter {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    color: var(--text-muted);
+    transition: all 0.15s;
+  }
+
+  .mcq-option.correct {
+    border-color: #27ae60;
+    background: #eafaf1;
+  }
+
+  .mcq-option.correct .opt-letter {
+    background: #27ae60;
+    border-color: #27ae60;
+    color: white;
+  }
+
+  .mcq-option.incorrect {
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  .mcq-option.incorrect .opt-letter {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+
+  .mcq-option.disabled { pointer-events: none; opacity: 0.65; }
+  .mcq-option.correct.disabled, .mcq-option.incorrect.disabled { opacity: 1; }
+
+  .mcq-feedback {
+    display: none;
+    margin-top: 14px;
+    padding: 13px 16px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+
+  .mcq-feedback.correct  { background: #eafaf1; border: 1px solid #a9dfbf; color: #1a5c37; }
+  .mcq-feedback.incorrect { background: var(--accent-light); border: 1px solid #f5b7b1; color: #78281f; }
+  .mcq-feedback.show { display: block; }
+  .mcq-feedback strong { display: block; font-size: 13px; margin-bottom: 4px; }
+
+  /* ── COMPARISON TABLE ── */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+    background: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    font-size: 13px;
+  }
+
+  .comp-table thead {
+    background: var(--brand);
+    color: white;
+  }
+
+  .comp-table th {
+    padding: 13px 16px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 13px;
+  }
+
+  .comp-table th:first-child { text-align: left; }
+
+  .comp-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.5;
+  }
+
+  .comp-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: var(--bg);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 180px;
+  }
+
+  .comp-table tr:last-child td { border-bottom: none; }
+  .comp-table tr:hover td:not(:first-child) { background: var(--brand-light); }
+
+  .check { color: #27ae60; font-weight: 700; font-size: 15px; }
+  .cross { color: var(--accent); font-weight: 700; font-size: 15px; }
+
+  /* ── KEY MESSAGES ── */
+  .km-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  .km-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    display: flex;
+    gap: 14px;
+    box-shadow: var(--shadow);
+  }
+
+  .km-num {
+    font-family: 'Lora', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--border);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 32px;
+  }
+
+  .km-text { font-size: 13.5px; line-height: 1.6; color: var(--text); }
+  .km-text strong { color: var(--brand); display: block; margin-bottom: 4px; font-size: 14px; }
+
+  /* ── EXAM FOCUS ── */
+  .trap-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 14px;
+  }
+
+  .trap-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .trap-content .trap-label {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+  }
+
+  .trap-content .trap-q { font-size: 14.5px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
+  .trap-content .trap-a { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
+  .trap-content .trap-a strong { color: var(--accent); }
+
+  .rapid-recall {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .rr-card {
+    background: var(--brand);
+    color: white;
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .rr-card h5 {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #7ec8f5;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .rr-card ul { list-style: none; }
+  .rr-card ul li { padding: 3px 0; color: rgba(255,255,255,0.87); }
+  .rr-card ul li::before { content: '→ '; color: #7ec8f5; font-weight: 600; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    #toc { display: none; }
+    #main { max-width: 100%; }
+    .section { padding: 30px 24px; }
+    .hero { padding: 32px 24px; }
+    .lo-grid, .two-col, .km-grid, .diag-grid, .rapid-recall { grid-template-columns: 1fr; }
+    .symptom-grid { grid-template-columns: 1fr 1fr; }
+    .comp-table td:first-child { width: 110px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════ SIDEBAR TOC ════════════════════════ -->
+<nav id="toc" aria-label="Table of Contents">
+  <div class="toc-header">
+    <div class="toc-logo">MAHSA University · CPAS</div>
+    <div class="toc-title">Diabetes Mellitus</div>
+    <div class="toc-subtitle">DDS Year 2 · Pathology</div>
+  </div>
+  <div class="toc-nav">
+    <a href="#lo"><span class="toc-num">01</span>Learning Outcomes</a>
+    <a href="#pk"><span class="toc-num">02</span>Prior Knowledge Bridge</a>
+    <a href="#ct"><span class="toc-num">03</span>Clinical Trigger</a>
+    <a href="#cf"><span class="toc-num">04</span>Classification Framework</a>
+    <a href="#conditions"><span class="toc-num">05</span>Individual Conditions</a>
+    <a href="#cases"><span class="toc-num">06</span>Application Cases & MCQs</a>
+    <a href="#compare"><span class="toc-num">07</span>Master Comparison Table</a>
+    <a href="#km"><span class="toc-num">08</span>Key Take-Home Messages</a>
+    <a href="#exam"><span class="toc-num">09</span>Exam Focus</a>
+  </div>
+</nav>
+
+<!-- ════════════════════════ MAIN CONTENT ════════════════════════ -->
+<main id="main">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">CPAS Interactive e-Book</div>
+    <h1>Diabetes Mellitus</h1>
+    <p class="hero-sub">Pathology · DDS Year 2 · Dr. Sudha Arumugam</p>
+    <div class="hero-meta">
+      <div class="hero-badge"><span>🎓</span> Understand &amp; Apply level</div>
+      <div class="hero-badge"><span>🦷</span> Dental relevance integrated</div>
+      <div class="hero-badge"><span>📖</span> Robbins Pathology 10e</div>
+      <div class="hero-badge"><span>⚡</span> Interactive MCQs included</div>
+    </div>
+  </div>
+
+  <!-- ─── 01 LEARNING OUTCOMES ─── -->
+  <section class="section" id="lo">
+    <div class="section-label"><span class="dot"></span> Section 01</div>
+    <h2 class="section-title">Learning Outcomes</h2>
+    <p>By the end of this module, you should be able to:</p>
+    <div class="lo-grid">
+      <div class="lo-card">
+        <div class="lo-icon" style="background:#e8f2fa;">📌</div>
+        <div class="lo-text"><strong>Define</strong> diabetes mellitus and explain why it is described as "starvation amidst plenty."</div>
+      </div>
+      <div class="lo-card">
+        <div class="lo-icon" style="background:#fef6e4;">🗂️</div>
+        <div class="lo-text"><strong>Classify</strong> DM into primary (Type 1, Type 2, MODY, Gestational) and secondary forms with examples.</div>
+      </div>
+      <div class="lo-card">
+        <div class="lo-icon" style="background:#fdecea;">⚗️</div>
+        <div class="lo-text"><strong>Explain the pathogenesis</strong> of Type 1 (autoimmune β-cell destruction) and Type 2 (insulin resistance → β-cell exhaustion).</div>
+      </div>
+      <div class="lo-card">
+        <div class="lo-icon" style="background:#e6f5ec;">🔬</div>
+        <div class="lo-text"><strong>Describe</strong> the mechanisms (AGEs, polyol pathway, PKC) linking hyperglycaemia to tissue injury.</div>
+      </div>
+      <div class="lo-card">
+        <div class="lo-icon" style="background:#f0ecfb;">🩸</div>
+        <div class="lo-text"><strong>Differentiate</strong> microvascular from macrovascular complications and name the target organs involved.</div>
+      </div>
+      <div class="lo-card">
+        <div class="lo-icon" style="background:#e2f5f5;">🦷</div>
+        <div class="lo-text"><strong>Apply</strong> knowledge of DM to dental practice: infection susceptibility, wound healing, and emergency recognition.</div>
+      </div>
+    </div>
+    <div class="highlight-box hb-blue" style="margin-top:20px;">
+      <h5>🎯 Bloom's Level</h5>
+      <p style="margin:0;font-size:13.5px;">This module targets <strong>Understanding</strong> (explain, classify, compare) and <strong>Application</strong> (apply to clinical scenarios). Questions will ask you to <em>choose the correct mechanism</em>, <em>match feature to type</em>, or <em>manage a dental patient with DM</em>.</p>
+    </div>
+  </section>
+
+  <!-- ─── 02 PRIOR KNOWLEDGE BRIDGE ─── -->
+  <section class="section" id="pk">
+    <div class="section-label"><span class="dot"></span> Section 02</div>
+    <h2 class="section-title">Prior Knowledge Bridge</h2>
+    <p>Diabetes sits at the intersection of endocrinology, metabolism, and vascular pathology. Activate what you already know before proceeding.</p>
+    <div class="pk-grid">
+      <div class="pk-card">
+        <h4>🏝 Endocrine Pancreas</h4>
+        <ul>
+          <li>Islets of Langerhans</li>
+          <li>α-cells → glucagon (↑BGL)</li>
+          <li>β-cells → insulin (↓BGL)</li>
+          <li>δ-cells → somatostatin</li>
+          <li>PP-cells → pancreatic peptide</li>
+        </ul>
+      </div>
+      <div class="pk-card">
+        <h4>💉 Normal Insulin Action</h4>
+        <ul>
+          <li>Glucose uptake by muscle/fat</li>
+          <li>Glycogen synthesis (liver)</li>
+          <li>Inhibits lipolysis</li>
+          <li>Promotes protein synthesis</li>
+          <li>Released after meals</li>
+        </ul>
+      </div>
+      <div class="pk-card">
+        <h4>🧪 Glucose Homeostasis</h4>
+        <ul>
+          <li>Normal fasting: &lt;100 mg/dL</li>
+          <li>Renal threshold ~180 mg/dL</li>
+          <li>GLUT transporters</li>
+          <li>Insulin receptor signalling</li>
+          <li>HbA1c reflects 2–3 months</li>
+        </ul>
+      </div>
+      <div class="pk-card">
+        <h4>🛡 Basic Immunology</h4>
+        <ul>
+          <li>T-cell mediated immunity</li>
+          <li>Autoantibodies (anti-islet)</li>
+          <li>HLA system (MHC class II)</li>
+          <li>Inflammation → tissue damage</li>
+          <li>Molecular mimicry</li>
+        </ul>
+      </div>
+    </div>
+    <div class="highlight-box hb-gold" style="margin-top:16px;">
+      <h5>⚠️ Knowledge Check</h5>
+      <p style="margin:0;font-size:13.5px;">If you cannot explain how insulin lowers blood glucose or what HLA molecules do, review those topics first — they are essential for understanding Type 1 pathogenesis.</p>
+    </div>
+  </section>
+
+  <!-- ─── 03 CLINICAL TRIGGER ─── -->
+  <section class="section" id="ct">
+    <div class="section-label"><span class="dot"></span> Section 03</div>
+    <h2 class="section-title">Clinical Trigger</h2>
+    <div class="trigger-box">
+      <div class="scenario-tag">📋 Clinical Scenario</div>
+      <p>
+        A 16-year-old male is brought to the dental clinic by his mother for routine check-up. She mentions he has been extremely thirsty and urinating frequently for the past 3 weeks. He has lost 4 kg despite eating well. During examination, you note generalised gingivitis and a recently extracted socket that is not healing. His breath has a faint fruity odour. His random blood glucose, checked using a chair-side glucometer, reads 320 mg/dL.
+      </p>
+    </div>
+    <div class="trigger-questions">
+      <div class="trigger-q">
+        <div class="qnum">1</div>
+        <div>What single metabolic disorder unifies all these features — polyuria, polydipsia, weight loss, poor healing, and fruity breath?</div>
+      </div>
+      <div class="trigger-q">
+        <div class="qnum">2</div>
+        <div>Why would a diabetic patient have impaired wound healing and be more prone to oral infections?</div>
+      </div>
+      <div class="trigger-q">
+        <div class="qnum">3</div>
+        <div>What is the significance of the fruity breath, and what emergency condition does it suggest?</div>
+      </div>
+      <div class="trigger-q">
+        <div class="qnum">4</div>
+        <div>As the dentist, what is your immediate management before proceeding with any dental treatment?</div>
+      </div>
+    </div>
+    <p style="margin-top:16px;font-size:13.5px;color:var(--text-muted);">
+      <em>Work through this scenario as you study each section. You should be able to answer all four questions confidently by the end of this module.</em>
+    </p>
+  </section>
+
+  <!-- ─── 04 CLASSIFICATION ─── -->
+  <section class="section" id="cf">
+    <div class="section-label"><span class="dot"></span> Section 04</div>
+    <h2 class="section-title">Classification Framework</h2>
+    <p>Diabetes mellitus is a <strong>heterogeneous metabolic disorder</strong> characterised by hyperglycaemia due to absolute or relative insulin deficiency. The classification helps predict pathogenesis, complications, and management.</p>
+
+    <table class="classif-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Type</th>
+          <th>Key Mechanism</th>
+          <th>Prevalence</th>
+          <th>Tags</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="4" style="background:var(--brand-light);font-weight:600;color:var(--brand);text-align:center;vertical-align:middle;">Primary DM</td>
+          <td><strong>Type 1</strong> (IDDM)</td>
+          <td>Autoimmune β-cell destruction → absolute insulin deficiency</td>
+          <td>~10%</td>
+          <td><span class="tag tag-red">Autoimmune</span><span class="tag tag-blue">Insulin-dependent</span></td>
+        </tr>
+        <tr>
+          <td><strong>Type 2</strong> (NIDDM)</td>
+          <td>Insulin resistance + relative insulin deficiency → β-cell exhaustion</td>
+          <td>~80%</td>
+          <td><span class="tag tag-gold">Lifestyle</span><span class="tag tag-green">Insulin-independent</span></td>
+        </tr>
+        <tr>
+          <td><strong>MODY</strong></td>
+          <td>Monogenic — single gene mutation affecting β-cell function</td>
+          <td>~5%</td>
+          <td><span class="tag tag-purple">Genetic</span></td>
+        </tr>
+        <tr>
+          <td><strong>Gestational DM</strong></td>
+          <td>Hormonal insulin resistance during pregnancy</td>
+          <td>Variable</td>
+          <td><span class="tag tag-blue">Pregnancy</span></td>
+        </tr>
+        <tr>
+          <td rowspan="5" style="background:#fdecea;font-weight:600;color:var(--accent);text-align:center;vertical-align:middle;">Secondary DM</td>
+          <td>Pancreatic disease</td>
+          <td>Destruction of islets (pancreatitis, carcinoma, haemochromatosis)</td>
+          <td>&lt;1%</td>
+          <td><span class="tag tag-red">Acquired</span></td>
+        </tr>
+        <tr>
+          <td>Infectious</td>
+          <td>Congenital rubella, Coxsackie B, CMV — islet damage</td>
+          <td>&lt;1%</td>
+          <td><span class="tag tag-red">Viral</span></td>
+        </tr>
+        <tr>
+          <td>Endocrinopathy</td>
+          <td>Cushing's, acromegaly, phaeochromocytoma — counter-regulatory hormones</td>
+          <td>&lt;1%</td>
+          <td><span class="tag tag-gold">Hormonal</span></td>
+        </tr>
+        <tr>
+          <td>Genetic syndromes</td>
+          <td>Down syndrome, Turner syndrome</td>
+          <td>&lt;1%</td>
+          <td><span class="tag tag-purple">Genetic</span></td>
+        </tr>
+        <tr>
+          <td>Drug-induced</td>
+          <td>Corticosteroids, thiazide diuretics — impair insulin secretion/action</td>
+          <td>&lt;1%</td>
+          <td><span class="tag tag-gold">Iatrogenic</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:24px;">
+      <div class="section-title" style="font-size:18px;margin-bottom:14px;">Diagnostic Criteria</div>
+      <div class="diag-grid">
+        <div class="diag-card">
+          <h4>Fasting Plasma Glucose</h4>
+          <div class="diag-row"><span class="diag-label">Normal</span><span class="diag-val diag-normal">&lt;100 mg/dL</span></div>
+          <div class="diag-row"><span class="diag-label">Pre-diabetes (IGT)</span><span class="diag-val diag-igt">100–125 mg/dL</span></div>
+          <div class="diag-row"><span class="diag-label">Diabetes</span><span class="diag-val diag-dm">≥126 mg/dL</span></div>
+        </div>
+        <div class="diag-card">
+          <h4>2-hr Post-load (OGTT)</h4>
+          <div class="diag-row"><span class="diag-label">Normal</span><span class="diag-val diag-normal">&lt;140 mg/dL</span></div>
+          <div class="diag-row"><span class="diag-label">Pre-diabetes (IGT)</span><span class="diag-val diag-igt">140–199 mg/dL</span></div>
+          <div class="diag-row"><span class="diag-label">Diabetes</span><span class="diag-val diag-dm">≥200 mg/dL</span></div>
+        </div>
+        <div class="diag-card">
+          <h4>Random / Symptomatic</h4>
+          <div class="diag-row"><span class="diag-label">Diabetes (+ symptoms)</span><span class="diag-val diag-dm">≥200 mg/dL</span></div>
+          <div class="diag-row"><span class="diag-label">HbA1c — good control</span><span class="diag-val diag-normal">&lt;7%</span></div>
+          <div class="diag-row"><span class="diag-label">HbA1c — diabetes Dx</span><span class="diag-val diag-dm">≥6.5%</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 05 INDIVIDUAL CONDITIONS ─── -->
+  <section class="section" id="conditions">
+    <div class="section-label"><span class="dot"></span> Section 05</div>
+    <h2 class="section-title">Individual Conditions — Detailed Accordions</h2>
+    <p>Click each accordion to explore the condition in detail. Work through them in order — each builds on the previous.</p>
+
+    <div class="accordion-group">
+
+      <!-- TYPE 1 DM -->
+      <div class="accordion" id="acc-t1">
+        <button class="accordion-trigger" onclick="toggleAcc('acc-t1')">
+          <div class="accordion-trigger-left">
+            <div class="acc-icon" style="background:#fdecea;font-size:20px;">🔴</div>
+            <div>
+              <div class="acc-title">Type 1 Diabetes Mellitus (IDDM)</div>
+              <div class="acc-subtitle">Autoimmune · Absolute insulin deficiency · Juvenile onset · ~10%</div>
+            </div>
+          </div>
+          <div class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="accordion-body">
+          <div class="acc-body-inner">
+
+            <div class="two-col">
+              <div class="highlight-box hb-red" style="margin-bottom:0;">
+                <h5>Definition</h5>
+                <p style="margin:0;font-size:13.5px;">Autoimmune destruction of pancreatic β-cells leading to <strong>absolute insulin deficiency</strong>. Formerly called Juvenile-onset or Insulin-Dependent DM.</p>
+              </div>
+              <div class="highlight-box hb-blue" style="margin-bottom:0;">
+                <h5>Epidemiology</h5>
+                <p style="margin:0;font-size:13.5px;">Onset typically <strong>&lt;20 years</strong>. Normal or underweight at presentation. Accounts for ~10% of all DM cases.</p>
+              </div>
+            </div>
+
+            <div style="margin-top:16px;" class="highlight-box hb-purple">
+              <h5>Genetic Susceptibility</h5>
+              <p style="margin:0;font-size:13.5px;">Strongly linked to <strong>HLA-DR3 and HLA-DR4</strong> (MHC Class II genes on chromosome 6). These HLA alleles present β-cell antigens to autoreactive T-cells, initiating the immune cascade.</p>
+            </div>
+
+            <div class="info-block" style="margin-top:16px;">
+              <h5>Pathogenesis — Step-by-Step</h5>
+            </div>
+
+            <div class="pathway-steps">
+              <div class="pathway-step">
+                <div class="ps-connector"><div class="ps-dot" style="background:var(--purple);">1</div><div class="ps-line"></div></div>
+                <div class="ps-content"><strong>Genetic susceptibility</strong> HLA-DR3/DR4 alleles confer susceptibility to immune dysregulation targeting β-cells.</div>
+              </div>
+              <div class="pathway-step">
+                <div class="ps-connector"><div class="ps-dot" style="background:var(--brand-mid);">2</div><div class="ps-line"></div></div>
+                <div class="ps-content"><strong>Environmental trigger</strong> Viral infections (Coxsackie B, mumps, rubella) trigger immune activation — possibly via molecular mimicry (viral antigens resemble β-cell antigens).</div>
+              </div>
+              <div class="pathway-step">
+                <div class="ps-connector"><div class="ps-dot" style="background:var(--gold);">3</div><div class="ps-line"></div></div>
+                <div class="ps-content"><strong>Insulitis</strong> CD4+ and CD8+ T-lymphocytes infiltrate the islets (insulitis). Autoantibodies to β-cells and insulin appear in blood — detectable years before symptoms.</div>
+              </div>
+              <div class="pathway-step">
+                <div class="ps-connector"><div class="ps-dot" style="background:var(--accent);">4</div><div class="ps-line"></div></div>
+                <div class="ps-content"><strong>β-cell destruction</strong> T-cell mediated cytotoxicity destroys β-cells. >80–90% of β-cell mass must be lost before overt hyperglycaemia occurs.</div>
+              </div>
+              <div class="pathway-step">
+                <div class="ps-connector"><div class="ps-dot" style="background:var(--green);">5</div></div>
+                <div class="ps-content"><strong>Absolute insulin deficiency</strong> Results in uncontrolled hyperglycaemia, lipolysis, and if untreated → diabetic ketoacidosis (DKA).</div>
+              </div>
+            </div>
+
+            <div class="info-block" style="margin-top:16px;">
+              <h5>Morphology of Islets in Type 1 DM</h5>
+              <div class="two-col" style="margin-top:8px;">
+                <div>
+                  <strong style="font-size:12.5px;color:var(--text-muted);display:block;margin-bottom:4px;">EARLY (Insulitis phase)</strong>
+                  Marked lymphocytic infiltration of islets (insulitis). Islets appear active, inflamed.
+                </div>
+                <div>
+                  <strong style="font-size:12.5px;color:var(--text-muted);display:block;margin-bottom:4px;">LATE (Established DM)</strong>
+                  Marked islet atrophy and fibrosis. Near-total depletion of β-cells. α-cells preserved.
+                </div>
+              </div>
+            </div>
+
+            <div class="highlight-box hb-red" style="margin-top:14px;">
+              <h5>Diabetic Ketoacidosis (DKA) — Type 1 Emergency</h5>
+              <p style="font-size:13.5px;margin-bottom:8px;">Without insulin, lipolysis is uncontrolled → free fatty acids → <strong>ketone bodies</strong> (acetoacetate, β-hydroxybutyrate, acetone). Results in:</p>
+              <div class="symptom-grid" style="grid-template-columns:1fr 1fr 1fr;">
+                <div class="symptom-card"><div class="sym-name">Glucose</div>&gt;250 mg/dL (often 500–800)</div>
+                <div class="symptom-card"><div class="sym-name">Acidosis</div>pH &lt;7.30, HCO₃⁻ &lt;15</div>
+                <div class="symptom-card"><div class="sym-name">Kussmaul</div>Deep rapid breathing to blow off CO₂</div>
+                <div class="symptom-card"><div class="sym-name">Fruity breath</div>Acetone smell — key dental sign</div>
+                <div class="symptom-card"><div class="sym-name">Nausea / vomiting</div>Abdominal pain</div>
+                <div class="symptom-card"><div class="sym-name">Coma</div>Mental status changes → coma</div>
+              </div>
+              <p style="font-size:12.5px;margin-top:8px;margin-bottom:0;color:#78281f;"><strong>Precipitants:</strong> Infection, missed insulin dose, physiological stress (trauma, surgery).</p>
+            </div>
+
+            <div style="margin-top:20px;">
+              <div style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--brand-mid);margin-bottom:10px;">&#127916; Video Resource &#8212; Understanding Diabetic Ketoacidosis (DKA)</div>
+              <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius);border:1px solid var(--border);background:#000;">
+                <iframe src="https://www.youtube.com/embed/jxbbBmbvu7I" title="Diabetic Ketoacidosis" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen loading="lazy"></iframe>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- TYPE 2 DM -->
+      <div class="accordion" id="acc-t2">
+        <button class="accordion-trigger" onclick="toggleAcc('acc-t2')">
+          <div class="accordion-trigger-left">
+            <div class="acc-icon" style="background:var(--gold-light);font-size:20px;">🟡</div>
+            <div>
+              <div class="acc-title">Type 2 Diabetes Mellitus (NIDDM)</div>
+              <div class="acc-subtitle">Insulin resistance · Relative deficiency · Adult onset · ~80%</div>
+            </div>
+          </div>
+          <div class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="accordion-body">
+          <div class="acc-body-inner">
+            <div class="two-col">
+              <div class="highlight-box hb-gold" style="margin-bottom:0;">
+                <h5>Definition</h5>
+                <p style="margin:0;font-size:13.5px;">Combination of <strong>peripheral insulin resistance</strong> and <strong>relative insulin deficiency</strong> due to progressive β-cell exhaustion. Not autoimmune.</p>
+              </div>
+              <div class="highlight-box hb-blue" style="margin-bottom:0;">
+                <h5>Epidemiology</h5>
+                <p style="margin:0;font-size:13.5px;">Onset typically <strong>&gt;30 years</strong>. Usually obese (BMI &gt;25). No HLA linkage. Strongly influenced by lifestyle factors.</p>
+              </div>
+            </div>
+
+            <div style="margin-top:16px;" class="info-block">
+              <h5>Risk Factors for Insulin Resistance</h5>
+              <div class="two-col" style="margin-top:8px;">
+                <ul style="font-size:13px;line-height:1.8;list-style:none;">
+                  <li>🔸 Overweight/obesity (BMI &gt;25)</li>
+                  <li>🔸 Family history of T2DM</li>
+                  <li>🔸 Hypertension</li>
+                  <li>🔸 Metabolic syndrome</li>
+                </ul>
+                <ul style="font-size:13px;line-height:1.8;list-style:none;">
+                  <li>🔸 Low HDL / high triglycerides</li>
+                  <li>🔸 Polycystic ovary disease (PCOD)</li>
+                  <li>🔸 Previous gestational DM</li>
+                  <li>🔸 Physical inactivity</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="info-block">
+              <h5>Pathogenesis — Step-by-Step</h5>
+            </div>
+            <div class="pathway-steps">
+              <div class="pathway-step">
+                <div class="ps-connector"><div class="ps-dot" style="background:var(--gold);">1</div><div class="ps-line"></div></div>
+                <div class="ps-content"><strong>Genetic predisposition + Obesity/Lifestyle</strong> Adipose tissue releases FFA, adipokines, and pro-inflammatory cytokines that impair insulin receptor signalling.</div>
+              </div>
+              <div class="pathway-step">
+                <div class="ps-connector"><div class="ps-dot" style="background:var(--gold);">2</div><div class="ps-line"></div></div>
+                <div class="ps-content"><strong>Insulin resistance</strong> Liver, muscle, and adipose cells fail to respond normally to insulin. Normal insulin levels cannot maintain normoglycaemia.</div>
+              </div>
+              <div class="pathway-step">
+                <div class="ps-connector"><div class="ps-dot" style="background:var(--green);">3</div><div class="ps-line"></div></div>
+                <div class="ps-content"><strong>Compensatory β-cell hyperplasia</strong> β-cells increase insulin production to overcome resistance → normoglycaemia maintained temporarily.</div>
+              </div>
+              <div class="pathway-step">
+                <div class="ps-connector"><div class="ps-dot" style="background:var(--accent);">4</div><div class="ps-line"></div></div>
+                <div class="ps-content"><strong>Early β-cell failure</strong> β-cells can no longer compensate → impaired glucose tolerance (pre-diabetes). First-phase insulin secretion lost.</div>
+              </div>
+              <div class="pathway-step">
+                <div class="ps-connector"><div class="ps-dot" style="background:var(--accent);">5</div></div>
+                <div class="ps-content"><strong>Late β-cell exhaustion</strong> Chronic overwork leads to β-cell apoptosis and amyloid deposition in islets → overt T2DM. In very late stages, insulin injections may be needed (IDDM-like).</div>
+              </div>
+            </div>
+
+            <div class="info-block" style="margin-top:16px;">
+              <h5>Morphology of Islets in Type 2 DM</h5>
+              <div class="two-col" style="margin-top:8px;">
+                <div><strong style="font-size:12.5px;color:var(--text-muted);display:block;margin-bottom:4px;">NO INSULITIS</strong> No lymphocytic infiltration (not autoimmune).</div>
+                <div><strong style="font-size:12.5px;color:var(--text-muted);display:block;margin-bottom:4px;">FOCAL ATROPHY + AMYLOID</strong> Islet amyloid polypeptide (amylin) deposits. Mild β-cell depletion only.</div>
+              </div>
+            </div>
+
+            <div class="highlight-box hb-gold" style="margin-top:14px;">
+              <h5>Hyperglycaemic Hyperosmolar State (HHS) — Type 2 Emergency</h5>
+              <p style="font-size:13.5px;margin-bottom:0;">Unlike DKA, there is <strong>enough insulin to prevent ketogenesis</strong> but not enough to utilise all glucose. Serum glucose 400–1800 mg/dL. No ketoacidosis. Precipitated by stress, infection, or dehydration. High mortality if untreated.</p>
+            </div>
+
+            <div style="margin-top:20px;">
+              <div style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:var(--brand-mid);margin-bottom:10px;">&#127916; Video Resource &#8212; Hyperglycaemic Hyperosmolar State (HHS)</div>
+              <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius);border:1px solid var(--border);background:#000;">
+                <iframe src="https://www.youtube.com/embed/JAjZv41iUJU" title="Hyperglycaemic Hyperosmolar State" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen loading="lazy"></iframe>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- MECHANISMS OF COMPLICATIONS -->
+      <div class="accordion" id="acc-mech">
+        <button class="accordion-trigger" onclick="toggleAcc('acc-mech')">
+          <div class="accordion-trigger-left">
+            <div class="acc-icon" style="background:var(--purple-light);font-size:20px;">⚗️</div>
+            <div>
+              <div class="acc-title">Mechanisms of Diabetic Complications</div>
+              <div class="acc-subtitle">AGEs · Polyol pathway · Protein kinase C</div>
+            </div>
+          </div>
+          <div class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="accordion-body">
+          <div class="acc-body-inner">
+            <p style="font-size:13.5px;margin-bottom:16px;">Persistent hyperglycaemia damages tissues through three main biochemical pathways. Understanding these explains <em>why</em> specific organs are targeted.</p>
+
+            <div class="highlight-box hb-purple">
+              <h5>Mechanism 1 — Non-Enzymatic Glycation (AGEs)</h5>
+              <p style="font-size:13.5px;margin-bottom:0;"><strong>Glucose-derived precursors</strong> (glyoxal, methylglyoxal, 3-deoxyglucosone) react non-enzymatically with amino groups of proteins → <strong>Advanced Glycation End-products (AGEs)</strong>. AGEs bind to RAGE receptors on cells and cause:</p>
+              <ul style="font-size:13px;margin-top:8px;list-style:none;line-height:1.8;">
+                <li>🔴 Release of pro-inflammatory cytokines (IL-1, TNF-α)</li>
+                <li>🔴 Generation of reactive oxygen species (ROS) in endothelium</li>
+                <li>🔴 Increased procoagulant activity → thrombosis</li>
+                <li>🔴 Enhanced vascular smooth muscle cell proliferation</li>
+                <li>🔴 Cross-linking of extracellular matrix proteins → vessel stiffening</li>
+              </ul>
+              <p style="font-size:12.5px;margin-top:8px;margin-bottom:0;"><strong>Dental relevance:</strong> Collagen cross-linking in periodontal ligament impairs regeneration and wound healing post-extraction.</p>
+            </div>
+
+            <div class="highlight-box hb-blue" style="margin-top:14px;">
+              <h5>Mechanism 2 — Polyol Pathway (Sorbitol Accumulation)</h5>
+              <p style="font-size:13.5px;margin-bottom:0;">In <strong>insulin-independent tissues</strong> (nerves, retina, kidneys, blood vessels), excess glucose is converted to <strong>sorbitol</strong> by aldose reductase (requires NADPH). Sorbitol cannot cross cell membranes → intracellular accumulation:</p>
+              <ul style="font-size:13px;margin-top:8px;list-style:none;line-height:1.8;">
+                <li>🔵 Osmotic stress → cell swelling → damage (lens → cataracts; nerves → neuropathy)</li>
+                <li>🔵 NADPH depletion → reduced glutathione → oxidative damage</li>
+                <li>🔵 Decreased myoinositol → altered signal transduction in neurons</li>
+              </ul>
+              <div class="highlight-box hb-gold" style="margin-top:10px;margin-bottom:0;padding:10px 12px;">
+                <p style="font-size:12.5px;margin:0;"><strong>Key mnemonic:</strong> Sorbitol = Stays Inside → Swells the cell. Targets: <strong>S</strong>chwartzian nerves, <strong>R</strong>etina, <strong>K</strong>idney, <strong>L</strong>ens (Schwann cells, Retina, Kidney, Lens).</p>
+              </div>
+            </div>
+
+            <div class="highlight-box hb-teal" style="margin-top:14px;">
+              <h5>Mechanism 3 — Protein Kinase C (PKC) Activation</h5>
+              <p style="font-size:13.5px;margin-bottom:0;">Hyperglycaemia increases intracellular diacylglycerol (DAG) → activates <strong>PKC</strong>. PKC activation leads to:</p>
+              <ul style="font-size:13px;margin-top:8px;list-style:none;line-height:1.8;">
+                <li>🟢 ↑ VEGF production → neovascularisation (retinopathy)</li>
+                <li>🟢 ↑ Endothelin-1 → vasoconstriction</li>
+                <li>🟢 ↓ Nitric oxide → endothelial dysfunction</li>
+                <li>🟢 ↑ TGF-β → basement membrane thickening (nephropathy)</li>
+                <li>🟢 ↑ Pro-inflammatory cytokines → atherosclerosis acceleration</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MICROVASCULAR COMPLICATIONS -->
+      <div class="accordion" id="acc-micro">
+        <button class="accordion-trigger" onclick="toggleAcc('acc-micro')">
+          <div class="accordion-trigger-left">
+            <div class="acc-icon" style="background:var(--teal-light);font-size:20px;">🔬</div>
+            <div>
+              <div class="acc-title">Microvascular Complications</div>
+              <div class="acc-subtitle">Retinopathy · Nephropathy · Neuropathy</div>
+            </div>
+          </div>
+          <div class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="accordion-body">
+          <div class="acc-body-inner">
+            <p style="font-size:13.5px;margin-bottom:16px;">Microvascular disease is the hallmark of DM and results from the biochemical mechanisms above acting on small vessels. Key features: <strong>basement membrane thickening, pericyte loss, increased vascular permeability</strong>.</p>
+
+            <div class="highlight-box hb-teal">
+              <h5>1. Diabetic Retinopathy — Leading cause of blindness in working-age adults</h5>
+              <div class="two-col" style="margin-top:8px;">
+                <div>
+                  <strong style="font-size:12.5px;display:block;margin-bottom:4px;">Non-proliferative (background)</strong>
+                  Microaneurysms → dot haemorrhages → hard exudates → macular oedema
+                </div>
+                <div>
+                  <strong style="font-size:12.5px;display:block;margin-bottom:4px;">Proliferative</strong>
+                  VEGF ↑ → new vessel formation → vitreous haemorrhage → retinal detachment → blindness
+                </div>
+              </div>
+              <p style="font-size:12.5px;margin-top:8px;margin-bottom:0;">Other ocular complications: <strong>cataracts</strong> (sorbitol in lens), <strong>glaucoma</strong> (neovascularisation of iris).</p>
+            </div>
+
+            <div class="highlight-box hb-blue" style="margin-top:14px;">
+              <h5>2. Diabetic Nephropathy — Leading cause of end-stage renal disease</h5>
+              <ul style="font-size:13px;line-height:1.8;list-style:none;">
+                <li>🔵 Earliest sign: <strong>microalbuminuria</strong> (30–300 mg/day)</li>
+                <li>🔵 Kimmelstiel-Wilson lesion: <strong>nodular glomerulosclerosis</strong> — pathognomonic for diabetic nephropathy</li>
+                <li>🔵 Diffuse glomerulosclerosis (more common but less specific)</li>
+                <li>🔵 Hyaline arteriosclerosis of afferent AND efferent arterioles (efferent involvement is unique to DM)</li>
+                <li>🔵 Progression: microalbuminuria → gross albuminuria → nephrotic syndrome → renal failure</li>
+              </ul>
+            </div>
+
+            <div class="highlight-box hb-purple" style="margin-top:14px;">
+              <h5>3. Diabetic Neuropathy — Leading cause of non-traumatic lower limb amputation</h5>
+              <div class="two-col" style="margin-top:8px;">
+                <div>
+                  <strong style="font-size:12.5px;display:block;margin-bottom:4px;">Peripheral neuropathy</strong>
+                  Glove-and-stocking sensory loss. Loss of pain/temperature → unnoticed foot injuries → gangrene.
+                </div>
+                <div>
+                  <strong style="font-size:12.5px;display:block;margin-bottom:4px;">Autonomic neuropathy</strong>
+                  Gastroparesis, orthostatic hypotension, impotence, <strong>silent MI</strong> (no chest pain due to cardiac denervation).
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MACROVASCULAR COMPLICATIONS -->
+      <div class="accordion" id="acc-macro">
+        <button class="accordion-trigger" onclick="toggleAcc('acc-macro')">
+          <div class="accordion-trigger-left">
+            <div class="acc-icon" style="background:var(--accent-light);font-size:20px;">🫀</div>
+            <div>
+              <div class="acc-title">Macrovascular Complications</div>
+              <div class="acc-subtitle">Atherosclerosis · MI · Stroke · Peripheral vascular disease</div>
+            </div>
+          </div>
+          <div class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="accordion-body">
+          <div class="acc-body-inner">
+            <div class="highlight-box hb-red">
+              <h5>Key Point — Dyslipidaemia as the Driver</h5>
+              <p style="font-size:13.5px;margin-bottom:0;">Diabetic dyslipidaemia: <strong>↓ HDL + ↑ Triglycerides</strong> (most common pattern). Low HDL is the <em>most constant predictor</em> of cardiovascular disease in DM. This, combined with AGE-mediated endothelial damage and PKC-driven inflammation, accelerates atherosclerosis.</p>
+            </div>
+
+            <div class="info-block" style="margin-top:14px;">
+              <h5>Major Macrovascular Manifestations</h5>
+              <div class="symptom-grid" style="margin-top:8px;">
+                <div class="symptom-card">
+                  <div class="sym-name">Myocardial Infarction</div>
+                  Most common cause of death in diabetics. May be <em>silent</em> due to autonomic neuropathy.
+                </div>
+                <div class="symptom-card">
+                  <div class="sym-name">Stroke</div>
+                  2–4× increased risk of CVA compared to non-diabetics.
+                </div>
+                <div class="symptom-card">
+                  <div class="sym-name">Peripheral Vascular Disease</div>
+                  Gangrene of lower extremities <strong>100× more common</strong> in diabetics. Dry gangrene → amputation.
+                </div>
+                <div class="symptom-card">
+                  <div class="sym-name">Hyaline Arteriosclerosis</div>
+                  More severe in diabetics. Affects afferent AND efferent renal arterioles.
+                </div>
+                <div class="symptom-card">
+                  <div class="sym-name">Dental Relevance</div>
+                  Poor perfusion → impaired healing. Increased risk of post-extraction alveolitis. Accelerated periodontitis.
+                </div>
+                <div class="symptom-card">
+                  <div class="sym-name">HHS Risk</div>
+                  Type 2 patients under surgical/dental stress may precipitate HHS — glucose monitoring essential.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INFECTIONS & SKIN CHANGES -->
+      <div class="accordion" id="acc-infec">
+        <button class="accordion-trigger" onclick="toggleAcc('acc-infec')">
+          <div class="accordion-trigger-left">
+            <div class="acc-icon" style="background:var(--green-light);font-size:20px;">🦠</div>
+            <div>
+              <div class="acc-title">Infections & Skin Changes</div>
+              <div class="acc-subtitle">Increased susceptibility · Oral relevance · Common organisms</div>
+            </div>
+          </div>
+          <div class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="accordion-body">
+          <div class="acc-body-inner">
+            <div class="highlight-box hb-green">
+              <h5>Why Diabetics are Infection-Prone</h5>
+              <p style="font-size:13.5px;margin-bottom:0;">Hyperglycaemia impairs <strong>neutrophil function</strong> (reduced chemotaxis, phagocytosis, oxidative burst), <strong>T-cell responses</strong>, and <strong>complement activity</strong>. The high glucose environment also promotes microbial growth.</p>
+            </div>
+
+            <div class="info-block" style="margin-top:14px;">
+              <h5>Common Infections in DM — Organised by Site</h5>
+              <table style="width:100%;font-size:13px;border-collapse:collapse;margin-top:8px;">
+                <thead><tr style="background:var(--bg);font-size:11.5px;text-transform:uppercase;letter-spacing:0.5px;">
+                  <th style="padding:8px;border:1px solid var(--border);text-align:left;">Disease/Site</th>
+                  <th style="padding:8px;border:1px solid var(--border);text-align:left;">Organism</th>
+                  <th style="padding:8px;border:1px solid var(--border);text-align:left;">Key Risk Factor</th>
+                </tr></thead>
+                <tbody>
+                  <tr><td style="padding:8px;border:1px solid var(--border);">Mucormycosis (sinonasal)</td><td style="padding:8px;border:1px solid var(--border);">Rhizopus spp, Rhizomucor</td><td style="padding:8px;border:1px solid var(--border);">Hyperglycaemia</td></tr>
+                  <tr style="background:var(--bg);"><td style="padding:8px;border:1px solid var(--border);">Staphylococcal carriage</td><td style="padding:8px;border:1px solid var(--border);"><em>Staphylococcus aureus</em></td><td style="padding:8px;border:1px solid var(--border);">Hyperglycaemia</td></tr>
+                  <tr><td style="padding:8px;border:1px solid var(--border);">Urinary tract infection</td><td style="padding:8px;border:1px solid var(--border);"><em>E. coli</em>, Gram-negatives</td><td style="padding:8px;border:1px solid var(--border);">Hyperglycaemia, female sex</td></tr>
+                  <tr style="background:var(--bg);"><td style="padding:8px;border:1px solid var(--border);">Pneumonia</td><td style="padding:8px;border:1px solid var(--border);"><em>S. pneumoniae</em>, influenza, fungi</td><td style="padding:8px;border:1px solid var(--border);">Hyperglycaemia, age</td></tr>
+                  <tr><td style="padding:8px;border:1px solid var(--border);">Soft tissue infections</td><td style="padding:8px;border:1px solid var(--border);">Streptococci, anaerobes</td><td style="padding:8px;border:1px solid var(--border);">Hyperglycaemia, angiopathy</td></tr>
+                  <tr style="background:var(--bg);"><td style="padding:8px;border:1px solid var(--border);">Malignant otitis externa</td><td style="padding:8px;border:1px solid var(--border);"><em>Pseudomonas aeruginosa</em></td><td style="padding:8px;border:1px solid var(--border);">Hyperglycaemia</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="highlight-box hb-blue" style="margin-top:14px;">
+              <h5>Oral / Dental Infections (High-Yield for Dentists)</h5>
+              <ul style="font-size:13px;line-height:1.8;list-style:none;">
+                <li>🦷 <strong>Oral candidiasis</strong> (Candida albicans) — most common. Angular cheilitis, median rhomboid glossitis</li>
+                <li>🦷 <strong>Periodontal disease</strong> — bidirectional relationship: DM worsens periodontitis; periodontitis worsens glycaemic control</li>
+                <li>🦷 <strong>Mucormycosis</strong> — palatal necrosis, life-threatening; involves rhinocerebral spread</li>
+                <li>🦷 <strong>Post-extraction dry socket</strong> and impaired socket healing</li>
+                <li>🦷 <strong>Burning mouth, xerostomia</strong> due to reduced saliva (hyperglycaemia-mediated)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLINICAL FEATURES & MANAGEMENT PRINCIPLES -->
+      <div class="accordion" id="acc-clinical">
+        <button class="accordion-trigger" onclick="toggleAcc('acc-clinical')">
+          <div class="accordion-trigger-left">
+            <div class="acc-icon" style="background:var(--brand-light);font-size:20px;">🩺</div>
+            <div>
+              <div class="acc-title">Clinical Features & Management Principles</div>
+              <div class="acc-subtitle">Classic triad · HbA1c monitoring · Glycaemic control</div>
+            </div>
+          </div>
+          <div class="acc-chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </button>
+        <div class="accordion-body">
+          <div class="acc-body-inner">
+            <div class="info-block">
+              <h5>Classic Presentation ("Three Polys" + More)</h5>
+              <div class="symptom-grid" style="margin-top:8px;">
+                <div class="symptom-card"><div class="sym-name">Polyuria</div>Osmotic diuresis when glucose exceeds renal threshold (~180 mg/dL)</div>
+                <div class="symptom-card"><div class="sym-name">Polydipsia</div>Dehydration from osmotic diuresis → thirst</div>
+                <div class="symptom-card"><div class="sym-name">Polyphagia</div>Cellular starvation → hunger despite high serum glucose</div>
+                <div class="symptom-card"><div class="sym-name">Weight loss</div>Lipolysis and proteolysis for energy ("starvation amidst plenty")</div>
+                <div class="symptom-card"><div class="sym-name">Blurred vision</div>Osmotic swelling of lens</div>
+                <div class="symptom-card"><div class="sym-name">Fatigue</div>Poor cellular glucose uptake → low energy</div>
+              </div>
+            </div>
+
+            <div class="highlight-box hb-green" style="margin-top:14px;">
+              <h5>Monitoring — HbA1c (Glycosylated Haemoglobin)</h5>
+              <p style="font-size:13.5px;margin-bottom:8px;">HbA1c reflects average blood glucose over the <strong>preceding 2–3 months</strong> (lifespan of RBC). Glucose non-enzymatically glycates haemoglobin — higher average glucose = higher HbA1c.</p>
+              <div class="two-col">
+                <div style="text-align:center;padding:10px;background:var(--surface);border-radius:6px;">
+                  <div style="font-size:24px;font-weight:700;color:var(--green);">&lt;7%</div>
+                  <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">Good glycaemic control</div>
+                </div>
+                <div style="text-align:center;padding:10px;background:var(--surface);border-radius:6px;">
+                  <div style="font-size:24px;font-weight:700;color:var(--accent);">≥6.5%</div>
+                  <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">Diagnostic of DM</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-block" style="margin-top:14px;">
+              <h5>Management Overview</h5>
+              <div class="two-col" style="margin-top:8px;">
+                <div>
+                  <strong style="font-size:12.5px;color:var(--accent);display:block;margin-bottom:5px;">TYPE 1 DM</strong>
+                  <ul style="font-size:13px;list-style:none;line-height:1.8;">
+                    <li>→ Insulin replacement (mandatory)</li>
+                    <li>→ Multiple daily injections or pump</li>
+                    <li>→ Carbohydrate counting</li>
+                    <li>→ Blood glucose monitoring</li>
+                  </ul>
+                </div>
+                <div>
+                  <strong style="font-size:12.5px;color:var(--gold);display:block;margin-bottom:5px;">TYPE 2 DM</strong>
+                  <ul style="font-size:13px;list-style:none;line-height:1.8;">
+                    <li>→ Lifestyle: diet + exercise</li>
+                    <li>→ Oral hypoglycaemics (metformin 1st line)</li>
+                    <li>→ Insulin if β-cell exhaustion occurs</li>
+                    <li>→ Treat associated dyslipidaemia, HTN</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="highlight-box hb-red" style="margin-top:14px;">
+              <h5>🦷 Dental Management of Diabetic Patients</h5>
+              <ul style="font-size:13px;line-height:1.8;list-style:none;">
+                <li>⚠️ Check BGL before invasive treatment (safe range: 80–180 mg/dL)</li>
+                <li>⚠️ Morning appointments preferred (cortisol spike less likely, patient has eaten)</li>
+                <li>⚠️ Do not proceed if fasting BGL &gt;400 or patient in DKA/HHS</li>
+                <li>⚠️ Prophylactic antibiotics for extensive surgical procedures</li>
+                <li>⚠️ Stress reduction protocol — stress raises blood glucose</li>
+                <li>⚠️ Warn patient about hypoglycaemia if on insulin (keep glucose tablets)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end accordion-group -->
+  </section>
+
+  <!-- ─── 06 APPLICATION CASES & MCQs ─── -->
+  <section class="section" id="cases">
+    <div class="section-label"><span class="dot"></span> Section 06</div>
+    <h2 class="section-title">Application Cases with Stepwise MCQs</h2>
+    <p>Work through each clinical case step by step. Click an option to reveal feedback before proceeding to the next question.</p>
+
+    <!-- ── CASE 1 ── -->
+    <div class="case-box" style="margin-top:24px;">
+      <div class="case-tag">📋 Case 1 — The Thirsty Teenager</div>
+      <p>Amir, 14 years old, presents to the dental clinic for his first visit in 2 years. He has generalised gingival bleeding, and his mother reports he has been drinking water constantly and urinating frequently. He lost 5 kg in 6 weeks. His random blood glucose is 480 mg/dL. He has no prior diagnosis of diabetes.</p>
+    </div>
+
+    <div id="case1-q1" class="mcq-block">
+      <div class="mcq-step">Step 1 of 4</div>
+      <div class="mcq-q">1. Based on the clinical presentation, which type of diabetes mellitus is most likely in this patient?</div>
+      <div class="mcq-options">
+        <button class="mcq-option" onclick="answerMCQ('c1q1','A','wrong')"><span class="opt-letter">A</span> Type 2 DM — most common overall, associated with obesity</button>
+        <button class="mcq-option" onclick="answerMCQ('c1q1','B','correct')"><span class="opt-letter">B</span> Type 1 DM — autoimmune β-cell destruction, young age of onset</button>
+        <button class="mcq-option" onclick="answerMCQ('c1q1','C','wrong')"><span class="opt-letter">C</span> MODY — monogenic form inherited in a dominant pattern</button>
+        <button class="mcq-option" onclick="answerMCQ('c1q1','D','wrong')"><span class="opt-letter">D</span> Secondary DM due to corticosteroid use</button>
+      </div>
+      <div id="c1q1-correct" class="mcq-feedback" data-type="correct"><strong>✓ Correct! Option B</strong> Young age (&lt;20 years), acute onset with "three polys," significant weight loss despite eating, and markedly elevated glucose strongly suggest Type 1 DM. The patient is thin (not obese), making T2DM unlikely. MODY presents more insidiously. No mention of steroid use.</div>
+      <div id="c1q1-incorrect" class="mcq-feedback" data-type="incorrect"><strong>✗ Incorrect.</strong> Consider the age (14 years), acute onset, and weight loss with polyphagia. These features — especially in a young, non-obese patient — point to Type 1 DM, where absolute insulin deficiency leads to catabolism. The correct answer is B.</div>
+    </div>
+
+    <div id="case1-q2" class="mcq-block">
+      <div class="mcq-step">Step 2 of 4</div>
+      <div class="mcq-q">2. What is the PRIMARY immune mechanism responsible for β-cell destruction in this patient's condition?</div>
+      <div class="mcq-options">
+        <button class="mcq-option" onclick="answerMCQ('c1q2','A','wrong')"><span class="opt-letter">A</span> IgE-mediated (Type I) hypersensitivity to insulin</button>
+        <button class="mcq-option" onclick="answerMCQ('c1q2','B','wrong')"><span class="opt-letter">B</span> Immune complex deposition (Type III) in islets</button>
+        <button class="mcq-option" onclick="answerMCQ('c1q2','C','correct')"><span class="opt-letter">C</span> T-lymphocyte mediated (Type IV) cytotoxic destruction of β-cells</button>
+        <button class="mcq-option" onclick="answerMCQ('c1q2','D','wrong')"><span class="opt-letter">D</span> Complement-mediated (Type II) lysis triggered by anti-islet IgM</button>
+      </div>
+      <div id="c1q2-correct" class="mcq-feedback" data-type="correct"><strong>✓ Correct! Option C</strong> Type 1 DM is a classic Type IV (cell-mediated) hypersensitivity. CD4+ and CD8+ T-lymphocytes infiltrate islets (insulitis) and destroy β-cells via direct cytotoxicity and cytokine release. Autoantibodies (anti-GAD, anti-IA2) are present but serve as markers, not primary mediators of destruction.</div>
+      <div id="c1q2-incorrect" class="mcq-feedback" data-type="incorrect"><strong>✗ Incorrect.</strong> Type 1 DM is a Type IV (delayed-type/cell-mediated) hypersensitivity reaction. T-lymphocytes — both CD4+ helper and CD8+ cytotoxic — attack β-cells directly. This is why it is called "autoimmune insulitis." The correct answer is C.</div>
+    </div>
+
+    <div id="case1-q3" class="mcq-block">
+      <div class="mcq-step">Step 3 of 4</div>
+      <div class="mcq-q">3. Amir's breath has a sweet, fruity odour. What metabolic state does this indicate, and what is the underlying mechanism?</div>
+      <div class="mcq-options">
+        <button class="mcq-option" onclick="answerMCQ('c1q3','A','wrong')"><span class="opt-letter">A</span> Hepatic failure — impaired glucuronidation produces mercaptans</button>
+        <button class="mcq-option" onclick="answerMCQ('c1q3','B','correct')"><span class="opt-letter">B</span> Diabetic ketoacidosis — lipolysis → ketone bodies including acetone excreted in breath</button>
+        <button class="mcq-option" onclick="answerMCQ('c1q3','C','wrong')"><span class="opt-letter">C</span> Hyperosmolar hyperglycaemic state — no ketones produced due to residual insulin</button>
+        <button class="mcq-option" onclick="answerMCQ('c1q3','D','wrong')"><span class="opt-letter">D</span> Uremia — urea breakdown by oral bacteria produces ammonia</button>
+      </div>
+      <div id="c1q3-correct" class="mcq-feedback" data-type="correct"><strong>✓ Correct! Option B</strong> Fruity/acetone breath is the hallmark of DKA. Absolute insulin deficiency → unchecked lipolysis → free fatty acids → β-oxidation → excess acetyl-CoA → ketone bodies (acetoacetate, β-hydroxybutyrate, acetone). Acetone is volatile and exhaled, producing the characteristic fruity odour. This is a dental emergency — refer immediately.</div>
+      <div id="c1q3-incorrect" class="mcq-feedback" data-type="incorrect"><strong>✗ Incorrect.</strong> Fruity/acetone breath = ketones = DKA (Option B). In HHS (Type 2), there is enough residual insulin to suppress lipolysis, so ketones do NOT form and breath is not fruity. Uremia produces ammonia/ammoniacal breath, not fruity. This is critical for dental emergencies.</div>
+    </div>
+
+    <div id="case1-q4" class="mcq-block">
+      <div class="mcq-step">Step 4 of 4</div>
+      <div class="mcq-q">4. Which gene locus is most strongly associated with susceptibility to Type 1 DM, and what is its role?</div>
+      <div class="mcq-options">
+        <button class="mcq-option" onclick="answerMCQ('c1q4','A','wrong')"><span class="opt-letter">A</span> TCF7L2 — encodes a transcription factor involved in β-cell function</button>
+        <button class="mcq-option" onclick="answerMCQ('c1q4','B','wrong')"><span class="opt-letter">B</span> PPARG — codes for a nuclear receptor regulating adipogenesis</button>
+        <button class="mcq-option" onclick="answerMCQ('c1q4','C','correct')"><span class="opt-letter">C</span> HLA-DR3/DR4 (MHC Class II) — presents β-cell peptides to autoreactive T-cells</button>
+        <button class="mcq-option" onclick="answerMCQ('c1q4','D','wrong')"><span class="opt-letter">D</span> KCNJ11 — encodes potassium channel subunit controlling insulin release</button>
+      </div>
+      <div id="c1q4-correct" class="mcq-feedback" data-type="correct"><strong>✓ Correct! Option C</strong> HLA-DR3 and HLA-DR4 alleles on chromosome 6p21 are the strongest genetic risk factors for T1DM. These MHC Class II molecules present β-cell autoantigens (e.g., GAD65, insulin) to CD4+ T-cells, initiating the autoimmune cascade. TCF7L2 and PPARG are linked to T2DM; KCNJ11 mutations cause MODY/neonatal DM.</div>
+      <div id="c1q4-incorrect" class="mcq-feedback" data-type="incorrect"><strong>✗ Incorrect.</strong> The answer is C — HLA-DR3/DR4. This is the IDDM1 locus. MHC Class II molecules encoded by these alleles present islet peptides to T-cells, initiating autoimmune β-cell attack. TCF7L2 and PPARG are T2DM genes; KCNJ11 relates to MODY/neonatal DM.</div>
+    </div>
+
+    <!-- ── CASE 2 ── -->
+    <div class="case-box" style="margin-top:32px;">
+      <div class="case-tag">📋 Case 2 — The Middle-Aged Executive</div>
+      <p>Mr. Tan, 52 years old, overweight (BMI 29), presents for a full-mouth rehabilitation. He mentions he was told his blood sugar is "a bit high" but has not started any medication. His fasting blood glucose today is 142 mg/dL. He has deep periodontal pockets (6–8 mm), and his sockets from previous extractions have been "slow to heal."</p>
+    </div>
+
+    <div id="case2-q1" class="mcq-block">
+      <div class="mcq-step">Step 1 of 3</div>
+      <div class="mcq-q">5. Mr. Tan's fasting glucose of 142 mg/dL indicates which metabolic state?</div>
+      <div class="mcq-options">
+        <button class="mcq-option" onclick="answerMCQ('c2q1','A','wrong')"><span class="opt-letter">A</span> Normal fasting glucose — no action needed</button>
+        <button class="mcq-option" onclick="answerMCQ('c2q1','B','wrong')"><span class="opt-letter">B</span> Impaired fasting glucose (pre-diabetes) — 100–125 mg/dL</button>
+        <button class="mcq-option" onclick="answerMCQ('c2q1','C','correct')"><span class="opt-letter">C</span> Diabetes mellitus — fasting ≥126 mg/dL on two occasions confirms diagnosis</button>
+        <button class="mcq-option" onclick="answerMCQ('c2q1','D','wrong')"><span class="opt-letter">D</span> Hyperglycaemic crisis — requires immediate hospitalisation</button>
+      </div>
+      <div id="c2q1-correct" class="mcq-feedback" data-type="correct"><strong>✓ Correct! Option C</strong> A fasting plasma glucose ≥126 mg/dL, confirmed on two separate occasions, meets the WHO/ADA diagnostic criteria for DM. Mr. Tan's value of 142 mg/dL exceeds this threshold. Pre-diabetes (IGT) is 100–125 mg/dL. A hyperglycaemic crisis requires glucose typically &gt;250+ with symptoms of DKA or HHS.</div>
+      <div id="c2q1-incorrect" class="mcq-feedback" data-type="incorrect"><strong>✗ Incorrect.</strong> 142 mg/dL fasting exceeds the ≥126 mg/dL DM diagnostic threshold (Option C). Pre-diabetes is 100–125 mg/dL. Normal is &lt;100 mg/dL. This patient has undiagnosed Type 2 DM — he should be referred to his physician before extensive dental rehabilitation.</div>
+    </div>
+
+    <div id="case2-q2" class="mcq-block">
+      <div class="mcq-step">Step 2 of 3</div>
+      <div class="mcq-q">6. Which biochemical mechanism BEST explains why Mr. Tan has impaired post-extraction healing and severe periodontitis?</div>
+      <div class="mcq-options">
+        <button class="mcq-option" onclick="answerMCQ('c2q2','A','wrong')"><span class="opt-letter">A</span> Decreased production of clotting factors by the liver due to hyperglycaemia</button>
+        <button class="mcq-option" onclick="answerMCQ('c2q2','B','correct')"><span class="opt-letter">B</span> AGE formation causing collagen cross-linking, impaired neutrophil function, and reduced angiogenesis</button>
+        <button class="mcq-option" onclick="answerMCQ('c2q2','C','wrong')"><span class="opt-letter">C</span> Elevated insulin levels causing immunosuppression of B-lymphocytes</button>
+        <button class="mcq-option" onclick="answerMCQ('c2q2','D','wrong')"><span class="opt-letter">D</span> Sorbitol accumulation in bone cells causing osteonecrosis</button>
+      </div>
+      <div id="c2q2-correct" class="mcq-feedback" data-type="correct"><strong>✓ Correct! Option B</strong> AGEs are central to wound healing failure in DM. They cross-link collagen in periodontal ligament and alveolar bone matrix (preventing remodelling), impair neutrophil chemotaxis and phagocytosis (allowing bacterial overgrowth), reduce endothelial NO (impairing angiogenesis), and activate RAGE → pro-inflammatory cytokines → accelerated periodontal tissue breakdown.</div>
+      <div id="c2q2-incorrect" class="mcq-feedback" data-type="incorrect"><strong>✗ Incorrect.</strong> The key mechanism is B — AGE-mediated damage. AGEs cross-link collagen (poor matrix remodelling), impair neutrophils (infection susceptibility), and reduce angiogenesis (poor healing). Sorbitol affects nerves/eyes/kidneys, not primarily bone. Clotting factors are not reduced in DM.</div>
+    </div>
+
+    <div id="case2-q3" class="mcq-block">
+      <div class="mcq-step">Step 3 of 3</div>
+      <div class="mcq-q">7. Mr. Tan asks what test the physician will use to assess how well his blood sugar has been controlled over the last 3 months. What is the CORRECT answer?</div>
+      <div class="mcq-options">
+        <button class="mcq-option" onclick="answerMCQ('c2q3','A','wrong')"><span class="opt-letter">A</span> Serum C-peptide — reflects residual β-cell function</button>
+        <button class="mcq-option" onclick="answerMCQ('c2q3','B','wrong')"><span class="opt-letter">B</span> Fasting plasma glucose — only reflects current glucose level</button>
+        <button class="mcq-option" onclick="answerMCQ('c2q3','C','correct')"><span class="opt-letter">C</span> HbA1c (Glycosylated haemoglobin) — reflects average glucose over 2–3 months</button>
+        <button class="mcq-option" onclick="answerMCQ('c2q3','D','wrong')"><span class="opt-letter">D</span> Urine microalbumin — primarily assesses nephropathy, not glycaemic control</button>
+      </div>
+      <div id="c2q3-correct" class="mcq-feedback" data-type="correct"><strong>✓ Correct! Option C</strong> HbA1c (glycosylated haemoglobin) is the gold standard for monitoring long-term glycaemic control. Glucose non-enzymatically binds to haemoglobin — higher average glucose = higher HbA1c. Since RBCs live ~120 days, HbA1c reflects average BGL over 2–3 months. Target: &lt;7% for good control. As a dentist, knowing the HbA1c helps predict healing outcomes.</div>
+      <div id="c2q3-incorrect" class="mcq-feedback" data-type="incorrect"><strong>✗ Incorrect.</strong> HbA1c (Option C) is the answer. It reflects average glycaemia over 2–3 months, unlike fasting glucose (single snapshot). C-peptide measures insulin secretion capacity. Urine microalbumin screens for nephropathy, not glycaemic control. HbA1c &lt;7% = good control; &gt;8% = expect significantly impaired healing.</div>
+    </div>
+
+  </section>
+
+  <!-- ─── 07 MASTER COMPARISON TABLE ─── -->
+  <section class="section" id="compare">
+    <div class="section-label"><span class="dot"></span> Section 07</div>
+    <h2 class="section-title">Master Comparison Table — Type 1 vs Type 2 DM</h2>
+    <p>This table is your single-reference summary for differentiating the two major types of diabetes mellitus. High-yield for MCQs and clinical spotters.</p>
+
+    <div style="overflow-x:auto;margin-top:4px;">
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Type 1 DM (IDDM)</th>
+          <th>Type 2 DM (NIDDM)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Former Names</td>
+          <td>Juvenile-onset, Insulin-dependent</td>
+          <td>Adult-onset, Non-insulin-dependent</td>
+        </tr>
+        <tr>
+          <td>Prevalence</td>
+          <td>~10% of DM</td>
+          <td>~80% of DM</td>
+        </tr>
+        <tr>
+          <td>Age of onset</td>
+          <td>&lt;20 years (usually)</td>
+          <td>&gt;30 years (usually)</td>
+        </tr>
+        <tr>
+          <td>Body weight</td>
+          <td>Normal / underweight</td>
+          <td>Obese (BMI &gt;25)</td>
+        </tr>
+        <tr>
+          <td>Insulin level</td>
+          <td>Markedly decreased (absolute deficiency)</td>
+          <td>Normal or increased initially; decreases late</td>
+        </tr>
+        <tr>
+          <td>Pathogenesis</td>
+          <td>Autoimmune β-cell destruction</td>
+          <td>Insulin resistance → β-cell exhaustion</td>
+        </tr>
+        <tr>
+          <td>HLA linkage</td>
+          <td><span class="check">✓</span> HLA-DR3 and HLA-DR4 (MHC Class II)</td>
+          <td><span class="cross">✗</span> No HLA association</td>
+        </tr>
+        <tr>
+          <td>Autoantibodies</td>
+          <td><span class="check">✓</span> Anti-islet cell, anti-GAD, anti-insulin</td>
+          <td><span class="cross">✗</span> Absent</td>
+        </tr>
+        <tr>
+          <td>Insulitis</td>
+          <td><span class="check">✓</span> Early lymphocytic infiltration</td>
+          <td><span class="cross">✗</span> Absent</td>
+        </tr>
+        <tr>
+          <td>Islet morphology</td>
+          <td>Marked atrophy, fibrosis, β-cell depletion</td>
+          <td>Focal atrophy, <strong>amyloid deposition</strong>, mild depletion</td>
+        </tr>
+        <tr>
+          <td>Ketoacidosis</td>
+          <td><span class="check">✓</span> Common (absolute insulin absence)</td>
+          <td><span class="cross">✗</span> Rare</td>
+        </tr>
+        <tr>
+          <td>Hyperosmolar state</td>
+          <td><span class="cross">✗</span> Rare</td>
+          <td><span class="check">✓</span> HHS seen (enough insulin to prevent ketosis)</td>
+        </tr>
+        <tr>
+          <td>Treatment</td>
+          <td>Insulin replacement — mandatory</td>
+          <td>Diet/exercise → oral agents → insulin if needed</td>
+        </tr>
+        <tr>
+          <td>Complications</td>
+          <td colspan="2" style="text-align:center;background:var(--brand-light);color:var(--brand);font-weight:500;">Both types share the same microvascular and macrovascular complications</td>
+        </tr>
+        <tr>
+          <td>Dental emergencies</td>
+          <td>DKA — fruity breath, Kussmaul breathing</td>
+          <td>HHS — extreme hyperglycaemia, no fruity breath</td>
+        </tr>
+        <tr>
+          <td>HbA1c monitoring</td>
+          <td colspan="2" style="text-align:center;background:var(--green-light);color:var(--green);font-weight:500;">Both: target &lt;7% for good glycaemic control</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- ─── 08 KEY TAKE-HOME MESSAGES ─── -->
+  <section class="section" id="km">
+    <div class="section-label"><span class="dot"></span> Section 08</div>
+    <h2 class="section-title">Key Take-Home Messages</h2>
+    <p>These are the core concepts you must own before your assessment. Each links mechanism to clinical consequence.</p>
+
+    <div class="km-grid">
+      <div class="km-card">
+        <div class="km-num">01</div>
+        <div class="km-text"><strong>DM = Hyperglycaemia from absolute OR relative insulin deficiency</strong> "Starvation amidst plenty" — cells starve despite high serum glucose because insulin is absent/ineffective for glucose uptake.</div>
+      </div>
+      <div class="km-card">
+        <div class="km-num">02</div>
+        <div class="km-text"><strong>Type 1 = Autoimmune; Type 2 = Resistance then exhaustion</strong> T-cell mediated β-cell destruction (T1) vs. insulin resistance progressing to β-cell failure (T2). Different pathogenesis → different complications timeline.</div>
+      </div>
+      <div class="km-card">
+        <div class="km-num">03</div>
+        <div class="km-text"><strong>Three mechanisms drive all complications: AGEs, Polyol pathway, PKC</strong> AGEs = cross-linking and inflammation. Sorbitol = osmotic damage to nerves, eye, kidney. PKC = neovascularisation and endothelial dysfunction.</div>
+      </div>
+      <div class="km-card">
+        <div class="km-num">04</div>
+        <div class="km-text"><strong>Microvascular targets: retina, kidney, nerve = the "3 Rs": Retinopathy, Renal disease (nephropathy), neuropathy</strong> Each is a leading cause of major disability: blindness, ESRD, and amputation respectively.</div>
+      </div>
+      <div class="km-card">
+        <div class="km-num">05</div>
+        <div class="km-text"><strong>Macrovascular disease kills most diabetics — MI is #1 cause of death</strong> Low HDL + high triglycerides + endothelial AGE damage → accelerated atherosclerosis. Gangrene 100× more common.</div>
+      </div>
+      <div class="km-card">
+        <div class="km-num">06</div>
+        <div class="km-text"><strong>HbA1c &lt;7% = good control; measures average glucose over 2–3 months</strong> Each 1% increase in HbA1c corresponds to ~30 mg/dL average glucose increase. Essential for predicting dental healing outcomes.</div>
+      </div>
+      <div class="km-card">
+        <div class="km-num">07</div>
+        <div class="km-text"><strong>DKA (Type 1) vs HHS (Type 2) — different emergencies, same urgency</strong> DKA: fruity breath + acidosis + ketones. HHS: extreme hyperglycaemia + no ketones + hyperosmolarity. Both require urgent referral from dental chair.</div>
+      </div>
+      <div class="km-card">
+        <div class="km-num">08</div>
+        <div class="km-text"><strong>Oral consequences are significant: periodontitis ↔ DM is bidirectional</strong> DM worsens periodontal disease; treating periodontitis can improve HbA1c. Every dental patient's glycaemic status matters clinically.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 09 EXAM FOCUS ─── -->
+  <section class="section" id="exam">
+    <div class="section-label"><span class="dot"></span> Section 09</div>
+    <h2 class="section-title">Exam Focus — Common Traps &amp; Rapid Recall</h2>
+    <p>These are the most commonly missed concepts at Year 2 level. Know each trap and the correct answer.</p>
+
+    <div class="trap-card">
+      <div class="trap-icon" style="background:#fdecea;">⚠️</div>
+      <div class="trap-content">
+        <div class="trap-label">Common Exam Trap</div>
+        <div class="trap-q">Trap 1: "Type 2 DM can never need insulin"</div>
+        <div class="trap-a">WRONG. In late-stage Type 2 DM, β-cell exhaustion can lead to <strong>IDDM-like absolute deficiency requiring insulin injections</strong>. The distinction is that T2DM does NOT start insulin-dependent — it becomes so only in advanced stages.</div>
+      </div>
+    </div>
+
+    <div class="trap-card">
+      <div class="trap-icon" style="background:#fdecea;">⚠️</div>
+      <div class="trap-content">
+        <div class="trap-label">Common Exam Trap</div>
+        <div class="trap-q">Trap 2: Confusing DKA with HHS</div>
+        <div class="trap-a">DKA = <strong>Type 1</strong>, absolute insulin absence → ketones → acidosis → <strong>fruity breath</strong>. HHS = <strong>Type 2</strong>, residual insulin prevents ketones → no fruity breath → extreme hyperglycaemia (400–1800 mg/dL). <strong>Fruity breath = DKA = Type 1 = refer immediately.</strong></div>
+      </div>
+    </div>
+
+    <div class="trap-card">
+      <div class="trap-icon" style="background:#fdecea;">⚠️</div>
+      <div class="trap-content">
+        <div class="trap-label">Common Exam Trap</div>
+        <div class="trap-q">Trap 3: Assuming autoantibodies CAUSE β-cell destruction in T1DM</div>
+        <div class="trap-a">Anti-islet antibodies (anti-GAD, anti-IA2, ICA) are <strong>markers, not the primary mediators</strong>. β-cell destruction is T-lymphocyte mediated (Type IV hypersensitivity). Antibodies appear in blood years before clinical DM but serve as predictive biomarkers, not causative agents.</div>
+      </div>
+    </div>
+
+    <div class="trap-card">
+      <div class="trap-icon" style="background:#fdecea;">⚠️</div>
+      <div class="trap-content">
+        <div class="trap-label">Common Exam Trap</div>
+        <div class="trap-q">Trap 4: Thinking sorbitol affects all organs equally</div>
+        <div class="trap-a">The polyol pathway only damages tissues where glucose entry does NOT require insulin: <strong>nerves, retina, lens, kidney, blood vessel walls</strong>. Muscle and liver (which need insulin for GLUT4) are NOT targets of sorbitol accumulation because they don't have excess intracellular glucose when insulin is absent.</div>
+      </div>
+    </div>
+
+    <div class="trap-card">
+      <div class="trap-icon" style="background:#fdecea;">⚠️</div>
+      <div class="trap-content">
+        <div class="trap-label">Common Exam Trap</div>
+        <div class="trap-q">Trap 5: Kimmelstiel-Wilson lesions are non-specific</div>
+        <div class="trap-a"><strong>Nodular glomerulosclerosis (Kimmelstiel-Wilson lesion) is PATHOGNOMONIC for diabetic nephropathy</strong> — seen in no other disease. Diffuse glomerulosclerosis is more common but less specific. If an exam shows a nodule in the glomerulus → diabetic nephropathy.</div>
+      </div>
+    </div>
+
+    <div class="trap-card">
+      <div class="trap-icon" style="background:var(--gold-light);">⚠️</div>
+      <div class="trap-content">
+        <div class="trap-label">Common Exam Trap</div>
+        <div class="trap-q">Trap 6: Silent MI is a normal MI that the patient ignores</div>
+        <div class="trap-a">Silent MI in diabetics occurs because <strong>autonomic neuropathy</strong> damages cardiac afferent pain fibres. The patient genuinely does NOT feel chest pain. This is pathological denervation — clinically crucial as the first sign may be sudden cardiac death.</div>
+      </div>
+    </div>
+
+    <!-- RAPID RECALL -->
+    <h3 style="font-family:'Lora',serif;font-size:20px;color:var(--brand);margin:30px 0 16px;">⚡ Rapid Recall Cards</h3>
+    <div class="rapid-recall">
+      <div class="rr-card">
+        <h5>Type 1 DM — Key Facts</h5>
+        <ul>
+          <li>&lt;20 years, thin, acute onset</li>
+          <li>HLA-DR3/DR4 linkage</li>
+          <li>Autoimmune insulitis</li>
+          <li>Absolute insulin deficiency</li>
+          <li>DKA — fruity breath, Kussmaul</li>
+          <li>Treatment: insulin always</li>
+          <li>Islet: atrophy + fibrosis</li>
+        </ul>
+      </div>
+      <div class="rr-card">
+        <h5>Type 2 DM — Key Facts</h5>
+        <ul>
+          <li>&gt;30 years, obese, insidious</li>
+          <li>No HLA linkage, no autoAbs</li>
+          <li>Insulin resistance → β-cell failure</li>
+          <li>Relative insulin deficiency</li>
+          <li>HHS not DKA (no ketones)</li>
+          <li>Treatment: diet/oral agents/insulin</li>
+          <li>Islet: focal atrophy + amyloid</li>
+        </ul>
+      </div>
+      <div class="rr-card">
+        <h5>Diagnostic Numbers</h5>
+        <ul>
+          <li>FPG normal: &lt;100 mg/dL</li>
+          <li>FPG pre-DM: 100–125 mg/dL</li>
+          <li>FPG DM: ≥126 mg/dL</li>
+          <li>2hr OGTT DM: ≥200 mg/dL</li>
+          <li>HbA1c DM: ≥6.5%</li>
+          <li>HbA1c good control: &lt;7%</li>
+          <li>Renal glucose threshold: ~180</li>
+        </ul>
+      </div>
+      <div class="rr-card">
+        <h5>Complications Summary</h5>
+        <ul>
+          <li>Micro: Retina, Kidney, Nerve</li>
+          <li>Macro: Heart, Brain, Legs</li>
+          <li>MI = #1 cause of death in DM</li>
+          <li>Gangrene: 100× more common</li>
+          <li>Kimmelstiel-Wilson: pathognomonic</li>
+          <li>Mechanisms: AGEs, Sorbitol, PKC</li>
+          <li>Dental: periodontitis, candida</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="highlight-box hb-blue" style="margin-top:24px;">
+      <h5>📚 References</h5>
+      <p style="margin:0;font-size:13.5px;">
+        Robbins, S., Aster, J., Perkins, J., Abbas, A. &amp; Kumar, V. (2018). <em>Robbins Basic Pathology</em>, 10th Ed. Philadelphia: Elsevier.<br>
+        Kumar, V. (2020). <em>Robbins &amp; Cotran Pathologic Basis of Disease</em>, 10th Ed. Elsevier Health Sciences.
+      </p>
+    </div>
+
+    <div style="margin-top:20px;padding:16px 20px;background:var(--bg);border-radius:var(--radius);border:1px solid var(--border);font-size:12.5px;color:var(--text-muted);text-align:center;">
+      CPAS e-Book · MAHSA University · Pathology Department · Dr. Sudha Arumugam<br>
+      Generated for DDS Year 2 · Kolektif LMS — optimised for GitHub Pages iframe embedding
+    </div>
+  </section>
+
+</main><!-- end #main -->
+
+<script>
+function toggleAcc(id) {
+  const el = document.getElementById(id);
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.accordion').forEach(a => a.classList.remove('open'));
+  if (!isOpen) el.classList.add('open');
+  if (!isOpen) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function answerMCQ(qid, letter, result) {
+  const correctEl = document.getElementById(qid + '-correct');
+  if (!correctEl) return;
+  const block = correctEl.closest('.mcq-block');
+  if (block.dataset.answered) return;
+  block.dataset.answered = '1';
+  const options = block.querySelectorAll('.mcq-option');
+  options.forEach(opt => {
+    opt.classList.add('disabled');
+    const ltr = opt.querySelector('.opt-letter');
+    if (ltr && ltr.textContent.trim() === letter) {
+      opt.classList.add(result === 'correct' ? 'correct' : 'incorrect');
+    }
+  });
+  const fb = document.getElementById(qid + '-' + result);
+  if (fb) {
+    fb.classList.add(fb.dataset.type);
+    fb.classList.add('show');
+  }
+}
+
+// Sticky TOC active highlight
+const sections = document.querySelectorAll('section[id]');
+const tocLinks = document.querySelectorAll('#toc a');
+function onScroll() {
+  let current = '';
+  sections.forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    if (rect.top <= 100) current = sec.id;
+  });
+  tocLinks.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+}
+document.getElementById('main').addEventListener('scroll', onScroll);
+window.addEventListener('scroll', onScroll);
+
+// Smooth TOC scrolling — scrolls the main container
+tocLinks.forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
