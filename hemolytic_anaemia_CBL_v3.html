@@ -1,0 +1,462 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --r:#E24B4A;--rl:#FCEBEB;--rm:#F09595;--rd:#791F1F;
+  --t:#1D9E75;--tl:#E1F5EE;--tm:#9FE1CB;--td:#085041;
+  --a:#BA7517;--al:#FAEEDA;--am:#FAC775;--ad:#633806;
+  --b:#378ADD;--bl:#E6F1FB;--bm:#B5D4F4;--bd:#0C447C;
+  --p:#7F77DD;--pl:#EEEDFE;--pm:#CECBF6;--pd:#3C3489;
+  --c:#D85A30;--cl:#FAECE7;--cm:#F5C4B3;--cd:#712B13;
+  --g:#639922;--gl:#EAF3DE;--gm:#C0DD97;--gd:#27500A;
+  --border:var(--color-border-tertiary);
+  --text:var(--color-text-primary);
+  --muted:var(--color-text-secondary);
+  --bg:var(--color-background-primary);
+  --bg2:var(--color-background-secondary);
+  --rad:var(--border-radius-lg);--radm:var(--border-radius-md)
+}
+.app{font-family:var(--font-sans);padding:0.5rem 0 2rem;max-width:680px}
+.hdr{text-align:center;padding:1.75rem 1rem 1.25rem;border-bottom:0.5px solid var(--border);margin-bottom:1.25rem}
+.hdr-badge{display:inline-block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--r);background:var(--rl);border:0.5px solid var(--rm);border-radius:4px;padding:3px 10px;margin-bottom:10px}
+.hdr h1{font-size:26px;font-weight:500;color:var(--text);margin-bottom:5px}
+.hdr p{font-size:15px;color:var(--muted)}
+.nav{display:flex;gap:6px;flex-wrap:wrap;padding:0 0.5rem 1rem;justify-content:center}
+.nbtn{font-size:12px;padding:5px 12px;border:0.5px solid var(--border);border-radius:20px;background:var(--bg);color:var(--muted);cursor:pointer;transition:all .15s;white-space:nowrap}
+.nbtn:hover{border-color:var(--r);color:var(--r)}
+.nbtn.active{background:var(--r);border-color:var(--r);color:#fff;font-weight:500}
+.nbtn.done{background:var(--tl);border-color:var(--t);color:var(--td)}
+.pbar{height:3px;background:var(--bg2);border-radius:2px;margin:0 0.5rem 1.5rem;overflow:hidden}
+.pfill{height:100%;background:var(--r);border-radius:2px;transition:width .4s ease}
+.panel{display:none}
+.panel.vis{display:block}
+.chead{display:flex;align-items:flex-start;gap:12px;padding:1.25rem;background:var(--bg2);border-radius:var(--rad) var(--rad) 0 0;border:0.5px solid var(--border);border-bottom:none}
+.cnum{font-size:12px;color:var(--muted);background:var(--bg);border:0.5px solid var(--border);border-radius:4px;padding:3px 8px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+.ctitle{font-size:20px;font-weight:500;color:var(--text);line-height:1.3}
+.csub{font-size:13px;color:var(--muted);margin-top:3px}
+.cbody{border:0.5px solid var(--border);border-top:none;padding:1.25rem;background:var(--bg)}
+.slabel{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:1rem 0 6px}
+.slabel:first-child{margin-top:0}
+
+.vignette{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radm);padding:1.1rem 1.2rem;margin-bottom:1rem;font-size:15px;line-height:1.85;color:var(--text);text-align:justify;hyphens:auto}
+.vignette p{margin-bottom:0.6rem}
+.vignette p:last-child{margin-bottom:0}
+
+.ptags{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:7px;margin-bottom:1rem}
+.ptag{font-size:13px;background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radm);padding:7px 11px}
+.ptag span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:2px}
+.ptag strong{color:var(--text);font-weight:700;font-size:13px}
+
+.labs{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.lab{font-size:14px;display:flex;justify-content:space-between;align-items:center;padding:7px 11px;background:var(--bg2);border-radius:var(--radm);border:0.5px solid var(--border)}
+.ln{color:var(--muted)}
+.lv{font-size:13px;font-weight:500}
+.lv.lo{color:var(--bd)}
+.lv.hi{color:var(--rd)}
+.lv.ab{color:var(--ad)}
+
+.smear-wrap{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radm);padding:12px 14px;margin:6px 0 1rem}
+.smear-title{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:10px}
+.smear-svg{display:block;width:100%;overflow:visible}
+
+.qs{border:0.5px solid var(--border);border-radius:var(--radm);overflow:hidden;margin-top:1rem}
+.qi{border-bottom:0.5px solid var(--border)}
+.qi:last-child{border-bottom:none}
+.qtrig{display:flex;align-items:center;gap:10px;padding:13px 14px;cursor:pointer;background:var(--bg);width:100%;text-align:left;border:none;transition:background .1s}
+.qtrig:hover{background:var(--bg2)}
+.qn{font-size:12px;color:var(--muted);min-width:24px;flex-shrink:0}
+.qi.answered .qn{color:var(--t)}
+.qt{font-size:15px;color:var(--text);flex:1;line-height:1.5;text-align:left}
+.qi .ti{font-size:17px;color:var(--muted);transition:transform .2s;flex-shrink:0}
+.qi.open .ti{transform:rotate(180deg)}
+.qans{display:none;padding:0 14px 14px 50px}
+.qi.open .qans{display:block}
+.qai{font-size:15px;line-height:1.85;color:var(--text);background:var(--bg2);border-radius:0;padding:12px 14px;border-left:3px solid var(--t);text-align:justify;hyphens:auto}
+
+.discbtn{margin-top:1rem;width:100%;padding:10px;border:0.5px solid var(--p);border-radius:var(--radm);background:var(--pl);color:var(--pd);cursor:pointer;font-size:14px;font-weight:500;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:8px}
+.discbtn:hover{background:var(--pm)}
+.disc{display:none;margin-top:1rem;padding:1.1rem;border:0.5px solid var(--border);border-radius:var(--rad);background:var(--bg)}
+.disc.vis{display:block}
+.disc-title{font-size:15px;font-weight:500;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:1rem}
+.cc{padding:9px 11px;border-radius:var(--radm);border:0.5px solid}
+.cc .ccl{font-size:11px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px}
+.cc .ccv{font-size:13px;font-weight:500;line-height:1.4}
+.ccr{background:var(--rl);border-color:var(--rm)}.ccr .ccl{color:var(--r)}.ccr .ccv{color:var(--rd)}
+.cct{background:var(--tl);border-color:var(--tm)}.cct .ccl{color:var(--t)}.cct .ccv{color:var(--td)}
+.ccb{background:var(--bl);border-color:var(--bm)}.ccb .ccl{color:var(--b)}.ccb .ccv{color:var(--bd)}
+.cca{background:var(--al);border-color:var(--am)}.cca .ccl{color:var(--a)}.cca .ccv{color:var(--ad)}
+.ccp{background:var(--pl);border-color:var(--pm)}.ccp .ccl{color:var(--p)}.ccp .ccv{color:var(--pd)}
+.ccc{background:var(--cl);border-color:var(--cm)}.ccc .ccl{color:var(--c)}.ccc .ccv{color:var(--cd)}
+
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font-size:13px;margin:6px 0 1rem}
+.cnode{padding:4px 10px;border-radius:20px;background:var(--pl);color:var(--pd);border:0.5px solid var(--pm);font-weight:500}
+.carr{color:var(--muted);font-size:14px}
+.ctags{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.ctag{font-size:13px;padding:4px 10px;border-radius:4px;background:var(--al);border:0.5px solid var(--am);color:var(--ad)}
+.txbox{font-size:14px;background:var(--tl);border:0.5px solid var(--tm);border-radius:var(--radm);padding:10px 13px;color:var(--td);font-weight:500;margin-top:8px}
+
+.nextbtn{margin-top:1rem;width:100%;padding:10px;border:none;border-radius:var(--radm);background:var(--r);color:#fff;cursor:pointer;font-size:14px;font-weight:500;transition:background .15s;display:flex;align-items:center;justify-content:center;gap:7px}
+.nextbtn:hover{background:var(--rd)}
+
+.sum{display:none;text-align:center;padding:2rem 1rem}
+.sum.vis{display:block}
+.stitle{font-size:22px;font-weight:500;color:var(--text);margin-bottom:6px}
+.ssub{font-size:15px;color:var(--muted);margin-bottom:1.5rem}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.5rem}
+.sc{padding:12px;background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radm)}
+.sc .sn{font-size:26px;font-weight:500;color:var(--text)}
+.sc .sl{font-size:12px;color:var(--muted)}
+.rbtn{padding:10px 28px;border:none;border-radius:var(--radm);background:var(--r);color:#fff;cursor:pointer;font-size:14px;font-weight:500}
+</style>
+
+<h2 class="sr-only">Hemolytic Anaemia Interactive Case-Based Learning — 6 clinical cases for MBBS Year 1</h2>
+<div class="app" id="app">
+  <div class="hdr">
+    <div class="hdr-badge">Pathology · Haematology</div>
+    <h1>Hemolytic Anaemia</h1>
+    <p>6 clinical cases · MBBS Year 1 · Case-based learning</p>
+  </div>
+  <div class="nav" id="nav"></div>
+  <div class="pbar"><div class="pfill" id="pfill" style="width:0%"></div></div>
+  <div id="panels"></div>
+  <div class="sum" id="sum">
+    <div class="stitle">All 6 cases completed</div>
+    <div class="ssub">You have reviewed all hemolytic anaemia presentations. Well done!</div>
+    <div class="sgrid">
+      <div class="sc"><div class="sn">6</div><div class="sl">Total cases</div></div>
+      <div class="sc"><div class="sn">4</div><div class="sl">Intrinsic</div></div>
+      <div class="sc"><div class="sn">2</div><div class="sl">Extrinsic</div></div>
+    </div>
+    <button class="rbtn" onclick="restart()">Restart from case 1</button>
+  </div>
+</div>
+
+<script>
+const CASES=[
+{
+  id:1,title:"Hereditary Spherocytosis",sub:"Intrinsic · Membrane Defect",
+  accent:"ccr",
+  vignette:[
+    "Ahmad, a 12-year-old boy, is brought by his mother to the paediatric clinic with a 6-month history of increasing pallor and fatigue. She also notices his eyes have turned yellowish on and off. He has had three episodes of colicky right upper quadrant abdominal pain over the past year.",
+    "His father underwent a splenectomy during childhood for a similar condition and has been well since. On examination, Ahmad appears pale and mildly icteric. His abdomen reveals a spleen palpable 3 cm below the left costal margin. There is no lymphadenopathy or hepatomegaly. He is afebrile and vitally stable."
+  ],
+  tags:[{l:"Age / Sex",v:"12 y/o · Male"},{l:"Setting",v:"Paediatric OPD"},{l:"Key history",v:"Father had splenectomy in childhood"}],
+  labs:[
+    {n:"Haemoglobin",v:"8.5 g/dL",c:"lo"},{n:"Reticulocytes",v:"↑ Elevated",c:"hi"},
+    {n:"Indirect bilirubin",v:"↑ Elevated",c:"hi"},{n:"Osmotic fragility",v:"↑ Increased",c:"hi"},
+    {n:"Peripheral smear",v:"Spherocytes",c:"ab"},{n:"Direct Coombs",v:"Negative",c:""}
+  ],
+  smear:"hs",
+  qs:[
+    {q:"What is the most likely diagnosis?",a:"<strong>Hereditary Spherocytosis (HS)</strong> — autosomal dominant in most cases. The combination of chronic haemolytic anaemia, jaundice, splenomegaly, positive family history of splenectomy, spherocytes on smear, and increased osmotic fragility is diagnostic. A negative Coombs test excludes autoimmune haemolytic anaemia, which can also produce spherocytes."},
+    {q:"Is this intrinsic or extrinsic haemolytic anaemia?",a:"<strong>Intrinsic haemolytic anaemia.</strong> The defect lies within the RBC itself — specifically a mutation in membrane structural proteins. The RBC is inherently abnormal from birth, unlike extrinsic causes where external factors (antibodies, toxins, mechanical forces) destroy a structurally normal RBC."},
+    {q:"What is the molecular defect?",a:"Mutations in RBC membrane cytoskeletal proteins — most commonly <strong>spectrin</strong> (α or β chains) or <strong>ankyrin</strong>, which links spectrin to the lipid bilayer. Also affected: band 3 protein, protein 4.2. These proteins normally anchor and stabilise the lipid bilayer. Their deficiency leads to membrane lipid loss → reduced surface area → the cell adopts a sphere shape (↓ surface-to-volume ratio) → spherocyte."},
+    {q:"Why is splenomegaly present?",a:"Spherocytes are <strong>rigid and non-deformable</strong> — they lack the flexibility of normal biconcave RBCs. As they pass through the narrow fenestrated sinusoids of the splenic red pulp, they are detained, recognised by macrophages, and destroyed (extravascular haemolysis). The spleen enlarges progressively due to chronic RBC sequestration and macrophage hyperplasia."},
+    {q:"What is the definitive treatment?",a:"<strong>Splenectomy</strong> — removes the primary site of RBC destruction and dramatically improves haemoglobin levels. The molecular defect persists and spherocytes are still formed, but they survive much longer without splenic destruction. Prophylactic vaccinations (pneumococcal, meningococcal, Haemophilus influenzae type b) must be given at least 2 weeks before surgery to reduce post-splenectomy sepsis risk."},
+  ],
+  disc:{type:"Intrinsic — Membrane Defect",htype:"Extravascular (splenic)",chain:["↓ Spectrin/Ankyrin","Membrane lipid loss","↓ Surface:volume ratio","Spherocyte formation","Splenic trapping","Extravascular haemolysis"],comp:["Pigment gallstones (bilirubin)","Aplastic crisis — Parvovirus B19","Haemolytic crisis on infection"],tx:"Splenectomy (+ pre-op vaccinations against encapsulated organisms)"}
+},
+{
+  id:2,title:"G6PD Deficiency",sub:"Intrinsic · Enzyme Defect",
+  accent:"cca",
+  vignette:[
+    "Rajan, a 22-year-old male university student, presents to the emergency department with sudden onset of jaundice, passage of dark brown urine, and profound fatigue for the past 2 days. Three days ago, he was started on primaquine for Plasmodium vivax malaria.",
+    "There is no prior history of jaundice or anaemia. He has no significant family history. On examination, he is jaundiced with pallor of the conjunctivae. Vital signs show a heart rate of 102 bpm. The abdomen is soft with mild splenomegaly. His urine appears cola-coloured."
+  ],
+  tags:[{l:"Age / Sex",v:"22 y/o · Male"},{l:"Setting",v:"Emergency Dept"},{l:"Key trigger",v:"Primaquine (antimalarial) started 3 days ago"}],
+  labs:[
+    {n:"Haemoglobin",v:"7.5 g/dL",c:"lo"},{n:"Reticulocytes",v:"↑ Elevated",c:"hi"},
+    {n:"Indirect bilirubin",v:"↑ Elevated",c:"hi"},{n:"Urinalysis",v:"Haemoglobinuria",c:"hi"},
+    {n:"Peripheral smear",v:"Bite cells + polychromasia",c:"ab"},{n:"Supravital stain",v:"Heinz bodies",c:"ab"}
+  ],
+  smear:"g6pd",
+  qs:[
+    {q:"What is the most likely diagnosis?",a:"<strong>G6PD (Glucose-6-Phosphate Dehydrogenase) Deficiency</strong> — X-linked recessive enzyme defect. The classic triad of a young male, an oxidative drug trigger (primaquine), and acute haemolysis with dark urine strongly points to G6PD deficiency. Bite cells and Heinz bodies on smear are pathognomonic features."},
+    {q:"What is the biochemical defect?",a:"G6PD is the rate-limiting enzyme of the <strong>hexose monophosphate (HMP) shunt</strong>. It produces NADPH, which is required to regenerate <strong>reduced glutathione (GSH)</strong> — the RBC's primary antioxidant defence. Without G6PD → ↓ NADPH → ↓ GSH → RBCs cannot neutralise reactive oxygen species from oxidant drugs → haemoglobin oxidation and denaturation."},
+    {q:"Why are Heinz bodies formed?",a:"Oxidised, denatured haemoglobin <strong>precipitates within the RBC cytoplasm</strong> and aggregates into inclusion bodies called <strong>Heinz bodies</strong>. They are not visible on routine Giemsa stain but appear as dark inclusions on supravital staining (crystal violet or brilliant cresyl blue). They attach to the inner membrane, increasing RBC rigidity and triggering removal by splenic macrophages."},
+    {q:"Is haemolysis intravascular or extravascular?",a:"<strong>Both occur.</strong> Splenic macrophages 'bite out' Heinz body-containing membrane segments → residual cell becomes a <strong>bite cell</strong> (extravascular component). Severely damaged RBCs that cannot withstand the oxidative stress lyse directly within blood vessels → <strong>intravascular haemolysis</strong> → free haemoglobin in plasma → haemoglobinuria (cola-coloured urine)."},
+    {q:"Why are males more commonly and severely affected?",a:"The G6PD gene is located on the <strong>X chromosome (Xq28)</strong>. Males are hemizygous (one X) — a single mutant allele leads to complete enzyme deficiency. Females are usually carriers (heterozygous) with one normal allele providing sufficient enzyme activity. Homozygous females are rare and can be fully affected."},
+  ],
+  disc:{type:"Intrinsic — Enzyme Defect",htype:"Both intravascular & extravascular",chain:["↓ G6PD activity","↓ NADPH production","↓ Reduced glutathione","Oxidative stress on Hb","Heinz body formation","Bite cells + haemolysis"],comp:["Triggers: antimalarials, sulfa drugs, infections, fava beans","Self-limited — young RBCs have higher G6PD activity"],tx:"Withdraw offending agent; supportive care; transfusion if severe"}
+},
+{
+  id:3,title:"Sickle Cell Anaemia",sub:"Intrinsic · Haemoglobinopathy",
+  accent:"ccc",
+  vignette:[
+    "Emeka, a 15-year-old Nigerian boy, presents to the emergency department with severe, bilateral thigh and back pain that started abruptly 12 hours ago. His mother reports that he has been admitted to hospital on four occasions since the age of 3 for similar pain crises. He is fully vaccinated against pneumococcus and meningococcus.",
+    "On examination, he is in obvious pain and distress. He is pale and mildly icteric. His spleen is not palpable. Chest is clear. There is bony tenderness over the femora bilaterally. Temperature is 37.4°C and SpO2 is 97% on room air. His blood group is known to be HbSS."
+  ],
+  tags:[{l:"Age / Sex",v:"15 y/o · Male"},{l:"Ethnicity",v:"West African"},{l:"Known diagnosis",v:"HbSS (sickle cell disease)"}],
+  labs:[
+    {n:"Haemoglobin",v:"7 g/dL",c:"lo"},{n:"Reticulocytes",v:"↑ Elevated",c:"hi"},
+    {n:"Indirect bilirubin",v:"↑ Elevated",c:"hi"},{n:"MCV",v:"Normal",c:""},
+    {n:"Peripheral smear",v:"Sickle cells, target cells",c:"ab"},{n:"Hb electrophoresis",v:"HbS predominant",c:"ab"}
+  ],
+  smear:"sca",
+  qs:[
+    {q:"What is the molecular mutation causing this condition?",a:"A single <strong>point mutation</strong> in the β-globin gene (chromosome 11): GAG → GTG, causing substitution of <strong>glutamic acid → valine</strong> at the 6th amino acid position of the β-globin chain. This produces HbS (α₂β₂S). Under deoxygenated conditions, HbS molecules polymerise into long rigid rods, distorting the RBC into a sickle shape."},
+    {q:"Why do sickle cells cause vaso-occlusion?",a:"Sickled RBCs are <strong>rigid, adhesive, and abnormally sticky</strong> to vascular endothelium. They aggregate and obstruct microvascular flow, causing downstream ischaemia and infarction. Repeated sickling also damages the endothelium, promoting a pro-inflammatory and prothrombotic state. Low oxygen tension, acidosis, dehydration, and cold all precipitate sickling."},
+    {q:"What happens to the spleen over time?",a:"Repeated episodes of microvascular occlusion in the spleen cause progressive splenic infarction. Over years, the spleen becomes fibrotic, shrunken, and non-functional — a process called <strong>autosplenectomy</strong>. By adolescence, most HbSS patients are functionally asplenic, leaving them highly susceptible to infections by encapsulated organisms such as pneumococcus, Haemophilus, and meningococcus."},
+    {q:"What infections are these patients particularly prone to?",a:"Due to functional asplenia, patients are vulnerable to <strong>encapsulated bacteria</strong>: Streptococcus pneumoniae (most dangerous), Haemophilus influenzae type b, and Neisseria meningitidis. Notably, <strong>Salmonella species</strong> cause osteomyelitis, as bone infarcts act as a nidus for infection. Parvovirus B19 causes aplastic crisis by suppressing erythroid precursors."},
+  ],
+  disc:{type:"Intrinsic — Haemoglobinopathy",htype:"Extravascular predominant",chain:["Glu→Val (β-globin)","HbS polymerisation (↓O₂)","RBC sickling","Vascular occlusion","Tissue ischaemia / haemolysis"],comp:["Vaso-occlusive crisis (bone pain)","Acute chest syndrome","Autosplenectomy → sepsis","Salmonella osteomyelitis","Aplastic crisis — Parvovirus B19","Stroke, priapism, renal failure"],tx:"Hydroxyurea (↑ HbF); transfusions; penicillin prophylaxis; stem cell transplant"}
+},
+{
+  id:4,title:"Autoimmune Haemolytic Anaemia",sub:"Extrinsic · Immune Mediated",
+  accent:"ccp",
+  vignette:[
+    "Mrs Lim, a 35-year-old woman with a known diagnosis of Systemic Lupus Erythematosus (SLE), presents to the haematology clinic with a 3-week history of progressive fatigue, exertional dyspnoea, and mild yellowish discolouration of the eyes. She is currently on hydroxychloroquine and low-dose prednisolone.",
+    "On examination, she is pale with mild icterus. There is no significant lymphadenopathy. The spleen is palpable 2 cm below the costal margin. She has a mild butterfly-shaped facial rash consistent with her known SLE. Her last disease flare was 2 months ago."
+  ],
+  tags:[{l:"Age / Sex",v:"35 y/o · Female"},{l:"Setting",v:"Haematology clinic"},{l:"Underlying disease",v:"Systemic Lupus Erythematosus"}],
+  labs:[
+    {n:"Haemoglobin",v:"8 g/dL",c:"lo"},{n:"Reticulocytes",v:"↑ Elevated",c:"hi"},
+    {n:"Indirect bilirubin",v:"↑ Elevated",c:"hi"},{n:"Direct Coombs (DAT)",v:"Positive",c:"hi"},
+    {n:"Peripheral smear",v:"Spherocytes, polychromasia",c:"ab"},{n:"ANA / anti-dsDNA",v:"Positive",c:"ab"}
+  ],
+  smear:"aiha",
+  qs:[
+    {q:"What is the mechanism of haemolysis in this patient?",a:"This is <strong>warm antibody autoimmune haemolytic anaemia (AIHA).</strong> In SLE, autoreactive B cells produce <strong>IgG autoantibodies</strong> directed against RBC surface antigens (typically Rh antigens). IgG-coated RBCs are recognised by Fc receptors on splenic macrophages → phagocytosis. Partial phagocytosis strips membrane without destroying the whole cell → residual cell rounds up into a <strong>spherocyte.</strong>"},
+    {q:"What does the Direct Coombs test detect?",a:"The <strong>Direct Antiglobulin Test (DAT)</strong> detects immunoglobulins or complement (C3d) already bound to the patient's RBC surface in vivo. Anti-human globulin (Coombs reagent) is added to washed patient RBCs — if antibodies are present on the cell surface, agglutination occurs. A positive DAT confirms immune-mediated RBC coating and is the diagnostic cornerstone of AIHA."},
+    {q:"Why are spherocytes seen — and how does this differ from hereditary spherocytosis?",a:"In AIHA, splenic macrophages nibble portions of the IgG-coated membrane (partial phagocytosis). The cell loses membrane surface area while retaining its haemoglobin volume → sphere shape. Crucially, <strong>the RBC membrane proteins are intrinsically normal</strong> (Coombs positive, normal osmotic fragility). In HS, the spherocytes arise from an intrinsic membrane protein defect (Coombs negative, markedly increased osmotic fragility)."},
+    {q:"What type of haemolysis occurs and what are the associated conditions?",a:"Predominantly <strong>extravascular haemolysis</strong> in the spleen (IgG → macrophage Fc receptor recognition). Complement-fixing cases (IgM cold antibodies or high-titre IgG) can also cause <strong>intravascular haemolysis</strong> via MAC formation. Associated conditions: SLE, CLL, drugs (methyldopa, penicillin, cephalosporins). Cold AIHA (IgM) is associated with Mycoplasma pneumoniae and EBV."},
+  ],
+  disc:{type:"Extrinsic — Immune Mediated",htype:"Extravascular (spleen & liver)",chain:["IgG autoantibodies coat RBC","Fc receptor on splenic macrophages","Partial phagocytosis","Membrane loss","Spherocyte formation","Extravascular haemolysis"],comp:["Associated: SLE, CLL, drugs","Cold AIHA: Mycoplasma, EBV","Risk of thromboembolism"],tx:"Corticosteroids (first-line); rituximab; splenectomy (refractory cases)"}
+},
+{
+  id:5,title:"Microangiopathic Haemolytic Anaemia",sub:"Extrinsic · Mechanical Destruction",
+  accent:"cct",
+  vignette:[
+    "Priya, a 28-year-old woman, is admitted to the obstetric ward 5 days after an uncomplicated vaginal delivery. She presents with fatigue, petechiae over her lower limbs, reduced urine output, and confusion that her husband noticed this morning. She had been well until 2 days ago.",
+    "On examination, she is pale and mildly jaundiced. She has scattered petechiae over both lower limbs. She is oriented to person only. Blood pressure is 148/90 mmHg and heart rate is 110 bpm. Urine output over the past 8 hours is 60 mL. There is no rash or lymphadenopathy."
+  ],
+  tags:[{l:"Age / Sex",v:"28 y/o · Female"},{l:"Setting",v:"Obstetric ward / ICU"},{l:"Context",v:"5 days postpartum — TTP pentad present"}],
+  labs:[
+    {n:"Haemoglobin",v:"7 g/dL",c:"lo"},{n:"Platelets",v:"↓ 28 × 10⁹/L",c:"lo"},
+    {n:"Creatinine",v:"↑ Elevated",c:"hi"},{n:"LDH",v:"↑ Markedly high",c:"hi"},
+    {n:"Peripheral smear",v:"Schistocytes, helmet cells",c:"ab"},{n:"Direct Coombs",v:"Negative",c:""}
+  ],
+  smear:"maha",
+  qs:[
+    {q:"What is the mechanism of RBC destruction in MAHA?",a:"RBCs undergo <strong>mechanical fragmentation</strong> as they are forced through small blood vessels partially occluded by fibrin strands or platelet microthrombi. The RBC is literally sheared — like a wire cutting through a cell membrane — producing jagged fragments called <strong>schistocytes.</strong> This is intravascular mechanical destruction; the RBC itself is completely normal."},
+    {q:"Name two important conditions that cause MAHA and explain the underlying mechanism.",a:"<strong>Thrombotic Thrombocytopenic Purpura (TTP):</strong> deficiency of ADAMTS13 (a metalloprotease that cleaves vWF multimers) → accumulation of ultra-large vWF multimers → platelet microthrombi in arterioles → RBC shearing. <strong>Haemolytic Uraemic Syndrome (HUS):</strong> Shiga toxin (from E. coli O157:H7 or Shigella) damages endothelium → platelet/fibrin thrombi in renal microvasculature → MAHA plus AKI."},
+    {q:"Why are schistocytes formed and why is the Coombs test negative?",a:"Schistocytes are the physical fragments of RBCs sliced by fibrin strands — <strong>purely mechanical in origin.</strong> The RBC membrane, haemoglobin, and membrane proteins are all intrinsically normal. There are no antibodies or complement involved. Hence the <strong>Direct Coombs test is negative,</strong> which helps distinguish MAHA from immune-mediated haemolysis (AIHA). Schistocytes on a blood film plus thrombocytopenia plus a negative Coombs test = MAHA until proven otherwise."},
+  ],
+  disc:{type:"Extrinsic — Mechanical Fragmentation",htype:"Intravascular",chain:["Fibrin/platelet microthrombi","RBC forced through occluded vessel","Mechanical shearing","Schistocyte formation","Intravascular haemolysis"],comp:["TTP pentad: MAHA + thrombocytopenia + AKI + fever + neuro signs","HUS triad: MAHA + thrombocytopenia + AKI","HELLP syndrome in pregnancy"],tx:"TTP: urgent plasma exchange; HUS: supportive ± eculizumab; DIC: treat underlying cause"}
+},
+{
+  id:6,title:"Paroxysmal Nocturnal Haemoglobinuria",sub:"Intrinsic · GPI-Anchor Defect (Acquired)",
+  accent:"ccb",
+  vignette:[
+    "Nadia, a 32-year-old woman, presents to the haematology clinic with a 4-month history of episodic dark brown urine noticed predominantly upon waking in the morning. She reports fatigue, mild jaundice, and two episodes of painful swelling of her left calf over the past year — one of which was confirmed as deep vein thrombosis and treated with anticoagulation.",
+    "She has no significant family history and no recent drug exposures. Examination reveals pallor and mild icterus. No lymphadenopathy or splenomegaly is detected. She mentions her urine is always darkest with the first void of the morning and clears by midday. Urine dipstick is positive for blood but microscopy shows no red blood cells."
+  ],
+  tags:[{l:"Age / Sex",v:"32 y/o · Female"},{l:"Key clue",v:"Dark first morning urine + DVT history"},{l:"Urine finding",v:"Haemoglobinuria (no RBCs on microscopy)"}],
+  labs:[
+    {n:"Haemoglobin",v:"9 g/dL",c:"lo"},{n:"Reticulocytes",v:"↑ Elevated",c:"hi"},
+    {n:"LDH",v:"↑ Markedly elevated",c:"hi"},{n:"Haemoglobinuria",v:"Present (AM sample)",c:"hi"},
+    {n:"Flow cytometry",v:"↓ CD55 & CD59 on RBCs",c:"ab"},{n:"Direct Coombs",v:"Negative",c:""}
+  ],
+  smear:"pnh",
+  qs:[
+    {q:"What is the underlying molecular defect in PNH?",a:"A somatic mutation in the <strong>PIG-A gene</strong> (located on the X chromosome) in a haematopoietic stem cell. PIG-A encodes an enzyme essential for synthesising the <strong>GPI (glycosylphosphatidylinositol) anchor.</strong> Without GPI anchors, two key complement regulatory proteins — <strong>CD55</strong> (decay-accelerating factor) and <strong>CD59</strong> (protectin) — cannot be expressed on the RBC surface, leaving RBCs completely unprotected from complement-mediated lysis."},
+    {q:"Why does haemolysis occur predominantly at night and cause dark morning urine?",a:"During sleep, mild respiratory hypoventilation leads to a slight rise in CO₂ → <strong>mild respiratory acidosis</strong> → complement activation is enhanced at lower pH. Without CD55/CD59, RBCs cannot inhibit complement → <strong>terminal complement (MAC) lyses RBCs intravascularly.</strong> Free haemoglobin concentrates in the bladder overnight and is excreted with the first morning void as dark brown urine (haemoglobinuria). Urine clears as the day progresses."},
+    {q:"Why do PNH patients develop thrombosis?",a:"GPI-anchored complement inhibitors are also absent from <strong>platelets and monocytes.</strong> Complement activation → platelet activation → prothrombotic state. Additionally, free plasma haemoglobin scavenges <strong>nitric oxide (NO)</strong> → reduced NO → vasoconstriction, platelet aggregation, and endothelial dysfunction. Thrombosis (particularly hepatic vein thrombosis causing Budd-Chiari syndrome, and DVT) is the leading cause of death in PNH."},
+    {q:"How is PNH definitively diagnosed?",a:"<strong>Flow cytometry</strong> is the gold standard. It demonstrates absence or significant reduction of GPI-anchored proteins (CD55, CD59) on peripheral blood RBCs and granulocytes. A clone size of ≥1% granulocytes is considered diagnostic. The classic Ham's acidified serum test and sucrose lysis test are now obsolete, replaced entirely by flow cytometry due to its superior sensitivity and specificity."},
+  ],
+  disc:{type:"Intrinsic — GPI Anchor Defect (Acquired Somatic)",htype:"Intravascular (complement-mediated)",chain:["PIG-A somatic mutation","No GPI anchor synthesis","↓ CD55 / CD59 on RBCs","Uncontrolled complement activation","MAC formation","Intravascular RBC lysis"],comp:["Thrombosis: Budd-Chiari, DVT, portal vein","Haemoglobinuria → renal haemosiderin deposition","Evolution to aplastic anaemia or MDS"],tx:"Eculizumab or ravulizumab (anti-C5 monoclonal antibody); allogeneic SCT for severe/refractory cases"}
+}
+];
+
+function drawSmear(type){
+  const cells={
+    hs:`<svg class="smear-svg" viewBox="0 0 320 115" xmlns="http://www.w3.org/2000/svg">
+      <text x="8" y="13" font-size="11" fill="#888780">Normal biconcave RBC</text>
+      <ellipse cx="55" cy="66" rx="30" ry="28" fill="#F7C1C1" stroke="#E24B4A" stroke-width="1"/>
+      <ellipse cx="55" cy="66" rx="14" ry="12" fill="#FCEBEB"/>
+      <text x="33" y="106" font-size="10" fill="#888780">Normal RBC</text>
+      <text x="128" y="13" font-size="11" fill="#888780">Spherocyte (no pallor)</text>
+      <circle cx="178" cy="66" r="25" fill="#E24B4A" stroke="#A32D2D" stroke-width="1"/>
+      <text x="156" y="106" font-size="10" fill="#888780">Spherocyte</text>
+      <circle cx="268" cy="66" r="23" fill="#E24B4A" stroke="#A32D2D" stroke-width="1"/>
+      <text x="248" y="106" font-size="10" fill="#888780">Spherocyte</text>
+    </svg>`,
+    g6pd:`<svg class="smear-svg" viewBox="0 0 320 115" xmlns="http://www.w3.org/2000/svg">
+      <text x="8" y="13" font-size="11" fill="#888780">Normal RBC</text>
+      <ellipse cx="52" cy="66" rx="28" ry="26" fill="#F7C1C1" stroke="#E24B4A" stroke-width="1"/>
+      <ellipse cx="52" cy="66" rx="12" ry="10" fill="#FCEBEB"/>
+      <text x="34" y="106" font-size="10" fill="#888780">Normal RBC</text>
+      <text x="103" y="13" font-size="11" fill="#888780">Bite cell (segment missing)</text>
+      <ellipse cx="175" cy="66" rx="27" ry="25" fill="#F7C1C1" stroke="#E24B4A" stroke-width="1"/>
+      <path d="M175,41 Q202,52 202,66 Q202,80 175,91 Q163,85 163,66 Q163,47 175,41 Z" fill="#FAEEDA" stroke="#E24B4A" stroke-width="1"/>
+      <text x="157" y="106" font-size="10" fill="#888780">Bite cell</text>
+      <text x="228" y="13" font-size="11" fill="#888780">Heinz bodies (inclusions)</text>
+      <ellipse cx="270" cy="66" rx="25" ry="23" fill="#F7C1C1" stroke="#E24B4A" stroke-width="1"/>
+      <circle cx="282" cy="56" r="5" fill="#633806"/>
+      <circle cx="276" cy="71" r="4" fill="#633806"/>
+      <circle cx="265" cy="60" r="3" fill="#633806"/>
+      <text x="248" y="106" font-size="10" fill="#888780">Heinz bodies</text>
+    </svg>`,
+    sca:`<svg class="smear-svg" viewBox="0 0 320 115" xmlns="http://www.w3.org/2000/svg">
+      <text x="8" y="13" font-size="11" fill="#888780">Sickle cell (crescent)</text>
+      <path d="M25,82 Q27,44 52,40 Q66,38 68,52 Q55,54 53,68 Q51,82 38,88 Q25,90 25,82 Z" fill="#E24B4A" stroke="#A32D2D" stroke-width="1"/>
+      <text x="28" y="106" font-size="10" fill="#888780">Sickle cell</text>
+      <text x="110" y="13" font-size="11" fill="#888780">Target cell (codocyte)</text>
+      <ellipse cx="172" cy="66" rx="30" ry="28" fill="#F7C1C1" stroke="#E24B4A" stroke-width="1"/>
+      <ellipse cx="172" cy="66" rx="19" ry="17" fill="#FCEBEB"/>
+      <circle cx="172" cy="66" r="8" fill="#F7C1C1" stroke="#E24B4A" stroke-width="0.8"/>
+      <text x="153" y="106" font-size="10" fill="#888780">Target cell</text>
+      <text x="232" y="13" font-size="11" fill="#888780">Sickle cell</text>
+      <path d="M238,80 Q240,46 262,42 Q276,40 278,54 Q265,56 263,70 Q261,82 250,87 Q238,89 238,80 Z" fill="#E24B4A" stroke="#A32D2D" stroke-width="1"/>
+      <text x="244" y="106" font-size="10" fill="#888780">Sickle cell</text>
+    </svg>`,
+    aiha:`<svg class="smear-svg" viewBox="0 0 320 115" xmlns="http://www.w3.org/2000/svg">
+      <text x="8" y="13" font-size="11" fill="#888780">Spherocyte (extrinsic)</text>
+      <circle cx="55" cy="66" r="26" fill="#E24B4A" stroke="#A32D2D" stroke-width="1"/>
+      <text x="35" y="106" font-size="10" fill="#888780">Spherocyte</text>
+      <text x="112" y="13" font-size="11" fill="#888780">Polychromatic RBC (reticulocyte)</text>
+      <ellipse cx="175" cy="66" rx="28" ry="26" fill="#AFA9EC" stroke="#7F77DD" stroke-width="1"/>
+      <ellipse cx="175" cy="66" rx="12" ry="10" fill="#EEEDFE"/>
+      <text x="148" y="106" font-size="10" fill="#888780">Polychromasia</text>
+      <text x="234" y="13" font-size="11" fill="#888780">Spherocyte</text>
+      <circle cx="268" cy="66" r="23" fill="#E24B4A" stroke="#A32D2D" stroke-width="1"/>
+      <text x="250" y="106" font-size="10" fill="#888780">Spherocyte</text>
+    </svg>`,
+    maha:`<svg class="smear-svg" viewBox="0 0 320 115" xmlns="http://www.w3.org/2000/svg">
+      <text x="8" y="13" font-size="11" fill="#888780">Helmet cell (schistocyte)</text>
+      <path d="M28,52 L66,52 Q80,52 80,66 Q80,82 66,82 L28,82 Q20,74 20,66 Q20,58 28,52 Z" fill="#E24B4A" stroke="#A32D2D" stroke-width="1"/>
+      <text x="24" y="106" font-size="10" fill="#888780">Helmet cell</text>
+      <text x="112" y="13" font-size="11" fill="#888780">Triangular schistocyte</text>
+      <path d="M148,82 L178,38 L210,80 Z" fill="#E24B4A" stroke="#A32D2D" stroke-width="1"/>
+      <text x="150" y="106" font-size="10" fill="#888780">Triangular fragment</text>
+      <text x="232" y="13" font-size="11" fill="#888780">Normal RBC (for reference)</text>
+      <ellipse cx="268" cy="66" rx="26" ry="24" fill="#F7C1C1" stroke="#E24B4A" stroke-width="1"/>
+      <ellipse cx="268" cy="66" rx="12" ry="10" fill="#FCEBEB"/>
+      <text x="250" y="106" font-size="10" fill="#888780">Normal RBC</text>
+    </svg>`,
+    pnh:`<svg class="smear-svg" viewBox="0 0 320 115" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="55" cy="66" rx="28" ry="26" fill="#F7C1C1" stroke="#E24B4A" stroke-width="1"/>
+      <ellipse cx="55" cy="66" rx="12" ry="10" fill="#FCEBEB"/>
+      <text x="35" y="106" font-size="10" fill="#888780">Normal RBC</text>
+      <ellipse cx="162" cy="66" rx="27" ry="25" fill="#F7C1C1" stroke="#E24B4A" stroke-width="1"/>
+      <ellipse cx="162" cy="66" rx="11" ry="9" fill="#FCEBEB"/>
+      <text x="142" y="106" font-size="10" fill="#888780">Normal RBC</text>
+      <ellipse cx="265" cy="66" rx="26" ry="24" fill="#F7C1C1" stroke="#E24B4A" stroke-width="1"/>
+      <ellipse cx="265" cy="66" rx="11" ry="9" fill="#FCEBEB"/>
+      <text x="245" y="106" font-size="10" fill="#888780">Normal RBC</text>
+      <text x="8" y="13" font-size="11" fill="#BA7517">Smear appears normal — diagnosis requires flow cytometry (↓ CD55/CD59)</text>
+    </svg>`
+  };
+  return cells[type]||cells.pnh;
+}
+
+function buildPanel(c,i){
+  const vHtml=c.vignette.map(p=>`<p>${p}</p>`).join('');
+  const tagHtml=c.tags.map(t=>`<div class="ptag"><span>${t.l}</span><strong>${t.v}</strong></div>`).join('');
+  const labHtml=c.labs.map(l=>`<div class="lab"><span class="ln">${l.n}</span><span class="lv ${l.c}">${l.v}</span></div>`).join('');
+  const qHtml=c.qs.map((q,qi)=>`
+    <div class="qi" id="qi-${i}-${qi}">
+      <button class="qtrig" onclick="tQ(${i},${qi})">
+        <span class="qn">Q${qi+1}</span>
+        <span class="qt">${q.q}</span>
+        <i class="ti ti-chevron-down" aria-hidden="true"></i>
+      </button>
+      <div class="qans"><div class="qai">${q.a}</div></div>
+    </div>`).join('');
+  const chainHtml=c.disc.chain.map((n,j)=>`<span class="cnode">${n}</span>${j<c.disc.chain.length-1?'<span class="carr">→</span>':''}`).join('');
+  const compHtml=c.disc.comp.map(x=>`<span class="ctag">${x}</span>`).join('');
+  const isLast=i===CASES.length-1;
+  return `<div class="panel" id="p-${i}">
+    <div class="chead">
+      <span class="cnum">Case ${c.id} of ${CASES.length}</span>
+      <div><div class="ctitle">${c.title}</div><div class="csub">${c.sub}</div></div>
+    </div>
+    <div class="cbody">
+      <div class="slabel">Clinical vignette</div>
+      <div class="vignette">${vHtml}</div>
+      <div class="ptags">${tagHtml}</div>
+      <div class="slabel">Laboratory investigations</div>
+      <div class="labs">${labHtml}</div>
+      <div class="slabel" style="margin-top:1rem">Peripheral smear morphology</div>
+      <div class="smear-wrap">
+        <div class="smear-title">Key RBC morphology</div>
+        ${drawSmear(c.smear)}
+      </div>
+      <div class="slabel">Clinical questions — tap to reveal answers</div>
+      <div class="qs">${qHtml}</div>
+      <button class="discbtn" id="db-${i}" onclick="showDisc(${i})">
+        <i class="ti ti-microscope" aria-hidden="true"></i> Show full pathology discussion
+      </button>
+      <div class="disc" id="d-${i}">
+        <div class="disc-title"><i class="ti ti-book" aria-hidden="true"></i> Pathology discussion</div>
+        <div class="cgrid">
+          <div class="cc ${c.accent}"><div class="ccl">Type</div><div class="ccv">${c.disc.type}</div></div>
+          <div class="cc cct"><div class="ccl">Haemolysis</div><div class="ccv">${c.disc.htype}</div></div>
+        </div>
+        <div class="slabel">Pathogenesis</div>
+        <div class="chain">${chainHtml}</div>
+        <div class="slabel">Complications</div>
+        <div class="ctags">${compHtml}</div>
+        <div class="slabel" style="margin-top:10px">Treatment</div>
+        <div class="txbox">${c.disc.tx}</div>
+      </div>
+      <button class="nextbtn" onclick="nextCase(${i})">
+        ${isLast?'<i class="ti ti-check" aria-hidden="true"></i> Complete all cases':`Next: ${CASES[i+1].title} <i class="ti ti-arrow-right" aria-hidden="true"></i>`}
+      </button>
+    </div>
+  </div>`;
+}
+
+let cur=0,done=new Set();
+function init(){
+  const nav=document.getElementById('nav');
+  let html='';
+  CASES.forEach((c,i)=>{
+    nav.innerHTML+=`<button class="nbtn" id="nb2-${i}" onclick="go(${i})">${c.id}. ${c.title.split(' ').slice(0,2).join(' ')}</button>`;
+    html+=buildPanel(c,i);
+  });
+  document.getElementById('panels').innerHTML=html;
+  go(0);
+}
+function go(i){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('vis'));
+  document.querySelectorAll('.nbtn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(`p-${i}`).classList.add('vis');
+  document.getElementById(`nb2-${i}`).classList.add('active');
+  cur=i;upProg();
+}
+function tQ(ci,qi){
+  const el=document.getElementById(`qi-${ci}-${qi}`);
+  const was=el.classList.contains('open');
+  document.querySelectorAll(`#p-${ci} .qi`).forEach(q=>q.classList.remove('open'));
+  if(!was){el.classList.add('open');el.classList.add('answered');}
+}
+function showDisc(i){
+  document.getElementById(`d-${i}`).classList.add('vis');
+  document.getElementById(`db-${i}`).style.display='none';
+}
+function nextCase(i){
+  done.add(i);
+  document.getElementById(`nb2-${i}`).classList.add('done');
+  document.getElementById(`nb2-${i}`).classList.remove('active');
+  upProg();
+  if(i<CASES.length-1){go(i+1);document.getElementById('app').scrollIntoView({behavior:'smooth'});}
+  else{
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('vis'));
+    document.getElementById('sum').classList.add('vis');
+    document.getElementById('pfill').style.width='100%';
+  }
+}
+function upProg(){document.getElementById('pfill').style.width=(done.size/CASES.length*100)+'%';}
+function restart(){
+  done.clear();
+  document.getElementById('sum').classList.remove('vis');
+  document.querySelectorAll('.nbtn').forEach(b=>b.classList.remove('done','active'));
+  document.querySelectorAll('.disc').forEach(d=>d.classList.remove('vis'));
+  document.querySelectorAll('.discbtn').forEach(b=>b.style.display='');
+  document.querySelectorAll('.qi').forEach(q=>q.classList.remove('open','answered'));
+  upProg();go(0);
+}
+init();
+</script>
