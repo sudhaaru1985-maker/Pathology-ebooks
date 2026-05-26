@@ -1,500 +1,870 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>MAHSA University — Pathology CPAS e-Books</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
-<style>
-:root {
-  --burgundy: #7B1D1D;
-  --gold: #C9A84C;
-  --gold-light: #E8C97A;
-  --cream: #FAF6EF;
-  --slate: #2C3E50;
-  --slate-mid: #4A5568;
-  --slate-light: #718096;
-  --white: #FFFFFF;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulmonary Vascular Disorders - CPAS e-Book</title>
+    <style>
+        :root {
+            --primary-color: #003b46;
+            --secondary-color: #07575b;
+            --accent-color: #66a5ad;
+            --light-bg: #f4f7f6;
+            --text-color: #2e3033;
+            --white: #ffffff;
+            --correct-color: #2e7d32;
+            --incorrect-color: #c62828;
+            --alert-bg: #fffbeb;
+            --alert-border: #b45309;
+        }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-body {
-  font-family: 'Source Serif 4', serif;
-  background: var(--cream);
-  color: var(--slate);
-  min-height: 100vh;
-}
+        body {
+            display: flex;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
 
-/* HEADER */
-header {
-  background: linear-gradient(135deg, var(--slate) 0%, #1a252f 60%, var(--burgundy) 100%);
-  color: white;
-  padding: 60px 40px 50px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-header::before {
-  content: '';
-  position: absolute;
-  top: -80px; right: -80px;
-  width: 360px; height: 360px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
-  pointer-events: none;
-}
-header::after {
-  content: '';
-  position: absolute;
-  bottom: -60px; left: 10%;
-  width: 240px; height: 240px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(123,29,29,0.25) 0%, transparent 70%);
-  pointer-events: none;
-}
-.header-tag {
-  display: inline-block;
-  background: rgba(201,168,76,0.18);
-  border: 1px solid var(--gold);
-  color: var(--gold-light);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 5px 16px;
-  border-radius: 20px;
-  margin-bottom: 18px;
-}
-header h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.6rem;
-  font-weight: 900;
-  line-height: 1.15;
-  margin-bottom: 10px;
-  position: relative; z-index: 1;
-}
-header h1 span { color: var(--gold); }
-header p {
-  font-size: 0.92rem;
-  color: rgba(255,255,255,0.60);
-  font-family: 'JetBrains Mono', monospace;
-  position: relative; z-index: 1;
-}
+        /* Sticky Sidebar TOC */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 290px;
+            height: 100vh;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 25px 15px;
+            overflow-y: auto;
+            z-index: 100;
+            border-right: 4px solid var(--secondary-color);
+        }
 
-/* MAIN */
-main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 52px 32px 60px;
-}
+        nav h2 {
+            font-size: 1.15rem;
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent-color);
+            color: var(--white);
+            letter-spacing: 0.5px;
+        }
 
-/* SECTION LABEL */
-.section-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--gold);
-  margin-bottom: 6px;
-}
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
-  color: var(--slate);
-  border-left: 4px solid var(--gold);
-  padding-left: 14px;
-  margin-bottom: 28px;
-}
+        nav ul {
+            list-style: none;
+        }
 
-/* MODULE GRID */
-.module-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 22px;
-  margin-bottom: 52px;
-}
+        nav ul li {
+            margin-bottom: 10px;
+        }
 
-/* MODULE CARD */
-.module-card {
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  transition: transform .2s, box-shadow .2s;
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-}
-.module-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 36px rgba(0,0,0,0.13);
-}
-.card-top {
-  padding: 24px 22px 18px;
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-}
-.card-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem;
-  flex-shrink: 0;
-}
-.card-meta { flex: 1; }
-.card-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 4px;
-}
-.card-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  line-height: 1.3;
-  color: var(--slate);
-}
-.card-body {
-  padding: 0 22px 16px;
-  font-size: 0.82rem;
-  line-height: 1.65;
-  color: var(--slate-mid);
-  flex: 1;
-}
-.card-topics {
-  padding: 12px 22px;
-  background: var(--cream);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.topic-badge {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  background: white;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 20px;
-  padding: 3px 10px;
-  color: var(--slate-mid);
-}
-.card-footer {
-  padding: 14px 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid var(--cream);
-}
-.card-status {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.status-dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-}
-.status-live .status-dot { background: #1A6B3C; }
-.status-live { color: #1A6B3C; }
-.status-soon .status-dot { background: var(--gold); }
-.status-soon { color: #8a6a1a; }
-.card-arrow {
-  font-size: 1rem;
-  color: var(--slate-light);
-  transition: transform .2s;
-}
-.module-card:hover .card-arrow { transform: translateX(4px); }
+        nav ul li a {
+            display: block;
+            color: #d1e8e2;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            transition: all 0.25s ease;
+        }
 
-/* COMING SOON CARD */
-.module-card.coming-soon {
-  opacity: 0.65;
-  pointer-events: none;
-  cursor: default;
-}
-.module-card.coming-soon:hover { transform: none; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        nav ul li a:hover, nav ul li a.active {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            font-weight: 600;
+            padding-left: 18px;
+        }
 
-/* INFO STRIP */
-.info-strip {
-  background: linear-gradient(135deg, var(--slate), #1a252f);
-  color: white;
-  border-radius: 16px;
-  padding: 28px 32px;
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 24px;
-  margin-bottom: 40px;
-}
-.info-item { text-align: center; }
-.info-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  font-weight: 900;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 6px;
-}
-.info-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.55);
-}
+        /* Main Scrollable Content */
+        main {
+            margin-left: 290px;
+            padding: 40px 50px;
+            width: calc(100% - 290px);
+            max-width: 1200px;
+        }
 
-/* IFRAME GUIDE */
-.iframe-guide {
-  background: white;
-  border-radius: 16px;
-  padding: 28px 30px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-  margin-bottom: 40px;
-}
-.iframe-guide h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  color: var(--burgundy);
-  margin-bottom: 14px;
-}
-.iframe-guide p {
-  font-size: 0.85rem;
-  color: var(--slate-mid);
-  line-height: 1.65;
-  margin-bottom: 14px;
-}
-.code-block {
-  background: #1a252f;
-  color: #E8C97A;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
-  padding: 16px 20px;
-  border-radius: 10px;
-  overflow-x: auto;
-  line-height: 1.8;
-}
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 35px;
+            border-radius: 10px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 28px 20px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  color: var(--slate-light);
-  border-top: 1px solid rgba(0,0,0,0.07);
-}
+        header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 8px;
+        }
 
-@media (max-width: 700px) {
-  header h1 { font-size: 1.8rem; }
-  main { padding: 32px 18px 40px; }
-  .info-strip { grid-template-columns: 1fr; gap: 16px; }
-  .module-grid { grid-template-columns: 1fr; }
-}
-</style>
+        header p {
+            color: #d1e8e2;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .university-badge {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+
+        /* Layout Elements */
+        section {
+            background-color: var(--white);
+            padding: 35px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            scroll-margin-top: 25px;
+        }
+
+        section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--light-bg);
+            padding-bottom: 12px;
+            margin-bottom: 22px;
+            font-size: 1.6rem;
+        }
+
+        /* Box Framework Layouts */
+        .lo-container {
+            background: linear-gradient(135deg, #f0fdfa, #e0f2fe);
+            border-left: 6px solid var(--secondary-color);
+            padding: 25px;
+            border-radius: 6px;
+        }
+
+        .lo-container ul {
+            padding-left: 22px;
+            margin-top: 10px;
+        }
+
+        .lo-container li {
+            margin-bottom: 8px;
+        }
+
+        .bridge-box, .trigger-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 15px;
+        }
+
+        .trigger-box {
+            border-left: 6px solid var(--alert-border);
+            background-color: var(--alert-bg);
+        }
+
+        .trigger-box h4 {
+            color: var(--alert-border);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .concept-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .concept-card {
+            flex: 1;
+            min-width: 280px;
+            background-color: #fafafa;
+            padding: 22px;
+            border-radius: 8px;
+            border-top: 5px solid var(--secondary-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .concept-card h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        /* Custom Accordion Components */
+        .accordion-block {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+        }
+
+        .accordion-toggle {
+            background-color: #f8fafc;
+            padding: 18px 25px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--primary-color);
+            font-size: 1.05rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .accordion-toggle:hover {
+            background-color: #edf2f7;
+        }
+
+        .accordion-content {
+            padding: 30px;
+            display: none;
+            border-top: 1px solid #e2e8f0;
+            background-color: var(--white);
+        }
+
+        .accordion-block.active .accordion-content {
+            display: block;
+        }
+
+        .accordion-toggle::after {
+            content: '▼';
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            transition: transform 0.2s ease;
+        }
+
+        .accordion-block.active .accordion-toggle::after {
+            transform: rotate(180deg);
+        }
+
+        /* SVG and Inline Diagrams */
+        .diagram-space {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .diagram-space svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Sub-point Styling & Badges */
+        .badge-marker {
+            display: inline-block;
+            padding: 3px 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-right: 6px;
+            text-transform: uppercase;
+            vertical-align: middle;
+        }
+        .bg-acquired { background-color: #e0f2fe; color: #0369a1; }
+        .bg-inherited { background-color: #f3e8ff; color: #6b21a8; }
+        .bg-morphology { background-color: #fef9c3; color: #854d0e; }
+        .bg-clinical { background-color: #dcfce7; color: #166534; }
+
+        .nested-list {
+            list-style: none;
+            padding-left: 5px;
+            margin: 12px 0;
+        }
+
+        .nested-list li {
+            margin-bottom: 10px;
+            padding-left: 15px;
+            border-left: 3px solid #cbd5e1;
+        }
+
+        .bold-heading {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        /* Clinical Case & Stepwise MCQs */
+        .case-presentation {
+            background-color: #f0fdf4;
+            border-left: 6px solid #16a34a;
+            padding: 25px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+        }
+
+        .mcq-card {
+            background-color: #f8fafc;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .step-label {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        .option-group {
+            list-style: none;
+            margin: 18px 0;
+        }
+
+        .option-row {
+            background-color: var(--white);
+            padding: 14px 18px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option-row:hover {
+            background-color: #f1f5f9;
+            border-color: var(--accent-color);
+        }
+
+        .option-row.selected-correct {
+            background-color: #d1fae5;
+            border-color: var(--correct-color);
+            color: var(--correct-color);
+            font-weight: 600;
+        }
+
+        .option-row.selected-incorrect {
+            background-color: #fee2e2;
+            border-color: var(--incorrect-color);
+            color: var(--incorrect-color);
+        }
+
+        .feedback-display {
+            margin-top: 15px;
+            padding: 16px;
+            border-radius: 6px;
+            display: none;
+            font-size: 0.95rem;
+        }
+
+        .feedback-display.correct {
+            display: block;
+            background-color: #dcfce7;
+            border-left: 5px solid var(--correct-color);
+            color: #14532d;
+        }
+
+        .feedback-display.incorrect {
+            display: block;
+            background-color: #fee2e2;
+            border-left: 5px solid var(--incorrect-color);
+            color: #7f1d1d;
+        }
+
+        .step-unlock-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 11px 22px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 12px;
+            display: none;
+            transition: background-color 0.2s;
+        }
+
+        .step-unlock-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Master Comparison Table */
+        .table-scroller {
+            overflow-x: auto;
+            margin-top: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+            background-color: var(--white);
+        }
+
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 14px 18px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* Focus Cards Layout */
+        .grid-split {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .focus-card {
+            flex: 1;
+            min-width: 320px;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .trap-zone {
+            background-color: #fff5f5;
+            border-left: 6px solid var(--incorrect-color);
+        }
+
+        .recall-zone {
+            background-color: #f0fdfa;
+            border-left: 6px solid #0d9488;
+        }
+
+        /* Utilities */
+        .mt-4 { margin-top: 20px; }
+        .text-gray { color: #64748b; font-size: 0.85rem; }
+
+        @media (max-width: 992px) {
+            body { flex-direction: column; }
+            nav { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 4px solid var(--secondary-color); }
+            main { margin-left: 0; width: 100%; padding: 25px; }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-  <div class="header-tag">CPAS e-Book Library · Pathology Department</div>
-  <h1>MAHSA University<br/><span>Pathology e-Books</span></h1>
-  <p>Dr. Sudha Arumugam &nbsp;·&nbsp; MBBS Year 1 & 2 · Dentistry · Allied Health &nbsp;·&nbsp; Kolektif LMS</p>
-</header>
+    <nav>
+        <h2>Pulmonary Vascular Disorders</h2>
+        <ul>
+            <li><a href="#lo-section" class="toc-item">1. Learning Outcomes</a></li>
+            <li><a href="#bridge-section" class="toc-item">2. Prior Knowledge Bridge</a></li>
+            <li><a href="#trigger-section" class="toc-item">3. Clinical Trigger Case</a></li>
+            <li><a href="#framework-section" class="toc-item">4. Classification Framework</a></li>
+            <li><a href="#accordions-section" class="toc-item">5. Disease Profiles</a></li>
+            <li><a href="#mcq-section" class="toc-item">6. Application Cases & MCQs</a></li>
+            <li><a href="#table-section" class="toc-item">7. Master Comparison</a></li>
+            <li><a href="#messages-section" class="toc-item">8. Key Take-Home Messages</a></li>
+            <li><a href="#exam-section" class="toc-item">9. Exam Focus & Recall</a></li>
+        </ul>
+    </nav>
 
-<main>
+    <main>
+        <header>
+            <h1>Pulmonary Vascular Disorders</h1>
+            <p>Integrated Framework for MBBS Year 1 Pathology — Pathology Block</p>
+            <div class="university-badge">MAHSA University • e-Book Collective LMS Resource</div>
+        </header>
 
-  <!-- STATS STRIP -->
-  <div class="info-strip">
-    <div class="info-item">
-      <div class="info-num">2</div>
-      <div class="info-label">Modules Live</div>
-    </div>
-    <div class="info-item">
-      <div class="info-num">9</div>
-      <div class="info-label">CPAS Sections Each</div>
-    </div>
-    <div class="info-item">
-      <div class="info-num">4</div>
-      <div class="info-label">Student Cohorts</div>
-    </div>
-  </div>
+        <section id="lo-section">
+            <h2>1. Learning Outcomes</h2>
+            <div class="lo-container">
+                <p>At the conclusion of this learning unit, the Year 1 MBBS student will be able to demonstrate an understanding and application level of proficiency across the following indices:</p>
+                <ul>
+                    <li><strong>LO1:</strong> Classify and contrast the etiology, pathogenetic tracks, morphological signatures, and core laboratory findings of pulmonary thromboembolism, pulmonary hypertension, and diffuse pulmonary hemorrhages.</li>
+                    <li><strong>LO2:</strong> Map specific acquired clinical situations and inherited genetic hypercoagulable traits directly to the risks of developing lower-extremity deep vein thrombosis resulting in macrovascular blocks.</li>
+                    <li><strong>LO3:</strong> Outline the structural remodeling dynamics across the 5 structural WHO categories of pulmonary hypertension, defining how changes in flow resistance prompt right ventricular hypertrophy and heart failure.</li>
+                    <li><strong>LO4:</strong> Connect the immunological and cellular disruptions seen in diffuse pulmonary hemorrhage syndromes to the defining macroscopic and microscopic hallmarks required for analytical diagnostic tracking.</li>
+                </ul>
+            </div>
+        </section>
 
-  <!-- LIVE MODULES -->
-  <div class="section-label">Available Now</div>
-  <div class="section-title">CPAS e-Book Modules</div>
+        <section id="bridge-section">
+            <h2>2. Prior Knowledge Bridge</h2>
+            <div class="bridge-box">
+                <p>Before moving into clinical pathology, review these primary components from your Hematology, Anatomy, and Cardiovascular physiological modules:</p>
+                <br>
+                <ul>
+                    <li><span class="bold-heading">Virchow's Triad Breakdown:</span> Thrombus construction relies on three classic triggers: Endothelial Injury (vessel wall trauma), Stasis or Turbulence of blood flow, and systemic Hypercoagulability. Disruption across this triad governs how deep venous clots organize before breaking free.</li>
+                    <li><span class="bold-heading">Dual Lobe Perfusion Buffer:</span> The parenchymal tissue of the lungs possesses a dual arterial framework: functional blood flow via the Pulmonary Arterial Network alongside direct structural oxygenation from the Bronchial Circulation. This overlapping vascular architecture shields the lungs from experiencing immediate necrosis during low-level occlusions.</li>
+                    <li><span class="bold-heading">Right Ventricular Hemodynamics:</span> Unlikely the high-pressure left ventricle, the normal right ventricle functions within a thin-walled, highly compliant, low-pressure system designed to pump blood against a baseline resting mean pulmonary resistance of only 14 to 18 mmHg. Rapid or sustained elevations in this resistance will overload the chamber's adaptive mechanics.</li>
+                </ul>
+            </div>
+        </section>
 
-  <div class="module-grid">
+        <section id="trigger-section">
+            <h2>3. Clinical Trigger</h2>
+            <div class="trigger-box">
+                <h4>Initial Presentation Vignette</h4>
+                <p>A 54-year-old corporate accountant is rushed to the Medical Center Emergency Department presentation unit complaining of a sudden, terrifying onset of severe shortness of breath paired with sharp, localized chest pain that sharpens significantly upon deep inspiration. Six days ago, he underwent an extensive orthopedic restructuring alignment procedure on his left proximal hip and femur following a collision, requiring complete post-surgical absolute bed immobilization.</p>
+                <br>
+                <p><strong>Clinical Examination Metrics:</strong> The patient appears highly distressed, diaphoretic, and tachypneic at 27 breaths per minute. His pulse reflects profound tachycardia at 114 beats per minute. Pulmonary auscultation reveals fine basal crackles, while physical measurement of the left lower extremity exhibits pronounced pitting edema, increased local warmth, and structural calf muscle tenderness.</p>
+                <br>
+                <p><em>Analytical Challenge: How do a surgical site and a swollen calf combine to trigger an acute respiratory collapse? What physical obstruction has occurred at the macrovascular bifurcation? We will solve this step-by-step in Section 6.</em></p>
+            </div>
+        </section>
 
-    <!-- LEUKEMIA -->
-    <a class="module-card" href="./Leukemia_CPAS_Ebook_Scroll.html">
-      <div class="card-top">
-        <div class="card-icon" style="background:#1a3a5c;">🩸</div>
-        <div class="card-meta">
-          <div class="card-tag" style="color:#2E6B9B;">Haematopathology</div>
-          <div class="card-title">Leukemia</div>
-        </div>
-      </div>
-      <div class="card-body">
-        Classification, pathogenesis, morphology and clinical features of acute and chronic leukaemias. Includes ALL, AML, CLL, and CML with interactive MCQs.
-      </div>
-      <div class="card-topics">
-        <span class="topic-badge">ALL</span>
-        <span class="topic-badge">AML</span>
-        <span class="topic-badge">CLL</span>
-        <span class="topic-badge">CML</span>
-        <span class="topic-badge">Philadelphia Chr.</span>
-      </div>
-      <div class="card-footer">
-        <div class="card-status status-live"><div class="status-dot"></div> Live</div>
-        <div class="card-arrow">→</div>
-      </div>
-    </a>
+        <section id="framework-section">
+            <h2>4. Classification Framework</h2>
+            <p>Pulmonary vascular disorders are divided into three core pathological classifications based on mechanical occlusion, chronic tissue remodeling, or immunologically driven damage:</p>
+            
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <h3>I. Thromboembolic Occlusions</h3>
+                    <p class="text-gray">Mechanical macro- or micro-vascular blockages that originate in distal systemic venous circuits and lodge within the branches of the pulmonary artery.</p>
+                    <p class="mt-4"><strong>Key Markers:</strong> Saddle Embolism, Hemorrhagic Red Infarctions, Proximal DVT.</p>
+                </div>
+                <div class="concept-card">
+                    <h3>II. Pulmonary Hypertension</h3>
+                    <p class="text-gray">A chronic hemodynamic disorder characterized by a sustained rise in mean pulmonary arterial pressure to over 25 mmHg at rest.</p>
+                    <p class="mt-4"><strong>Key Markers:</strong> WHO Groups 1–5, BMPR2 mutations, Plexiform alterations.</p>
+                </div>
+                <div class="concept-card">
+                    <h3>III. Diffuse Alveolar Hemorrhages</h3>
+                    <p class="text-gray">Autoimmune or idiopathic destruction targeting the pulmonary capillary endothelial walls and basement membranes.</p>
+                    <p class="mt-4"><strong>Key Markers:</strong> Goodpasture Syndrome, Hemosiderin-laden Macrophages.</p>
+                </div>
+            </div>
+        </section>
 
-    <!-- ARTHRITIS -->
-    <a class="module-card" href="./arthritis/">
-      <div class="card-top">
-        <div class="card-icon" style="background:#3a1a1a;">🦴</div>
-        <div class="card-meta">
-          <div class="card-tag" style="color:#7B1D1D;">Musculoskeletal Pathology</div>
-          <div class="card-title">Disorders of Joints</div>
-        </div>
-      </div>
-      <div class="card-body">
-        Comprehensive coverage of OA, RA, Gout, Seronegative Spondyloarthropathies and Infectious Arthritis — with pathogenesis, morphology, and clinical application cases.
-      </div>
-      <div class="card-topics">
-        <span class="topic-badge">OA</span>
-        <span class="topic-badge">RA</span>
-        <span class="topic-badge">Gout</span>
-        <span class="topic-badge">Ankylosing SpA</span>
-        <span class="topic-badge">Suppurative</span>
-      </div>
-      <div class="card-footer">
-        <div class="card-status status-live"><div class="status-dot"></div> Live</div>
-        <div class="card-arrow">→</div>
-      </div>
-    </a>
+        <section id="accordions-section">
+            <h2>5. Individual Disease Accordions</h2>
+            <p style="margin-bottom: 20px;" class="text-gray">Select an individual disease classification profile below to unpack its etiology, pathogenesis, structural morphology, and diagnostic tracks.</p>
 
-    <!-- PLACEHOLDER: Bone Tumours -->
-    <div class="module-card coming-soon">
-      <div class="card-top">
-        <div class="card-icon" style="background:#3a3a1a;">🔬</div>
-        <div class="card-meta">
-          <div class="card-tag" style="color:#8a6a1a;">Musculoskeletal Pathology</div>
-          <div class="card-title">Bone Tumours</div>
-        </div>
-      </div>
-      <div class="card-body">
-        Classification and pathology of benign and malignant bone tumours including osteosarcoma, chondrosarcoma, Ewing's sarcoma and metastatic bone disease.
-      </div>
-      <div class="card-topics">
-        <span class="topic-badge">Osteosarcoma</span>
-        <span class="topic-badge">Chondrosarcoma</span>
-        <span class="topic-badge">Ewing's</span>
-      </div>
-      <div class="card-footer">
-        <div class="card-status status-soon"><div class="status-dot"></div> Coming Soon</div>
-        <div class="card-arrow">→</div>
-      </div>
-    </div>
+            <div class="accordion-block">
+                <div class="accordion-toggle" onclick="toggleAcc(this)">
+                    Disorder A: Pulmonary Thromboembolism & Infarction
+                </div>
+                <div class="accordion-content">
+                    <p><span class="badge-marker bg-acquired">Acquired Triggers</span> Prolonged physical immobilization, major pelvic/lower limb orthopedic surgeries, localized vessel tissue trauma, advanced malignancy, pregnancy/puerperium states, exogenous estrogen supplement treatments, and clinical obesity. Over 95% of these cases originate from deep vein thrombosis (DVT) within the large proximal networks of the leg (popliteal, femoral, iliac veins).</p>
+                    <p style="margin-top:10px;"><span class="badge-marker bg-inherited">Inherited Triggers</span> Antithrombin III deficiency, Protein C or S structural pathogenetic defects, Factor V Leiden mutation (generating systemic resistance to activated Protein C), Hyperhomocystinemia, and abnormal structural fibrinogens.</p>
+                    
+                    <div class="diagram-space">
+                        <svg width="500" height="160" viewBox="0 0 500 160">
+                            <rect width="500" height="160" rx="6" fill="#f1f5f9"/>
+                            <rect x="20" y="55" width="100" height="50" rx="4" fill="#003b46"/>
+                            <text x="70" y="85" fill="white" font-size="11" text-anchor="middle" font-weight="bold">Leg Proximal DVT</text>
+                            
+                            <line x1="120" y1="80" x2="150" y2="80" stroke="#07575b" stroke-width="3" marker-end="url(#arrow)"/>
+                            
+                            <rect x="150" y="55" width="110" height="50" rx="4" fill="#07575b"/>
+                            <text x="205" y="80" fill="white" font-size="10" text-anchor="middle">Inferior Vena Cava</text>
+                            <text x="205" y="93" fill="white" font-size="10" text-anchor="middle">& Right Heart Transit</text>
+                            
+                            <line x1="260" y1="80" x2="290" y2="80" stroke="#07575b" stroke-width="3"/>
+                            
+                            <rect x="290" y="55" width="190" height="50" rx="4" fill="#66a5ad"/>
+                            <text x="385" y="80" fill="#003b46" font-size="11" text-anchor="middle" font-weight="bold">Pulmonary Arterial Tree</text>
+                            <text x="385" y="95" fill="#003b46" font-size="10" text-anchor="middle">Occlusion & V/Q Mismatch</text>
+                            
+                            <defs>
+                                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#07575b" />
+                                </marker>
+                            </defs>
+                        </svg>
+                        <p class="text-gray">Figure 1: Directional pathophysiologic travel of a detached deep vein thrombus to the lung.</p>
+                    </div>
 
-    <!-- PLACEHOLDER: Liver Pathology -->
-    <div class="module-card coming-soon">
-      <div class="card-top">
-        <div class="card-icon" style="background:#1a3a1a;">🫀</div>
-        <div class="card-meta">
-          <div class="card-tag" style="color:#2E7D3A;">GI & Hepatic Pathology</div>
-          <div class="card-title">Liver Pathology</div>
-        </div>
-      </div>
-      <div class="card-body">
-        Hepatitis, cirrhosis, fatty liver disease and hepatic tumours. Covers pathogenesis, morphological grading and clinical correlations.
-      </div>
-      <div class="card-topics">
-        <span class="topic-badge">Hepatitis</span>
-        <span class="topic-badge">Cirrhosis</span>
-        <span class="topic-badge">NAFLD</span>
-        <span class="topic-badge">HCC</span>
-      </div>
-      <div class="card-footer">
-        <div class="card-status status-soon"><div class="status-dot"></div> Coming Soon</div>
-        <div class="card-arrow">→</div>
-      </div>
-    </div>
+                    <p><span class="bold-heading">Pathogenesis Mechanics:</span> When a thrombus detaches, it travels through the vena cava and the right side of the heart, lodging in the pulmonary arterial tree. This results in two major pathophysiologic consequences:</p>
+                    <ul class="nested-list">
+                        <li>1. <span class="bold-heading">Respiratory Compromise:</span> Halting regional perfusion down-line from the occlusion creates a dynamic area of alveolar dead space (ventilation without perfusion), severely disrupting systemic gas exchange.</li>
+                        <li>2. <span class="bold-heading">Hemodynamic Compromise:</span> Sudden mechanical blockage shifts downstream vascular patterns, increasing pulmonary vascular resistance. This elevates right ventricular afterload, causing sudden right ventricular strain, acute cor pulmonale, or cardiogenic shock if more than 60% of the vascular bed is occluded.</li>
+                    </ul>
 
-    <!-- PLACEHOLDER: Renal Pathology -->
-    <div class="module-card coming-soon">
-      <div class="card-top">
-        <div class="card-icon" style="background:#1a1a3a;">🫘</div>
-        <div class="card-meta">
-          <div class="card-tag" style="color:#2E3D7D;">Renal Pathology</div>
-          <div class="card-title">Glomerular Diseases</div>
-        </div>
-      </div>
-      <div class="card-body">
-        Nephritic and nephrotic syndromes, glomerulonephritis classification, morphology and clinical presentations including IgA nephropathy and membranous GN.
-      </div>
-      <div class="card-topics">
-        <span class="topic-badge">Nephritic</span>
-        <span class="topic-badge">Nephrotic</span>
-        <span class="topic-badge">IgA Nephropathy</span>
-      </div>
-      <div class="card-footer">
-        <div class="card-status status-soon"><div class="status-dot"></div> Coming Soon</div>
-        <div class="card-arrow">→</div>
-      </div>
-    </div>
+                    <p class="mt-4"><span class="badge-marker bg-morphology">Structural Presentation</span></p>
+                    <ul class="nested-list">
+                        <li><span class="bold-heading">Macrovascular Saddle Embolus:</span> A large thrombus that bridges across the main pulmonary artery bifurcation, completely blocking right ventricular outflow and causing sudden death.</li>
+                        <li><span class="bold-heading">Hemorrhagic Red Infarct:</span> Smaller, peripheral emboli typically cause localized hemorrhage. However, if systemic cardiovascular function is compromised, they can cause a wedge-shaped hemorrhagic red infarct. The apex points toward the vascular occlusion, while the base abuts the subpleural periphery.</li>
+                        <li><span class="bold-heading">Microscopic Lines of Zahn:</span> The embolus displays alternating laminations of pale platelets/fibrin layered with darker lines of red blood cells. The infarcted lung tissue shows extensive intra-alveolar hemorrhage and structural necrosis of the alveolar walls.</li>
+                    </ul>
 
-    <!-- PLACEHOLDER: Lung Pathology -->
-    <div class="module-card coming-soon">
-      <div class="card-top">
-        <div class="card-icon" style="background:#2a1a3a;">🫁</div>
-        <div class="card-meta">
-          <div class="card-tag" style="color:#6B2E7D;">Pulmonary Pathology</div>
-          <div class="card-title">Lung Tumours & Pneumonia</div>
-        </div>
-      </div>
-      <div class="card-body">
-        Classification of lung carcinomas, pneumonia types, obstructive vs restrictive lung diseases with pathogenesis and morphological correlates.
-      </div>
-      <div class="card-topics">
-        <span class="topic-badge">NSCLC</span>
-        <span class="topic-badge">SCLC</span>
-        <span class="topic-badge">Pneumonia</span>
-        <span class="topic-badge">COPD</span>
-      </div>
-      <div class="card-footer">
-        <div class="card-status status-soon"><div class="status-dot"></div> Coming Soon</div>
-        <div class="card-arrow">→</div>
-      </div>
-    </div>
+                    <p class="mt-4"><span class="badge-marker bg-clinical">Diagnostic Strategy Panel</span></p>
+                    <p>In cases with Low Clinical Suspicion, standard practice requires a plasma D-Dimer Assay. A normal value rules out a thromboembolism due to the test's high negative predictive value. For cases with High Clinical Suspicion or an elevated D-Dimer, the gold standard is a CT Pulmonary Angiography (CTPA) to directly visualize the intraluminal filling defect.</p>
+                </div>
+            </div>
 
-  </div>
+            <div class="accordion-block">
+                <div class="accordion-toggle" onclick="toggleAcc(this)">
+                    Disorder B: Pulmonary Hypertension (PH)
+                </div>
+                <div class="accordion-content">
+                    <p><span class="bold-heading">Hemodynamic Criteria:</span> Defined as a sustained increase in mean pulmonary arterial pressure (mPAP) to &gt;25 mmHg at rest, measured against a normal resting window of 14–18 mmHg.</p>
+                    
+                    <p class="mt-4"><span class="bold-heading">Structural Classification Framework (WHO Groups 1-5):</span></p>
+                    <ol class="nested-list">
+                        <li><strong>Group 1: Pulmonary Arterial Hypertension (PAH):</strong> Includes idiopathic, heritable variants (loss-of-function defects in the BMPR2 gene), drug/toxin-induced cases, or cases associated with HIV infection, portal hypertension, and connective tissue disorders.</li>
+                        <li><strong>Group 2: PH Secondary to Left Heart Disease:</strong> Driven by left ventricular volume/pressure failure or chronic mitral/aortic valvular lesions. This causes passive backward hydrostatic fluid backup into the pulmonary veins and capillaries.</li>
+                        <li><strong>Group 3: PH Secondary to Chronic Hypoxemia:</strong> Stemming from obstructive or restrictive conditions like COPD or Interstitial Lung Disease (ILD). Hypoxia triggers localized, reflexive hypoxic pulmonary vasoconstriction to divert flow, raising overall arterial resistance.</li>
+                        <li><strong>Group 4: Chronic Thromboembolic Pulmonary Hypertension (CTEPH):</strong> Caused by persistent, organized vascular blockages left behind by recurrent, unresolved pulmonary emboli.</li>
+                        <li><strong>Group 5: Miscellaneous:</strong> Unclear, multifactorial clinical conditions.</li>
+                    </ol>
 
-  <!-- IFRAME GUIDE -->
-  <div class="iframe-guide">
-    <h3>📋 Kolektif LMS — Embed Code</h3>
-    <p>To embed any module into Kolektif via iframe, use the following template. Replace the <code style="background:#f0e9dc;padding:2px 6px;border-radius:4px;font-family:monospace;font-size:0.82rem;">src</code> URL with the specific module link.</p>
-    <div class="code-block">&lt;iframe<br/>
-&nbsp;&nbsp;src="https://sudhaaru1985-maker.github.io/Pathology-ebooks/arthritis/"<br/>
-&nbsp;&nbsp;width="100%"<br/>
-&nbsp;&nbsp;height="900px"<br/>
-&nbsp;&nbsp;frameborder="0"<br/>
-&nbsp;&nbsp;allowfullscreen&gt;<br/>
-&lt;/iframe&gt;</div>
-  </div>
+                    <p class="mt-4"><span class="bold-heading">Pathogenesis Tracks:</span></p>
+                    <ul class="nested-list">
+                        <li><span class="bold-heading">Group 1 / Primary Genetics:</span> A mutation in the bone morphogenetic protein receptor type 2 (BMPR2) gene disrupts normal growth regulation in vascular tissue. This allows smooth muscle cells to proliferate unchecked, causing severe vessel narrowing. This is compounded by endothelial dysfunction that reduces vasodilator synthesis (Nitric Oxide, Prostacyclin) and increases vasoconstrictor release (Endothelin-1).</li>
+                        <li><span class="bold-heading">Secondary Remodeling:</span> Chronic endothelial shear stress from left-heart fluid backup or hypoxia-induced vasoconstriction triggers local cytokine release. This stimulates smooth muscle cell migration and extensive remodeling of the extracellular matrix.</li>
+                    </ul>
 
-</main>
+                    <p class="mt-4"><span class="bold-heading">Advanced Tracking Integration: Eisenmenger Syndrome</span></p>
+                    <p>In uncorrected congenital left-to-right cardiac shunts, the lungs are subjected to chronically elevated blood flow. Over time, this high volume induces severe pulmonary vascular remodeling and escalates resistance. When pulmonary pressures surpass systemic pressures, the direction of the shunt reverses to right-to-left. This bypasses lung oxygenation and sends deoxygenated blood into the systemic circulation, causing profound clinical cyanosis, digital clubbing, and polycythemia.</p>
 
-<footer>
-  MAHSA University · Department of Pathology · CPAS e-Book Library · Dr. Sudha Arumugam<br/>
-  Built for Kolektif LMS · GitHub Pages · © 2025
-</footer>
+                    <p class="mt-4"><span class="badge-marker bg-morphology">Structural Micro-Remodeling Markers</span></p>
+                    <ul class="nested-list">
+                        <li><span class="bold-heading">Vascular Remodeling Triad:</span> Pronounced hypertrophy of the tunica media, fibrotic thickening of the tunica intima, and prominent adventitial thickening across small muscular arteries and arterioles.</li>
+                        <li><span class="bold-heading">Plexiform Lesions:</span> A defining feature of primary/idiopathic PAH. These are intravascular networks of endothelial channels that create a sieve-like, webbed appearance within the lumen of damaged vessels.</li>
+                        <li><span class="bold-heading">Cardiac Presentation:</span> The sustained pressure load on the right side of the heart leads to marked Right Ventricular Hypertrophy (RVH), which can progress to dilatation and right-heart failure.</li>
+                    </ul>
 
+                    <p class="mt-4"><span class="badge-marker bg-clinical">Diagnostic Workup Sequence</span></p>
+                    <p>Initial screening includes non-invasive tools: an Echocardiography to estimate systolic pulmonary pressures, an ECG to check for right ventricular strain, and plasma BNP testing. The definitive gold standard for confirmation remains Right Heart Catheterization, which directly measures intracardiac and pulmonary arterial pressures.</p>
+                </div>
+            </div>
+
+            <div class="accordion-block">
+                <div class="accordion-toggle" onclick="toggleAcc(this)">
+                    Disorder C: Diffuse Pulmonary Hemorrhage Syndromes
+                </div>
+                <div class="accordion-content">
+                    <p><span class="bold-heading">The Defining Clinical Triad:</span> These syndromes present with a distinct diagnostic triad: hemoptysis (coughing up blood), secondary iron-deficiency anemia, and bilateral diffuse pulmonary infiltrates visible on chest imaging.</p>
+                    
+                    <p class="mt-4"><span class="bold-heading">Pathological Subtypes & Immunological Targets:</span></p>
+                    <ul class="nested-list">
+                        <li><span class="bold-heading">Goodpasture Syndrome:</span> An autoimmune disorder caused by circulating autoantibodies directed against the non-collagenous domain of the α3 chain of Type IV collagen. This collagen is a key structural component of both the alveolar basement membrane in the lungs and the glomerular basement membrane in the kidneys, resulting in simultaneous pulmonary hemorrhage and progressive glomerulonephritis.</li>
+                        <li><span class="bold-heading">Vasculitis-Associated Hemorrhage:</span> Destructive inflammatory processes targeting small vessels, including Granulomatosis with Polyangiitis or Systemic Lupus Erythematosus.</li>
+                        <li><span class="bold-heading">Idiopathic Pulmonary Hemosiderosis:</span> A rare condition causing recurrent alveolar hemorrhage without detectable autoantibodies or renal involvement.</li>
+                    </ul>
+
+                    <p class="mt-4"><span class="badge-marker bg-morphology">Histomorphology Visual Markers</span></p>
+                    <ul class="nested-list">
+                        <li><span class="bold-heading">Gross Inspection:</span> The lungs appear distinctively heavy, firm, and show dark red-brown discoloration throughout the affected lobes.</li>
+                        <li><span class="bold-heading">Microscopic Profiling:</span> Alveolar airspaces are filled with extravasated blood. Over time, the breakdown of red blood cells releases iron, which is engulfed by macrophages, leaving the alveolar spaces packed with characteristic hemosiderin-laden macrophages.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="mcq-section">
+            <h2>6. Application Cases with Stepwise MCQs</h2>
+            <p style="margin-bottom: 20px;" class="text-gray">Apply your knowledge to solve the clinical trigger case through this guided, interactive sequence. Options are homogenous in length to maintain high-quality diagnostic validity.</p>
+
+            <div class="case-presentation">
+                <h5>Patient File Case Study Recall</h5>
+                <p>Recall our 54-year-old post-surgical patient presenting with acute dyspnea, tachycardia, a swollen tender left calf, and pleuritic chest pain following orthopedic immobilization.</p>
+            </div>
+
+            <div class="mcq-card" id="step1-container">
+                <span class="step-label">Step 1: Pathogenetic Mechanisms</span>
+                <p><strong>Question 1:</strong> Which option best integrates the patient's surgical history, calf swelling, and sudden respiratory symptoms into a clear pathophysiologic mechanism?</p>
+                <ul class="option-group">
+                    <li class="option-row" onclick="verifyChoice(this, 1, 'A', 'Incorrect. Surgery induces hypercoagulability and bedrest causes stasis, which promotes deep vein thrombosis rather than primary arterial wall breakdown.')">A. Pelvic tissue injury caused widespread arterial wall erosions, leading directly to high systemic pressure loads.</li>
+                    <li class="option-row" onclick="verifyChoice(this, 1, 'B', 'Incorrect. While a fat embolism can happen after long-bone fractures, this patient\'s calf tenderness, edema, and immobilization point directly to a thromboembolism.')">B. Immobilization released fat droplets from bone marrow compartments, causing direct blockage of pulmonary veins.</li>
+                    <li class="option-row" onclick="verifyChoice(this, 1, 'C', 'CORRECT! Post-operative immobilization and tissue trauma promote proximal lower-extremity DVT. This thrombus detached and traveled via the venous system to lodge in the pulmonary arterial tree, causing respiratory and hemodynamic compromise.')">C. Venous stasis triggered lower limb deep vein thrombosis, which detached and migrated into pulmonary arteries.</li>
+                    <li class="option-row" onclick="verifyChoice(this, 1, 'D', 'Incorrect. Clots forming in the left side of the heart or systemic arteries embolize to systemic organs like the brain or spleen, not to the lungs.')">D. Arterial blood stasis within systemic lower limb networks caused retrograde flow through pulmonary vein lines.</li>
+                </ul>
+                <div class="feedback-display" id="step1-feedback"></div>
+                <button class="step-unlock-btn" id="step1-btn" onclick="revealStep(2)">Proceed to Step 2 →</button>
+            </div>
+
+            <div class="mcq-card" id="step2-container" style="display:none;">
+                <span class="step-label">Step 2: Morphological Assessment</span>
+                <p><strong>Question 2:</strong> If this patient suddenly develops severe systemic hypotension, cyanosis, and experiences sudden cardiac arrest, which macrovascular morphologic finding would most likely be identified at autopsy?</p>
+                <ul class="option-group">
+                    <li class="option-row" onclick="verifyChoice(this, 2, 'A', 'Incorrect. Plexiform lesions are vascular changes seen in long-standing, chronic pulmonary hypertension, not acute thromboembolic collapse.')">A. Severe plexiform vascular changes throughout peripheral arterioles.</li>
+                    <li class="option-row" onclick="verifyChoice(this, 2, 'B', 'CORRECT! A large saddle embolus lodges at the bifurcation of the main pulmonary artery, completely blocking right ventricular outflow. This causes acute right heart failure, a drop in systemic cardiac output, and sudden death.')">B. A massive saddle clot obstructing the main pulmonary artery bifurcation.</li>
+                    <li class="option-row" onclick="verifyChoice(this, 2, 'C', 'Incorrect. A wedge-shaped hemorrhagic infarct is typical of smaller, distal emboli in patients with underlying heart or lung disease, and is rarely the direct cause of sudden systemic shock.')">C. A small subpleural hemorrhagic infarct at the lung periphery base.</li>
+                    <li class="option-row" onclick="verifyChoice(this, 2, 'D', 'Incorrect. Alveolar spaces filled with hemosiderin-laden macrophages indicate chronic, recurrent microvascular bleeding, typical of diffuse pulmonary hemorrhage syndromes rather than acute vascular occlusion.')">D. Diffuse intra-alveolar accumulations of hemosiderin-laden macrophages.</li>
+                </ul>
+                <div class="feedback-display" id="step2-feedback"></div>
+                <button class="step-unlock-btn" id="step2-btn" onclick="revealStep(3)">Proceed to Step 3 →</button>
+            </div>
+
+            <div class="mcq-card" id="step3-container" style="display:none;">
+                <span class="step-label">Step 3: Laboratory & Algorithmic Sorting</span>
+                <p><strong>Question 3:</strong> In a stable patient presenting with similar symptoms but a lower clinical suspicion, what is the correct sequence of diagnostic tests required to safely confirm or exclude this condition?</p>
+                <ul class="option-group">
+                    <li class="option-row" onclick="verifyChoice(this, 3, 'A', 'Incorrect. Right heart catheterization is an invasive test used to confirm pulmonary hypertension, not to screen for an acute pulmonary embolism.')">A. Right heart catheterization lines followed by autoantibody profiling.</li>
+                    <li class="option-row" onclick="verifyChoice(this, 3, 'B', 'Incorrect. If suspicion is low, a D-Dimer is used first because its high negative predictive value can safely rule out a PE without the need for radiation or contrast.')">B. High-resolution CT pulmonary scans followed by basic arterial gas testing.</li>
+                    <li class="option-row" onclick="verifyChoice(this, 3, 'C', 'Incorrect. A chest X-ray cannot reliably rule out a pulmonary embolism, as it often appears normal in acute cases.')">C. Standard baseline chest radiograph followed by clinical venous Doppler.</li>
+                    <li class="option-row" onclick="verifyChoice(this, 3, 'D', 'CORRECT! In cases with low clinical suspicion, a D-Dimer assay is ordered first. A normal result reliably rules out a PE. If it is elevated, a CTPA is performed to visualize the filling defect.')">D. Plasma D-dimer screen first, followed by selective CT angiography checks.</li>
+                </ul>
+                <div class="feedback-display" id="step3-feedback"></div>
+                <p id="completion-banner" style="color:var(--correct-color); font-weight:700; margin-top:15px; display:none;">🎉 Case Study Module Completed Successfully! You have mastered the application path.</p>
+            </div>
+        </section>
+
+        <section id="table-section">
+            <h2>7. Master Comparison Table</h2>
+            <p class="text-gray">An integrated guide reviewing the distinct pathological variables across all three diagnostic domains:</p>
+            <div class="table-scroller">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pathological Variable</th>
+                            <th>Pulmonary Thromboembolism</th>
+                            <th>Pulmonary Hypertension (PAH/Group 1)</th>
+                            <th>Diffuse Pulmonary Hemorrhage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Primary Site of Vascular Injury</strong></td>
+                            <td>Main, lobar, or segmental pulmonary artery branches.</td>
+                            <td>Small pulmonary arterioles and muscular arteries.</td>
+                            <td>Alveolar capillaries and basement membranes.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Predominant Pathogenesis</strong></td>
+                            <td>Mechanical obstruction by a detached venous clot originating from a DVT.</td>
+                            <td>Smooth muscle proliferation, endothelial dysfunction, and reduced vasodilator synthesis.</td>
+                            <td>Autoantibody-mediated or vasculitic destruction of the microvasculature.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Characteristic Morphologic Sign</strong></td>
+                            <td>Lines of Zahn in a clot; a peripheral wedge-shaped hemorrhagic infarct.</td>
+                            <td>Medial hypertrophy, intimal fibrosis, and plexiform lesions.</td>
+                            <td>Intra-alveolar hemorrhage with numerous hemosiderin-laden macrophages.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Key Diagnostic Standards</strong></td>
+                            <td>CT Pulmonary Angiography (CTPA) showing a luminal filling defect.</td>
+                            <td>Direct pressure measurement via Right Heart Catheterization (>25 mmHg).</td>
+                            <td>Clinical triad (hemoptysis, anemia, lung infiltrates) alongside tissue biopsy.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Major Secondary Complications</strong></td>
+                            <td>Acute right-heart failure (cor pulmonale), systemic shock, or sudden cardiac death.</td>
+                            <td>Chronic right ventricular hypertrophy, systemic venous congestion, and heart failure.</td>
+                            <td>Severe iron-deficiency anemia and progressive respiratory failure.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="messages-section">
+            <h2>8. Key Take-Home Messages</h2>
+            <div style="background-color:#f8fafc; border-left:5px solid var(--primary-color); padding:20px; border-radius:6px;">
+                <ul>
+                    <li style="margin-bottom:12px;">💡 <strong>DVT is the Root Cause:</strong> More than 95% of pulmonary emboli originate from proximal deep vein thrombi in the leg, driven by factors like post-surgical stasis or inherited hypercoagulability.</li>
+                    <li style="margin-bottom:12px;">💡 <strong>The Dual Supply Buffer:</strong> Pulmonary infarctions are rare because the bronchial circulation provides a protective nutrient backup; when an infarct does occur, it appears as a subpleural, wedge-shaped hemorrhagic area.</li>
+                    <li style="margin-bottom:12px;">💡 <strong>BMPR2 and Smooth Muscle Growth:</strong> Primary PAH involves a genetic mutation in BMPR2 that fails to inhibit growth, allowing smooth muscle proliferation to narrow the vessels and create complex plexiform lesions.</li>
+                    <li style="margin-bottom:12px;">💡 <strong>Shunt Reversal Mechanics:</strong> Eisenmenger syndrome represents a critical point where long-standing left-to-right congenital shunts reverse to right-to-left due to severe, fixed pulmonary hypertension.</li>
+                    <li style="margin-bottom:12px;">💡 <strong>Macrophage Iron Markers:</strong> The triad of hemoptysis, anemia, and diffuse lung infiltrates points directly to alveolar hemorrhage, characterized microscopically by alveoli packed with hemosiderin-laden macrophages.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="exam-section">
+            <h2>9. Exam Focus — Common Traps & Rapid Recall</h2>
+            <div class="grid-split">
+                <div class="focus-card trap-zone">
+                    <h4 style="color:var(--incorrect-color); margin-bottom:12px;">⚠️ Common Exam Traps</h4>
+                    <p><strong>The "Infarct Typology" Trap:</strong> Examiners frequently try to trick students by describing a pulmonary infarct as a "pale or white ischemic infarct." Always remember that because the lung has a dual blood supply, pulmonary infarctions are characteristically <strong>red and hemorrhagic</strong>.</p>
+                    <br>
+                    <p><strong>The "Embolus Source" Trap:</strong> Do not mistake an arterial clot for the cause of a PE. Thrombi forming within the left ventricle or systemic arteries travel outwards to cause strokes or systemic infarctions. True pulmonary thromboemboli travel from the <strong>venous system</strong> through the right side of the heart.</p>
+                    <br>
+                    <p><strong>The "Plexiform Specificity" Trap:</strong> Plexiform lesions are not seen across all types of hypertension; they are a classic structural marker for <strong>primary/idiopathic Pulmonary Arterial Hypertension (Group 1)</strong>.</p>
+                </div>
+                
+                <div class="focus-card recall-zone">
+                    <h4 style="color:#0f766e; margin-bottom:12px;">⚡ Rapid Recall Triggers</h4>
+                    <ul>
+                        <li style="margin-bottom:10px;"><strong>mPAP Baseline:</strong> >25 mmHg at rest confirms Pulmonary Hypertension.</li>
+                        <li style="margin-bottom:10px;"><strong>The Diagnostic Standard:</strong> Right Heart Catheterization is the gold standard for measuring pulmonary pressures.</li>
+                        <li style="margin-bottom:10px;"><strong>CTPA Key Sign:</strong> A distinct intraluminal filling defect confirms an acute thromboembolism.</li>
+                        <li style="margin-bottom:10px;"><strong>Goodpasture Target:</strong> Autoantibodies attack the α3 chain of Type IV Collagen in alveolar and glomerular basement membranes.</li>
+                        <li style="margin-bottom:10px;"><strong>Saddle Embolus Location:</strong> A large, life-threatening clot that straddles the bifurcation of the main pulmonary artery.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const scrollSections = document.querySelectorAll('section');
+        const navigationLinks = document.querySelectorAll('.toc-item');
+
+        window.addEventListener('scroll', () => {
+            let activeId = '';
+            scrollSections.forEach(section => {
+                const topOffset = section.offsetTop;
+                if (pageYOffset >= (topOffset - 60)) {
+                    activeId = section.getAttribute('id');
+                }
+            });
+
+            navigationLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${activeId}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        function toggleAcc(element) {
+            const block = element.parentElement;
+            block.classList.toggle('active');
+        }
+
+        function verifyChoice(element, stepNum, optionCode, feedbackMsg) {
+            const currentBlock = document.getElementById(`step${stepNum}-container`);
+            const continuousRows = currentBlock.querySelectorAll('.option-row');
+            const targetFeedbackBox = document.getElementById(`step${stepNum}-feedback`);
+            const actionButton = document.getElementById(`step${stepNum}-btn`);
+
+            continuousRows.forEach(row => {
+                row.classList.remove('selected-correct', 'selected-incorrect');
+            });
+
+            if (feedbackMsg.includes("CORRECT!")) {
+                element.classList.add('selected-correct');
+                targetFeedbackBox.className = "feedback-display correct";
+                targetFeedbackBox.innerHTML = "<strong>Correct!</strong> " + feedbackMsg;
+                
+                if (actionButton) {
+                    actionButton.style.display = "inline-block";
+                } else {
+                    document.getElementById('completion-banner').style.display = "block";
+                }
+            } else {
+                element.classList.add('selected-incorrect');
+                targetFeedbackBox.className = "feedback-display incorrect";
+                targetFeedbackBox.innerHTML = "<strong>Incorrect Try Again:</strong> " + feedbackMsg;
+                if (actionButton) actionButton.style.display = "none";
+            }
+        }
+
+        function revealStep(nextStepNum) {
+            const upcomingBlock = document.getElementById(`step${nextStepNum}-container`);
+            upcomingBlock.style.display = "block";
+            upcomingBlock.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            const pastStepNum = nextStepNum - 1;
+            document.getElementById(`step${pastStepNum}-btn`).style.display = "none";
+        }
+    </script>
 </body>
 </html>
